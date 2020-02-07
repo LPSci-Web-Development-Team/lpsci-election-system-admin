@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'SFUIDisplay';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./SF-UI-Display-Regular.otf);
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./SF-UI-Display-Medium.otf);
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./SF-UI-Display-Semibold.otf);
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./SF-UI-Display-Bold.otf);
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(./SF-UI-Display-Heavy.otf);
+}
+
+@font-face {
+  font-family: 'SFUIDisplay';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(./SF-UI-Display-Black.otf);
+}

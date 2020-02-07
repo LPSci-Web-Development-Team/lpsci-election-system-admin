@@ -1,10 +1,10 @@
 {
-  "name": "lpsci-election-system-client",
+  "name": "lpsci-election-system-admin",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start -p 8081",
+    "start": "next start -p 8082",
     "type-check": "tsc",
     "lint:components": "eslint \"./components/**/*.{js,ts,tsx,json}\"",
     "lint:pages": "eslint \"./pages/**/*.{js,ts,tsx,json}\"",
