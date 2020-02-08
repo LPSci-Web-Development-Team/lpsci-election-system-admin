@@ -5,17 +5,21 @@ import * as React from 'react';
 import { ElectionLayout } from './base/ElectionLayout';
 import { ElectionContent } from './content/ElectionContent';
 import { ElectionContentArea } from './content/ElectionContentArea';
+import { Sidebar } from './sidebar/Sidebar';
 
 interface IElectionPageProps {
   children: React.ReactNode;
 }
 
 export const ElectionPage = ({ children }: IElectionPageProps) => (
-  <ElectionLayout>
-    <ElectionContent>
-      <ElectionContentArea>
-        {children}
-      </ElectionContentArea>
-    </ElectionContent>
-  </ElectionLayout>
+  <>
+    <Sidebar />
+    <ElectionLayout>
+      <ElectionContent>
+        <ElectionContentArea>
+          {children}
+        </ElectionContentArea>
+      </ElectionContent>
+    </ElectionLayout>
+  </>
 );
