@@ -6,17 +6,13 @@ import * as React from 'react';
 import { GlobalProvider } from '@lpsci/components/GlobalProvider';
 import { ElectionAppHead } from '@lpsci/components/head/ElectionAppHead/ElectionAppHead';
 import { ElectionPage } from '@lpsci/components/ElectionPrivatePage';
-
-// ANCHOR Base
-import { Paragraph1 } from 'baseui/typography';
+import { ElectionVoter } from '@lpsci/components/voter/ElectionVoter';
 
 export default React.memo(() => (
   <GlobalProvider>
     <ElectionAppHead title="SSG Election" description="Election Admin App" />
     <ElectionPage>
-      <Paragraph1>
-        Test Page
-      </Paragraph1>
+      <ElectionVoter />
     </ElectionPage>
   </GlobalProvider>
 ));

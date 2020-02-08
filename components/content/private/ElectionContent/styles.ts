@@ -1,6 +1,6 @@
 import { BlockOverrides } from 'baseui/block';
 
-const drawerWidth = '326px';
+const drawerWidth = '360px';
 
 export const BLOCK: BlockOverrides = {
   Block: {
