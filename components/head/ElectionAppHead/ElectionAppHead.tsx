@@ -14,7 +14,16 @@ export const ElectionAppHead = ({ title, description, children }: IProps) => (
   <Head>
     <meta charSet="utf-8" />
     {/* Viewport for responsive web design */}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="
+      width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=0,
+      viewport-fit=cover
+      "
+    />
     {/* Document Title */}
     <title>{title}</title>
     {/* Meta Description */}
