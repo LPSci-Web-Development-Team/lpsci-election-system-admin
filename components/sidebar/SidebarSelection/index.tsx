@@ -16,7 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SECTIONS } from 'models/ui-models/sidebar-section';
 
 // ANCHOR Styles
-import { BLOCK, SELECTED_SELECTION } from './styles';
+import { SidebarSection } from '@lpsci/scoped-models/sidebar-sections/SidebarSections';
+import { BLOCK, SELECTED_SELECTION, SELECTION } from './styles';
 
 const ClickableDiv = styled('div', {
   marginTop: '-17px',
@@ -25,16 +26,26 @@ const ClickableDiv = styled('div', {
   cursor: 'pointer',
 });
 
-export const SidebarSelection = React.memo(() => (
-  <Block overrides={BLOCK}>
-    {
+export const SidebarSelection = React.memo(() => {
+  const [section, setSection] = SidebarSection.useSelectors((state) => [
+    state.section, state.setSection,
+  ]);
+
+  const changeRoute = React.useCallback((label, url) => {
+    Router.push(url);
+    setSection(label);
+  }, [setSection]);
+
+  return (
+    <Block overrides={BLOCK}>
+      {
       SECTIONS.map(({ label, Icon, url }) => (
-        <ClickableDiv onClick={() => Router.push(url)}>
-          <Paragraph1 overrides={SELECTED_SELECTION}>
+        <ClickableDiv onClick={() => changeRoute(label, url)}>
+          <Paragraph1 overrides={section === label ? SELECTED_SELECTION : SELECTION}>
             <FontAwesomeIcon
               icon={Icon}
               style={{
-                height: '14px',
+                height: '13px',
                 marginRight: '30px',
               }}
             />
@@ -43,5 +54,6 @@ export const SidebarSelection = React.memo(() => (
         </ClickableDiv>
       ))
     }
-  </Block>
-));
+    </Block>
+  );
+});
