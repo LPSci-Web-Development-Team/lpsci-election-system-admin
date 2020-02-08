@@ -5,11 +5,20 @@ import App from 'next/app';
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR CSS
+import 'normalize.css/normalize.css';
+
+// ANCHOR Font Awesome
+import { config, library } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
+
 // ANCHOR Component
 import { GlobalProvider } from '../components/GlobalProvider';
 
-// ANCHOR CSS
-import 'normalize.css/normalize.css';
+config.autoAddCss = false;
+
+library.add(faLock);
 
 // NOTE Next App requires this to be exported by default
 // eslint-disable-next-line import/no-default-export
