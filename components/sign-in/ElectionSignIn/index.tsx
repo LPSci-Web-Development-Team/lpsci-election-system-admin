@@ -64,7 +64,7 @@ export const ElectionSignIn = React.memo(() => {
         setLoading(false);
         Router.push('/voting');
       } catch (err) {
-        setError('Please enter your valid credentials');
+        setError('Uh-oh, it seems like you\'ve inputted wrong LRN or password. Please try again.');
         setLoading(false);
         setDisabled(false);
         Router.push('/');

@@ -4,7 +4,7 @@ export const BLOCK: BlockOverrides = {
   Block: {
     style: {
       width: '30%',
-      marginTop: '4%',
+      marginTop: '2%',
       backgroundColor: '#f4f4f4',
       borderRadius: '30px',
       paddingTop: '3%',

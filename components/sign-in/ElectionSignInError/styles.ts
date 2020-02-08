@@ -4,8 +4,8 @@ export const NOTIFICATION: ToastOverrides = {
   Body: {
     style: {
       width: 'auto',
-      marginTop: '20px',
-      marginBottom: '30px',
+      marginTop: '-12px',
+      marginBottom: '10px',
     },
   },
 };
