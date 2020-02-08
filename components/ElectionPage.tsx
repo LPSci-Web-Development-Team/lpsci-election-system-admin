@@ -12,14 +12,12 @@ interface IElectionPageProps {
 }
 
 export const ElectionPage = ({ children }: IElectionPageProps) => (
-  <>
+  <ElectionLayout>
     <Sidebar />
-    <ElectionLayout>
-      <ElectionContent>
-        <ElectionContentArea>
-          {children}
-        </ElectionContentArea>
-      </ElectionContent>
-    </ElectionLayout>
-  </>
+    <ElectionContent>
+      <ElectionContentArea>
+        {children}
+      </ElectionContentArea>
+    </ElectionContent>
+  </ElectionLayout>
 );
