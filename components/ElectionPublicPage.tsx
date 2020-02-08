@@ -2,9 +2,9 @@
 import * as React from 'react';
 
 // ANCHOR Components
-import { ElectionLayout } from './base/private/ElectionLayout';
-import { ElectionContent } from './content/private/ElectionContent';
-import { ElectionContentArea } from './content/private/ElectionContentArea';
+import { ElectionLayout } from './base/public/ElectionLayout';
+import { ElectionContent } from './content/public/ElectionContent';
+import { ElectionContentArea } from './content/public/ElectionContentArea';
 
 interface IElectionPageProps {
   children: React.ReactNode;

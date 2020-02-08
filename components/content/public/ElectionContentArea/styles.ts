@@ -19,11 +19,6 @@ export const OUTER: BlockOverrides = {
     style: {
       marginTop: '0px',
       marginBottom: '0px',
-      marginLeft: '10%',
-      marginRight: '10%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
       overflow: 'hidden',
     },
   },
