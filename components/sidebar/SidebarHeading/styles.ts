@@ -8,7 +8,7 @@ export const BLOCK: BlockOverrides = {
       backgroundColor: '#ffffff',
       paddingTop: '15px',
       paddingBottom: '15px',
-      paddingLeft: '18px',
+      paddingLeft: '25px',
       marginTop: '-10px',
       marginLeft: '-20px',
     },

@@ -2,10 +2,9 @@
 import * as React from 'react';
 
 // ANCHOR Components
-import { ElectionLayout } from './base/ElectionLayout';
-import { ElectionContent } from './content/ElectionContent';
-import { ElectionContentArea } from './content/ElectionContentArea';
-import { Sidebar } from './sidebar/Sidebar';
+import { ElectionLayout } from './base/public/ElectionLayout';
+import { ElectionContent } from './content/public/ElectionContent';
+import { ElectionContentArea } from './content/public/ElectionContentArea';
 
 interface IElectionPageProps {
   children: React.ReactNode;
@@ -13,7 +12,6 @@ interface IElectionPageProps {
 
 export const ElectionPage = ({ children }: IElectionPageProps) => (
   <ElectionLayout>
-    <Sidebar />
     <ElectionContent>
       <ElectionContentArea>
         {children}
