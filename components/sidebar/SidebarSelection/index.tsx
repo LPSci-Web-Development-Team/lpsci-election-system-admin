@@ -41,7 +41,13 @@ export const SidebarSelection = React.memo(() => {
       {
       SECTIONS.map(({ label, Icon, url }) => (
         <ClickableDiv onClick={() => changeRoute(label, url)}>
-          <Paragraph1 overrides={section === label ? SELECTED_SELECTION : SELECTION}>
+          <Paragraph1
+            overrides={
+              section === label
+                ? SELECTED_SELECTION
+                : SELECTION
+            }
+          >
             <FontAwesomeIcon
               icon={Icon}
               style={{
