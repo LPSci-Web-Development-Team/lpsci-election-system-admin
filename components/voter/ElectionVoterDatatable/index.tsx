@@ -37,6 +37,7 @@ export const ElectionVoterDatatable = React.memo(() => {
         rows={VOTER_ROW}
         emptyMessage="Oops, no users or voters matches your call."
       />
+      <ElectionVoteModal>
     </Block>
   );
 });
