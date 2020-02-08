@@ -11,7 +11,9 @@ import { Paragraph1 } from 'baseui/typography';
 
 // ANCHOR Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock } from '@fortawesome/free-solid-svg-icons';
+
+// ANCHOR UI Models
+import { SECTIONS } from 'models/ui-models/sidebar-section';
 
 // ANCHOR Styles
 import { BLOCK, SELECTED_SELECTION } from './styles';
@@ -25,17 +27,21 @@ const ClickableDiv = styled('div', {
 
 export const SidebarSelection = React.memo(() => (
   <Block overrides={BLOCK}>
-    <ClickableDiv onClick={() => Router.push('/forgot')}>
-      <Paragraph1 overrides={SELECTED_SELECTION}>
-        <FontAwesomeIcon
-          icon={faLock}
-          style={{
-            height: '14px',
-            marginRight: '30px',
-          }}
-        />
-        Forgot Password
-      </Paragraph1>
-    </ClickableDiv>
+    {
+      SECTIONS.map(({ label, Icon, url }) => (
+        <ClickableDiv onClick={() => Router.push(url)}>
+          <Paragraph1 overrides={SELECTED_SELECTION}>
+            <FontAwesomeIcon
+              icon={Icon}
+              style={{
+                height: '14px',
+                marginRight: '30px',
+              }}
+            />
+            {label}
+          </Paragraph1>
+        </ClickableDiv>
+      ))
+    }
   </Block>
 ));
