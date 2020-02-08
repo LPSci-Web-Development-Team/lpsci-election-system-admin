@@ -3,9 +3,7 @@ import { BlockOverrides } from 'baseui/block';
 export const BLOCK: BlockOverrides = {
   Block: {
     style: {
-      marginTop: '-17px',
-      marginLeft: '0px',
-      marginRight: '40px',
+      marginTop: '50px',
     },
   },
 };
