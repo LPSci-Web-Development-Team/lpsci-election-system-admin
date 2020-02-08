@@ -1,2 +1,12 @@
-// ANCHOR Grid column definition when on mobile
-export const MOBILE_COLUMN = '1 / 3';
+import { BlockOverrides } from 'baseui/block';
+
+const drawerWidth = '326px';
+
+export const BLOCK: BlockOverrides = {
+  Block: {
+    style: {
+      marginLeft: drawerWidth,
+      marginRight: '47px',
+    },
+  },
+};
