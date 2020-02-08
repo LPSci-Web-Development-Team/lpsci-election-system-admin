@@ -12,10 +12,10 @@ import { Paragraph1 } from 'baseui/typography';
 
 export default React.memo(() => (
   <GlobalProvider>
-    <ElectionAppHead title="SSG Election" description="Election Web App" />
+    <ElectionAppHead title="SSG Election" description="Election Admin App" />
     <ElectionPage>
       <Paragraph1>
-        Test
+        Test Page
       </Paragraph1>
     </ElectionPage>
   </GlobalProvider>
