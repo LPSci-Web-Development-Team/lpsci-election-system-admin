@@ -5,7 +5,7 @@ import * as React from 'react';
 // ANCHOR Components
 import { GlobalProvider } from '@lpsci/components/GlobalProvider';
 import { ElectionAppHead } from '@lpsci/components/head/ElectionAppHead/ElectionAppHead';
-import { ElectionPage } from '@lpsci/components/ElectionPage';
+import { ElectionPage } from '@lpsci/components/ElectionPrivatePage';
 
 // ANCHOR Base
 import { Paragraph1 } from 'baseui/typography';
