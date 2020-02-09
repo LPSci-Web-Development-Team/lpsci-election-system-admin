@@ -2,8 +2,10 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import { ModalHeader } from 'baseui/modal';
+import { ModalHeader, FocusOnce } from 'baseui/modal';
 
 export const VoterModalHeading = () => (
-  <ModalHeader>Votes Casted.</ModalHeader>
+  <FocusOnce>
+    <ModalHeader>Votes Casted.</ModalHeader>
+  </FocusOnce>
 );

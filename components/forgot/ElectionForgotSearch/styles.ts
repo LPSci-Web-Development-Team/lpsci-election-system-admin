@@ -4,7 +4,7 @@ export const SEARCH: InputOverrides = {
   Root: {
     style: () => ({
       marginTop: '30px',
-      width: '34%',
+      width: '100%',
     }),
   },
 };
