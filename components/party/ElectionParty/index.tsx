@@ -3,11 +3,13 @@ import * as React from 'react';
 
 // ANCHOR Components
 import { ElectionPartyHeading } from '../ElectionPartyHeading';
-import { ElectionPartyAddButton } from '../ElectionPartyAddButton';
+import { ElectionPartyList } from '../ElectionPartyList';
+import { ElectionPartyHeadButton } from '../ElectionPartyHeadButton';
 
 export const ElectionParty = React.memo(() => (
   <>
     <ElectionPartyHeading />
-    <ElectionPartyAddButton />
+    <ElectionPartyHeadButton />
+    <ElectionPartyList />
   </>
-))
+));
