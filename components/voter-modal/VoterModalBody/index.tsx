@@ -13,7 +13,7 @@ const List = styled('ul', {
   paddingLeft: '0px',
 });
 
-export const VoterModalBody = () => (
+export const VoterModalBody = React.memo(() => (
   <ModalBody>
     <List>
       <ListItem
@@ -58,4 +58,4 @@ export const VoterModalBody = () => (
       </ListItem>
     </List>
   </ModalBody>
-);
+));

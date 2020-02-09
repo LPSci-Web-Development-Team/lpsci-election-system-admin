@@ -8,9 +8,9 @@ import { ModalFooter } from 'baseui/modal';
 import { ForgotModalCancelButton } from '../ForgotModalCancelButton';
 import { ForgotModalProceedButton } from '../ForgotModalProceedButton';
 
-export const ForgotModalFooter = () => (
+export const ForgotModalFooter = React.memo(() => (
   <ModalFooter>
     <ForgotModalCancelButton />
     <ForgotModalProceedButton />
   </ModalFooter>
-);
+));
