@@ -8,9 +8,14 @@ import { ButtonGroup } from 'baseui/button-group';
 import { ElectionPartyEditButton } from '../ElectionPartyEditButton';
 import { ElectionPartyDeleteButton } from '../ElectionPartyDeleteButton';
 
-export const ElectionPartyListButton = React.memo(() => (
+interface IListButtonProps {
+  name: string;
+  color: string;
+}
+
+export const ElectionPartyListButton = React.memo(({ name, color }: IListButtonProps) => (
   <ButtonGroup>
-    <ElectionPartyEditButton />
-    <ElectionPartyDeleteButton />
+    <ElectionPartyEditButton name={name} color={color} />
+    <ElectionPartyDeleteButton name={name} color={color} />
   </ButtonGroup>
 ));

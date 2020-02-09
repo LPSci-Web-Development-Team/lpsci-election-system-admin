@@ -10,10 +10,17 @@ import { PartiesModal } from '@lpsci/scoped-models/parties-modal/PartiesModal';
 // ANCHOR Styles
 import { BUTTON } from './styles';
 
-export const ElectionPartyDeleteButton = React.memo(() => {
+interface IDeleteProps {
+  name: string;
+  color: string;
+}
+
+export const ElectionPartyDeleteButton = React.memo(({ name, color }: IDeleteProps) => {
   const setDeleteModal = PartiesModal.useSelector((state) => state.setDeleteModal);
 
   const openRemoveModal = React.useCallback(() => setDeleteModal(true), [setDeleteModal]);
+
+  console.log(name, color);
 
   return (
     <Button

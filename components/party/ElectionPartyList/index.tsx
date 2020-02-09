@@ -9,16 +9,17 @@ import { ListItem, ListItemLabel } from 'baseui/list';
 import { Paragraph1, Paragraph2 } from 'baseui/typography';
 import { Block } from 'baseui/block';
 
-// ANCHOR Styles
+// ANCHOR UI Models
 import { PARTIES } from 'models/ui-models/party-list';
-import {
-  TAG, CONTAINER, PARTY_NAME, PARTY_LABEL, LIST_ITEM,
-} from './styles';
-
 
 // ANCHOR Components
 import { ElectionPartyListButton } from '../ElectionPartyListButton';
 import { ElectionPartyListHead } from '../ElectionPartyListHead';
+
+// ANCHOR Styles
+import {
+  TAG, CONTAINER, PARTY_NAME, PARTY_LABEL, LIST_ITEM,
+} from './styles';
 
 const ListContainer = styled('ul', {
   width: '100%',
@@ -27,12 +28,10 @@ const ListContainer = styled('ul', {
   paddingRight: 0,
 });
 
-export const ElectionPartyList = React.memo(() => {
-  console.log('remove me later');
-  return (
-    <ListContainer>
-      <ElectionPartyListHead />
-      {
+export const ElectionPartyList = React.memo(() => (
+  <ListContainer>
+    <ElectionPartyListHead />
+    {
         PARTIES.map(({ color, name }) => (
           <Block overrides={LIST_ITEM}>
             <ListItem
@@ -48,7 +47,7 @@ export const ElectionPartyList = React.memo(() => {
                 </Tag>
               )}
               endEnhancer={() => (
-                <ElectionPartyListButton />
+                <ElectionPartyListButton name={name} color={color}/>
               )}
             >
               <ListItemLabel>
@@ -63,6 +62,5 @@ export const ElectionPartyList = React.memo(() => {
           </Block>
         ))
       }
-    </ListContainer>
-  );
-});
+  </ListContainer>
+));
