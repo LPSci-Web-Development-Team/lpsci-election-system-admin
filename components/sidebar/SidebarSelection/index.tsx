@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR  Next
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 // ANCHOR Base
 import { styled } from 'baseui';
@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SECTIONS } from 'models/ui-models/sidebar-section';
 
 // ANCHOR Styles
-import { SidebarSection } from '@lpsci/scoped-models/sidebar-sections/SidebarSections';
 import { BLOCK, SELECTED_SELECTION, SELECTION } from './styles';
 
 const ClickableDiv = styled('div', {
@@ -27,23 +26,20 @@ const ClickableDiv = styled('div', {
 });
 
 export const SidebarSelection = React.memo(() => {
-  const [section, setSection] = SidebarSection.useSelectors((state) => [
-    state.section, state.setSection,
-  ]);
+  const router = useRouter();
 
-  const changeRoute = React.useCallback((label, url) => {
-    setSection(label);
+  const changeRoute = (url: string | import('url').UrlObject) => {
     Router.push(url);
-  }, [setSection]);
+  };
 
   return (
     <Block overrides={BLOCK}>
       {
       SECTIONS.map(({ label, Icon, url }) => (
-        <ClickableDiv onClick={() => changeRoute(label, url)}>
+        <ClickableDiv onClick={() => changeRoute(url)}>
           <Paragraph1
             overrides={
-              section === label
+              router.pathname === url
                 ? SELECTED_SELECTION
                 : SELECTION
             }
