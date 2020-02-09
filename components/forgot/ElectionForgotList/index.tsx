@@ -60,7 +60,7 @@ export const ElectionForgotList = React.memo(() => {
                   : KIND.custom
               }
               color={
-                data.gradeLevel === 7 && '#00CF91'
+                data.gradeLevel === 7 && '#4BB462'
                 || data.gradeLevel === 8 && '#FFD600'
                 || data.gradeLevel === 9 && '#EE3D48'
                 || data.gradeLevel === 10 && '#1EC9E8'
