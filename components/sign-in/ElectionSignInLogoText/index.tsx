@@ -16,7 +16,7 @@ const currentYear = getYear(new Date());
 export const ElectionSignInLogoText = React.memo(() => (
   <Block overrides={ELECTIONS_CONTAINER}>
     <H1 overrides={ELECTIONS}>
-      {`LPSci SSG Elections ${currentYear} - ${currentYear + 1} `}
+      {`LPSci SSG Election Admins ${currentYear} - ${currentYear + 1} `}
     </H1>
   </Block>
 ));

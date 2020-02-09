@@ -8,7 +8,7 @@ interface IForgotModalBodyProps {
   voter: string;
 }
 
-export const ForgotModalBody = ({ voter }: IForgotModalBodyProps) => (
+export const ForgotModalBody = React.memo(({ voter }: IForgotModalBodyProps) => (
   <ModalBody>
     If you proceed to reset the
     <b>{` ${voter}'s `}</b>
@@ -17,4 +17,4 @@ export const ForgotModalBody = ({ voter }: IForgotModalBodyProps) => (
     <b>ilovelpsci</b>
     &apos;.
   </ModalBody>
-);
+));
