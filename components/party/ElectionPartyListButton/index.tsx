@@ -16,6 +16,6 @@ interface IListButtonProps {
 export const ElectionPartyListButton = React.memo(({ name, color }: IListButtonProps) => (
   <ButtonGroup>
     <ElectionPartyEditButton name={name} color={color} />
-    <ElectionPartyDeleteButton name={name} color={color} />
+    <ElectionPartyDeleteButton name={name} />
   </ButtonGroup>
 ));

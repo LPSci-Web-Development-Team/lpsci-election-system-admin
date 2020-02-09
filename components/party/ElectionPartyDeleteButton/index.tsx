@@ -8,27 +8,33 @@ import { Button } from 'baseui/button';
 import { PartiesModal } from '@lpsci/scoped-models/parties-modal/PartiesModal';
 
 // ANCHOR Styles
+import { DeletePartyModal } from '@lpsci/components/party-modal/DeletePartyModal';
 import { BUTTON } from './styles';
 
 interface IDeleteProps {
   name: string;
-  color: string;
 }
 
-export const ElectionPartyDeleteButton = React.memo(({ name, color }: IDeleteProps) => {
-  const setDeleteModal = PartiesModal.useSelector((state) => state.setDeleteModal);
+export const ElectionPartyDeleteButton = React.memo(({ name }: IDeleteProps) => {
+  const [setDeleteModal, partyName, setName] = PartiesModal.useSelectors((state) => [
+    state.setDeleteModal, state.name, state.setName,
+  ]);
 
-  const openRemoveModal = React.useCallback(() => setDeleteModal(true), [setDeleteModal]);
-
-  console.log(name, color);
+  const openRemoveModal = React.useCallback(() => {
+    setName(name);
+    setDeleteModal(true);
+  }, [name, setDeleteModal, setName]);
 
   return (
-    <Button
-      overrides={BUTTON}
-      onClick={openRemoveModal}
-      kind="secondary"
-    >
-      Delete Party
-    </Button>
+    <>
+      <Button
+        overrides={BUTTON}
+        onClick={openRemoveModal}
+        kind="secondary"
+      >
+        Delete Party
+      </Button>
+      <DeletePartyModal name={partyName} />
+    </>
   );
 });

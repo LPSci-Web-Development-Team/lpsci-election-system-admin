@@ -47,7 +47,7 @@ export const EditPartyModal = React.memo(({ name, color }: IEditModalProps) => {
       overrides={MODAL}
       autofocus={false}
     >
-      <PartiesModalHeading text="Add another party." />
+      <PartiesModalHeading text={`Edit ${name} party.`} />
       <PartiesModalBody>
         <form>
           <FormControl
