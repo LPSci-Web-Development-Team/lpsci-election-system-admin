@@ -8,6 +8,7 @@ export const PartiesModal = createModel(() => {
   const [addModal, setAddModal] = React.useState<boolean>(false);
   const [editModal, setEditModal] = React.useState<boolean>(false);
   const [deleteModal, setDeleteModal] = React.useState<boolean>(false);
+  const [removeAllModal, setRemoveAllModal] = React.useState<boolean>(false);
 
   return {
     addModal,
@@ -16,5 +17,7 @@ export const PartiesModal = createModel(() => {
     setEditModal,
     deleteModal,
     setDeleteModal,
+    removeAllModal,
+    setRemoveAllModal,
   };
 });
