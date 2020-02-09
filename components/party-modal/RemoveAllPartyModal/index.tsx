@@ -3,6 +3,7 @@ import * as React from 'react';
 
 // ANCHOR Base
 import { Modal, SIZE } from 'baseui/modal';
+import { Paragraph1 } from 'baseui/typography';
 
 // ANCHOR Scoped Models
 import { PartiesModal } from 'scoped-models/parties-modal/PartiesModal';
@@ -31,7 +32,9 @@ export const RemoveAllPartiesModal = React.memo(() => {
       autofocus={false}
     >
       <PartiesModalHeading text="Are you sure?" />
-      <PartiesModalBody text="If you proceed, all registered parties will be deleted." />
+      <PartiesModalBody>
+        <Paragraph1>If you proceed, all registered parties will be deleted.</Paragraph1>
+      </PartiesModalBody>
       <PartiesModalFooter />
     </Modal>
   );

@@ -5,11 +5,11 @@ import * as React from 'react';
 import { ModalBody } from 'baseui/modal';
 
 interface IModalBodyProps {
-  text: string;
+  children: React.ReactNode;
 }
 
-export const PartiesModalBody = React.memo(({ text }: IModalBodyProps) => (
+export const PartiesModalBody = React.memo(({ children }: IModalBodyProps) => (
   <ModalBody>
-    {text}
+    {children}
   </ModalBody>
 ));
