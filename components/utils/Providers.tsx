@@ -6,6 +6,7 @@ import { SignInFormInput } from '@lpsci/scoped-models/sign-in/SignInFormInput';
 import { VoteModal } from '@lpsci/scoped-models/vote-modal/VoteModal';
 import { ForgotSearch } from '@lpsci/scoped-models/forgot-search/ForgotSearch';
 import { ResetModal } from '@lpsci/scoped-models/reset-modal/ResetModal';
+import { PartiesModal } from '@lpsci/scoped-models/parties-modal/PartiesModal';
 
 export const makeProviders = () => [
   /*
@@ -28,4 +29,9 @@ export const makeProviders = () => [
   NOTE: Used for toggling modal for resetting passwords
   */
   <ResetModal.Provider key="ResetModal" />,
+  /*
+ ANCHOR: Provider for the PartiesModal
+ NOTE: Used for toggling modal for managing parties
+ */
+  <PartiesModal.Provider key="PartiesModal" />,
 ];
