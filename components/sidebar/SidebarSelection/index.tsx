@@ -32,8 +32,8 @@ export const SidebarSelection = React.memo(() => {
   ]);
 
   const changeRoute = React.useCallback((label, url) => {
-    Router.push(url);
     setSection(label);
+    Router.push(url);
   }, [setSection]);
 
   return (
