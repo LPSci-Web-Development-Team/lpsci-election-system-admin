@@ -10,7 +10,7 @@ import { ElectionParty } from '@lpsci/components/party/ElectionParty';
 
 export default React.memo(() => (
   <GlobalProvider>
-    <ElectionAppHead title="SSG Election" description="Election Admin App" />
+    <ElectionAppHead title="SSG Election Admin" description="Election Admin App" />
     <ElectionPage>
       <ElectionParty />
     </ElectionPage>
