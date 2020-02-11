@@ -7,6 +7,7 @@ import { VoteModal } from '@lpsci/scoped-models/vote-modal/VoteModal';
 import { ForgotSearch } from '@lpsci/scoped-models/forgot-search/ForgotSearch';
 import { ResetModal } from '@lpsci/scoped-models/reset-modal/ResetModal';
 import { PartiesModal } from '@lpsci/scoped-models/parties-modal/PartiesModal';
+import { CandidatesModal } from '@lpsci/scoped-models/candidates-modal/CandidatesModal';
 
 export const makeProviders = () => [
   /*
@@ -34,4 +35,9 @@ export const makeProviders = () => [
  NOTE: Used for toggling modal for managing parties
  */
   <PartiesModal.Provider key="PartiesModal" />,
+  /*
+ ANCHOR: Provider for the CandidatesModal
+ NOTE: Used for toggling modal for managing candidates
+ */
+  <CandidatesModal.Provider key="CandidatesModal" />,
 ];
