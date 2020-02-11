@@ -12,6 +12,9 @@ import { Block } from 'baseui/block';
 // ANCHOR Utils
 import { GET } from '@lpsci/utils/axios/methods';
 
+// ANCHOR Scoped Models
+import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
+
 // ANCHOR Models
 import { IParty } from 'models/interfaces/Party';
 
@@ -32,27 +35,31 @@ const ListContainer = styled('ul', {
 });
 
 export const ElectionPartyList = React.memo(() => {
+  const [fetchParty, setFetchParty] = FetchedData.useSelector((state) => [
+    state.fetchParty, state.setFetchParty,
+  ]);
   // ANCHOR Fetch all parties
-  const PARTIES: IParty[] = [];
+  const fetchedParties: IParty[] = [];
   React.useEffect(() => {
-    GET('/api/parties')
+    GET('http:/localhost:5000/api/parties')
       .then((response) => {
         response.data.forEach((item: any) => {
-          PARTIES.push({
+          fetchedParties.push({
             id: item.id,
             name: item.name,
             color: item.hexColor,
           });
+          setFetchParty([...fetchedParties]);
         });
       });
-  }, [PARTIES]);
+  }, [fetchedParties, setFetchParty]);
 
   return (
     <ListContainer>
       <ElectionPartyListHead />
       {
-        PARTIES.map(({ color, name }, index) => (
-          <Block key={index} overrides={LIST_ITEM}>
+        fetchParty.map(({ id, name, color }) => (
+          <Block key={id} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
                 <Tag
