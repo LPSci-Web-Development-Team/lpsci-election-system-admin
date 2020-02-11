@@ -12,17 +12,19 @@ interface IListButtonProps {
   firstName: string;
   lastName: string;
   position: string;
+  image: string;
 }
 
 export const ElectionCandidateListButton = React.memo(
   ({
-    firstName, lastName, position,
+    firstName, lastName, position, image,
   }: IListButtonProps) => (
     <ButtonGroup>
       <ElectionCandidateEditButton
         firstName={firstName}
         lastName={lastName}
         position={position}
+        image={image}
       />
       <ElectionCandidateDeleteButton firstName={firstName} lastName={lastName} />
     </ButtonGroup>

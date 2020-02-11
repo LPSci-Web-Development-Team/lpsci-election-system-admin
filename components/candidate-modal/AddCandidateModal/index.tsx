@@ -15,7 +15,7 @@ import { useConstant } from '@lpsci/utils/hooks/useConstant';
 
 // ANCHOR FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTag, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faTag, faPalette, faImage } from '@fortawesome/free-solid-svg-icons';
 
 // ANCHOR Models
 import { PARTIES } from 'models/ui-models/party-list';
@@ -39,6 +39,7 @@ export const AddCandidatesModal = React.memo(() => {
 
   const NameIcon = useConstant(() => <FontAwesomeIcon icon={faTag} />);
   const ColorIcon = useConstant(() => <FontAwesomeIcon icon={faPalette} />);
+  const ImageIcon = useConstant(() => <FontAwesomeIcon icon={faImage} />);
 
   const optionParty: any = [];
 
@@ -100,6 +101,15 @@ export const AddCandidatesModal = React.memo(() => {
                 setSelectedValue(value);
               }}
               value={selectedValue}
+            />
+          </FormControl>
+          <FormControl
+            label="Image"
+          >
+            <Input
+              startEnhancer={ImageIcon}
+              name="image"
+              placeholder="/img/party-name-position.jpg"
             />
           </FormControl>
         </form>

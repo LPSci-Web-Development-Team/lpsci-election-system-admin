@@ -33,7 +33,7 @@ export const ElectionCandidateList = React.memo(() => (
     <ElectionCandidateListHead />
     {
         CANDIDATES.map(({
-          firstName, lastName, position, party,
+          firstName, lastName, position, party, image,
         }, index) => (
           <Block key={index} overrides={LIST_ITEM}>
             <ListItem
@@ -53,6 +53,7 @@ export const ElectionCandidateList = React.memo(() => (
                   firstName={firstName}
                   lastName={lastName}
                   position={position}
+                  image={image}
                 />
               )}
             >

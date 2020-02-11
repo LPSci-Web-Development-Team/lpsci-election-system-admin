@@ -13,6 +13,7 @@ export const CandidatesModal = createModel(() => {
   const [lastName, setLastName] = React.useState<string>('');
   const [position, setPosition] = React.useState<string>('');
   const [party, setParty] = React.useState<any>([]);
+  const [image, setImage] = React.useState<string>('');
 
   return {
     addModal,
@@ -31,5 +32,7 @@ export const CandidatesModal = createModel(() => {
     setPosition,
     party,
     setParty,
+    image,
+    setImage,
   };
 });
