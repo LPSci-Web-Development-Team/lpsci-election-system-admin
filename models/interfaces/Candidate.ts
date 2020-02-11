@@ -1,9 +1,8 @@
-import { IParty } from './Party';
-
 export interface ICandidate {
+  id: string;
   firstName: string;
   lastName: string;
   position: string;
-  party: IParty;
+  party: string;
   image: string;
 }
