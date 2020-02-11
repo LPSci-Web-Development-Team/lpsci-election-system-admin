@@ -5,4 +5,5 @@ export interface ICandidate {
   lastName: string;
   position: string;
   party: IParty;
+  image: string;
 }

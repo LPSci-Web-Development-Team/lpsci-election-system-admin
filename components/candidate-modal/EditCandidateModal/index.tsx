@@ -14,7 +14,7 @@ import { useConstant } from '@lpsci/utils/hooks/useConstant';
 
 // ANCHOR FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTag, faPalette } from '@fortawesome/free-solid-svg-icons';
+import { faTag, faPalette, faImage } from '@fortawesome/free-solid-svg-icons';
 
 // ANCHOR Components
 import { CandidatesModalHeading } from '../CandidatesModalHeading';
@@ -28,11 +28,12 @@ interface IEditModalProps {
   firstName: string;
   lastName: string;
   position: string;
+  image: string;
 }
 
 export const EditCandidateModal = React.memo(
   ({
-    firstName, lastName, position,
+    firstName, lastName, position, image,
   }: IEditModalProps) => {
     const [editModal, setEditModal] = CandidatesModal.useSelectors((state) => [
       state.editModal, state.setEditModal,
@@ -42,6 +43,7 @@ export const EditCandidateModal = React.memo(
 
     const NameIcon = useConstant(() => <FontAwesomeIcon icon={faTag} />);
     const ColorIcon = useConstant(() => <FontAwesomeIcon icon={faPalette} />);
+    const ImageIcon = useConstant(() => <FontAwesomeIcon icon={faImage} />);
 
     return (
       <Modal
@@ -79,6 +81,15 @@ export const EditCandidateModal = React.memo(
                 startEnhancer={ColorIcon}
                 name="position"
                 placeholder={position}
+              />
+            </FormControl>
+            <FormControl
+              label="Image"
+            >
+              <Input
+                startEnhancer={ImageIcon}
+                name="image"
+                placeholder={image}
               />
             </FormControl>
           </form>

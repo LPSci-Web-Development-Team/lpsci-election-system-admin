@@ -17,11 +17,12 @@ interface IEditProps {
   firstName: string;
   lastName: string;
   position: string;
+  image: string;
 }
 
 export const ElectionCandidateEditButton = React.memo(
   ({
-    firstName, lastName, position,
+    firstName, lastName, position, image,
   }: IEditProps) => {
     const [
       setEditModal,
@@ -31,6 +32,8 @@ export const ElectionCandidateEditButton = React.memo(
       setLastName,
       candidatePosition,
       setPosition,
+      candidateImage,
+      setImage,
     ] = CandidatesModal.useSelectors((state) => [
       state.setEditModal,
       state.firstName,
@@ -39,22 +42,17 @@ export const ElectionCandidateEditButton = React.memo(
       state.setLastName,
       state.position,
       state.setPosition,
+      state.image,
+      state.setImage,
     ]);
 
     const openEditModal = React.useCallback(() => {
       setFirstName(firstName);
       setLastName(lastName);
       setPosition(position);
+      setImage(image);
       setEditModal(true);
-    }, [
-      firstName,
-      lastName,
-      position,
-      setEditModal,
-      setFirstName,
-      setLastName,
-      setPosition,
-    ]);
+    }, [firstName, image, lastName, position, setEditModal, setFirstName, setImage, setLastName, setPosition]);
 
     return (
       <>
@@ -68,6 +66,7 @@ export const ElectionCandidateEditButton = React.memo(
           firstName={candidateFirstName}
           lastName={candidateLastName}
           position={candidatePosition}
+          image={candidateImage}
         />
       </>
     );
