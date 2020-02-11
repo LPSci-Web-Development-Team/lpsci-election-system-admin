@@ -10,15 +10,15 @@ import { Paragraph1, Paragraph2 } from 'baseui/typography';
 import { Block } from 'baseui/block';
 
 // ANCHOR UI Models
-import { PARTIES } from 'models/ui-models/party-list';
+import { CANDIDATES } from 'models/ui-models/candidate-list';
 
 // ANCHOR Components
-import { ElectionPartyListButton } from '../ElectionPartyListButton';
-import { ElectionPartyListHead } from '../ElectionPartyListHead';
+import { ElectionCandidateListButton } from '../ElectionCandidateListButton';
+import { ElectionCandidateListHead } from '../ElectionCandidateListHead';
 
 // ANCHOR Styles
 import {
-  TAG, CONTAINER, PARTY_NAME, PARTY_LABEL, LIST_ITEM,
+  TAG, CONTAINER, CANDIDATE_NAME, CANDIDATE_LABEL, LIST_ITEM,
 } from './styles';
 
 const ListContainer = styled('ul', {
@@ -28,11 +28,13 @@ const ListContainer = styled('ul', {
   paddingRight: 0,
 });
 
-export const ElectionPartyList = React.memo(() => (
+export const ElectionCandidateList = React.memo(() => (
   <ListContainer>
-    <ElectionPartyListHead />
+    <ElectionCandidateListHead />
     {
-        PARTIES.map(({ color, name }, index) => (
+        CANDIDATES.map(({
+          firstName, lastName, position, party,
+        }, index) => (
           <Block key={index} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
@@ -41,21 +43,25 @@ export const ElectionPartyList = React.memo(() => (
                   closeable={false}
                   variant={VARIANT.solid}
                   kind={KIND.custom}
-                  color={color}
+                  color={party.color}
                 >
-                  {color}
+                  {party.name}
                 </Tag>
               )}
               endEnhancer={() => (
-                <ElectionPartyListButton name={name} color={color} />
+                <ElectionCandidateListButton
+                  firstName={firstName}
+                  lastName={lastName}
+                  position={position}
+                />
               )}
             >
               <ListItemLabel>
                 <Block overrides={CONTAINER}>
-                  <Paragraph1 overrides={PARTY_NAME}>
-                    {name.toUpperCase()}
+                  <Paragraph1 overrides={CANDIDATE_NAME}>
+                    {`${firstName} ${lastName}`}
                   </Paragraph1>
-                  <Paragraph2 overrides={PARTY_LABEL}>Party</Paragraph2>
+                  <Paragraph2 overrides={CANDIDATE_LABEL}>{position}</Paragraph2>
                 </Block>
               </ListItemLabel>
             </ListItem>
