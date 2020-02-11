@@ -39,9 +39,9 @@ export const ElectionPartyList = React.memo(() => {
     state.fetchParty, state.setFetchParty,
   ]);
   // ANCHOR Fetch all parties
-  const fetchedParties: IParty[] = [];
   React.useEffect(() => {
-    GET('http://localhost:5000/api/parties')
+    const fetchedParties: IParty[] = [];
+    GET('http://192.168.1.8:5000/api/parties')
       .then((response) => {
         response.data.forEach((item: any) => {
           fetchedParties.push({
@@ -52,7 +52,7 @@ export const ElectionPartyList = React.memo(() => {
           setFetchParty([...fetchedParties]);
         });
       });
-  }, [fetchedParties, setFetchParty]);
+  }, [setFetchParty]);
 
   return (
     <ListContainer>
