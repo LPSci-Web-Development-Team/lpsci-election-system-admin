@@ -9,8 +9,14 @@ import { ListItem, ListItemLabel } from 'baseui/list';
 import { Paragraph1, Paragraph2 } from 'baseui/typography';
 import { Block } from 'baseui/block';
 
-// ANCHOR UI Models
-import { PARTIES } from 'models/ui-models/party-list';
+// ANCHOR Utils
+import { GET } from '@lpsci/utils/axios/methods';
+
+// ANCHOR Scoped Models
+import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
+
+// ANCHOR Models
+import { IParty } from 'models/interfaces/Party';
 
 // ANCHOR Components
 import { ElectionPartyListButton } from '../ElectionPartyListButton';
@@ -28,12 +34,33 @@ const ListContainer = styled('ul', {
   paddingRight: 0,
 });
 
-export const ElectionPartyList = React.memo(() => (
-  <ListContainer>
-    <ElectionPartyListHead />
-    {
-        PARTIES.map(({ color, name }, index) => (
-          <Block key={index} overrides={LIST_ITEM}>
+export const ElectionPartyList = React.memo(() => {
+  const [fetchParty, setFetchParty] = FetchedData.useSelector((state) => [
+    state.fetchParty, state.setFetchParty,
+  ]);
+  // ANCHOR Fetch all parties
+  React.useEffect(() => {
+    const fetchedParties: IParty[] = [];
+    // TODO Fix this on production
+    GET('http://192.168.1.8:5000/api/parties')
+      .then((response) => {
+        response.data.forEach((item: any) => {
+          fetchedParties.push({
+            id: item.id,
+            name: item.name,
+            color: item.hexColor,
+          });
+          setFetchParty([...fetchedParties]);
+        });
+      });
+  }, [setFetchParty]);
+
+  return (
+    <ListContainer>
+      <ElectionPartyListHead />
+      {
+        fetchParty.map(({ id, name, color }) => (
+          <Block key={id} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
                 <Tag
@@ -62,5 +89,6 @@ export const ElectionPartyList = React.memo(() => (
           </Block>
         ))
       }
-  </ListContainer>
-));
+    </ListContainer>
+  );
+});

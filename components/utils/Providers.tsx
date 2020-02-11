@@ -8,6 +8,7 @@ import { ForgotSearch } from '@lpsci/scoped-models/forgot-search/ForgotSearch';
 import { ResetModal } from '@lpsci/scoped-models/reset-modal/ResetModal';
 import { PartiesModal } from '@lpsci/scoped-models/parties-modal/PartiesModal';
 import { CandidatesModal } from '@lpsci/scoped-models/candidates-modal/CandidatesModal';
+import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
 
 export const makeProviders = () => [
   /*
@@ -40,4 +41,9 @@ export const makeProviders = () => [
  NOTE: Used for toggling modal for managing candidates
  */
   <CandidatesModal.Provider key="CandidatesModal" />,
+  /*
+ ANCHOR: Provider for the FetchedData
+ NOTE: Used for storing fetched data
+ */
+  <FetchedData.Provider key="FetchedData" />,
 ];
