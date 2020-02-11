@@ -41,6 +41,7 @@ export const ElectionPartyList = React.memo(() => {
   // ANCHOR Fetch all parties
   React.useEffect(() => {
     const fetchedParties: IParty[] = [];
+    // TODO Fix this on production
     GET('http://192.168.1.8:5000/api/parties')
       .then((response) => {
         response.data.forEach((item: any) => {

@@ -25,8 +25,13 @@ import { PartiesModalFooter } from '../PartiesModalFooter';
 import { MODAL } from './styles';
 
 export const AddPartiesModal = React.memo(() => {
-  const [addModal, setAddModal] = PartiesModal.useSelectors((state) => [
-    state.addModal, state.setAddModal,
+  const [
+    addModal, setAddModal, nameHandler, colorHandler,
+  ] = PartiesModal.useSelectors((state) => [
+    state.addModal,
+    state.setAddModal,
+    state.handler.name,
+    state.handler.color,
   ]);
 
   const closeModal = React.useCallback(() => setAddModal(false), [setAddModal]);
@@ -52,6 +57,7 @@ export const AddPartiesModal = React.memo(() => {
               startEnhancer={NameIcon}
               name="name"
               placeholder="THIRD"
+              onChange={nameHandler}
             />
           </FormControl>
           <FormControl
@@ -61,6 +67,7 @@ export const AddPartiesModal = React.memo(() => {
               startEnhancer={ColorIcon}
               name="lrn"
               placeholder="#F2F2F2"
+              onChange={colorHandler}
             />
           </FormControl>
         </form>
