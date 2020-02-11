@@ -12,29 +12,39 @@ import { DeleteCandidateModal } from '@lpsci/components/candidate-modal/DeleteCa
 import { BUTTON } from './styles';
 
 interface IDeleteProps {
-  name: string;
+  firstName: string;
+  lastName: string;
 }
 
-export const ElectionCandidateDeleteButton = React.memo(({ name }: IDeleteProps) => {
-  const [setDeleteModal, partyName, setName] = CandidatesModal.useSelectors((state) => [
-    state.setDeleteModal, state.name, state.setName,
-  ]);
+export const ElectionCandidateDeleteButton = React.memo(
+  ({ firstName, lastName }: IDeleteProps) => {
+    const [
+      setDeleteModal, candidateFirstName, setFirstName, candidateLastName, setLastName,
+    ] = CandidatesModal.useSelectors((state) => [
+      state.setDeleteModal,
+      state.firstName,
+      state.setFirstName,
+      state.lastName,
+      state.setLastName,
+    ]);
 
-  const openRemoveModal = React.useCallback(() => {
-    setName(name);
-    setDeleteModal(true);
-  }, [name, setDeleteModal, setName]);
+    const openRemoveModal = React.useCallback(() => {
+      setFirstName(firstName);
+      setLastName(lastName);
+      setDeleteModal(true);
+    }, [firstName, lastName, setDeleteModal, setFirstName, setLastName]);
 
-  return (
-    <>
-      <Button
-        overrides={BUTTON}
-        onClick={openRemoveModal}
-        kind="secondary"
-      >
-        Delete Candidate
-      </Button>
-      <DeleteCandidateModal name={partyName} />
-    </>
-  );
-});
+    return (
+      <>
+        <Button
+          overrides={BUTTON}
+          onClick={openRemoveModal}
+          kind="secondary"
+        >
+          Delete
+        </Button>
+        <DeleteCandidateModal firstName={candidateFirstName} lastName={candidateLastName} />
+      </>
+    );
+  },
+);

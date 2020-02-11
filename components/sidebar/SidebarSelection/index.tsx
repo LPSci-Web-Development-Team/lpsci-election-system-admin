@@ -35,8 +35,8 @@ export const SidebarSelection = React.memo(() => {
   return (
     <Block overrides={BLOCK}>
       {
-      SECTIONS.map(({ label, Icon, url }) => (
-        <ClickableDiv onClick={() => changeRoute(url)}>
+      SECTIONS.map(({ label, Icon, url }, index) => (
+        <ClickableDiv key={index} onClick={() => changeRoute(url)}>
           <Paragraph1
             overrides={
               router.pathname === url

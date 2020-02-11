@@ -9,7 +9,7 @@ import { Block } from 'baseui/block';
 
 // ANCHOR Styles
 import {
-  CONTAINER, PARTY_LABEL, LIST_ITEM, HEADING,
+  CONTAINER, NAME_LABEL, POSITION_LABEL, LIST_ITEM, HEADING,
 } from './styles';
 
 export const ElectionCandidateListHead = React.memo(() => (
@@ -17,7 +17,7 @@ export const ElectionCandidateListHead = React.memo(() => (
     <ListItem
       artwork={() => (
         <Paragraph2 overrides={HEADING}>
-          Candidate Color
+          Party
         </Paragraph2>
       )}
       endEnhancer={() => (
@@ -28,7 +28,8 @@ export const ElectionCandidateListHead = React.memo(() => (
     >
       <ListItemLabel>
         <Block overrides={CONTAINER}>
-          <Paragraph2 overrides={PARTY_LABEL}>Candidate Name</Paragraph2>
+          <Paragraph2 overrides={NAME_LABEL}>Candidate Name</Paragraph2>
+          <Paragraph2 overrides={POSITION_LABEL}>Position</Paragraph2>
         </Block>
       </ListItemLabel>
     </ListItem>

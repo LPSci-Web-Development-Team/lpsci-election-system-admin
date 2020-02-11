@@ -14,32 +14,62 @@ import { EditCandidateModal } from '@lpsci/components/candidate-modal/EditCandid
 import { BUTTON } from './styles';
 
 interface IEditProps {
-  name: string;
-  color: string;
+  firstName: string;
+  lastName: string;
+  position: string;
 }
 
-export const ElectionCandidateEditButton = React.memo(({ name, color }: IEditProps) => {
-  const [
-    setEditModal, partyName, setName, partyColor, setColor,
-  ] = CandidatesModal.useSelectors((state) => [
-    state.setEditModal, state.name, state.setName, state.color, state.setColor,
-  ]);
+export const ElectionCandidateEditButton = React.memo(
+  ({
+    firstName, lastName, position,
+  }: IEditProps) => {
+    const [
+      setEditModal,
+      candidateFirstName,
+      setFirstName,
+      candidateLastName,
+      setLastName,
+      candidatePosition,
+      setPosition,
+    ] = CandidatesModal.useSelectors((state) => [
+      state.setEditModal,
+      state.firstName,
+      state.setFirstName,
+      state.lastName,
+      state.setLastName,
+      state.position,
+      state.setPosition,
+    ]);
 
-  const openEditModal = React.useCallback(() => {
-    setName(name);
-    setColor(color);
-    setEditModal(true);
-  }, [color, name, setColor, setEditModal, setName]);
+    const openEditModal = React.useCallback(() => {
+      setFirstName(firstName);
+      setLastName(lastName);
+      setPosition(position);
+      setEditModal(true);
+    }, [
+      firstName,
+      lastName,
+      position,
+      setEditModal,
+      setFirstName,
+      setLastName,
+      setPosition,
+    ]);
 
-  return (
-    <>
-      <Button
-        overrides={BUTTON}
-        onClick={openEditModal}
-      >
-        Edit Candidate
-      </Button>
-      <EditCandidateModal name={partyName} color={partyColor} />
-    </>
-  );
-});
+    return (
+      <>
+        <Button
+          overrides={BUTTON}
+          onClick={openEditModal}
+        >
+          Edit
+        </Button>
+        <EditCandidateModal
+          firstName={candidateFirstName}
+          lastName={candidateLastName}
+          position={candidatePosition}
+        />
+      </>
+    );
+  },
+);

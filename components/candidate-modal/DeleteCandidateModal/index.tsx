@@ -17,33 +17,36 @@ import { CandidatesModalFooter } from '../CandidatesModalFooter';
 import { MODAL } from './styles';
 
 interface IDeleteCandidateModalProps {
-  name: string;
+  firstName: string;
+  lastName: string;
 }
 
-export const DeleteCandidateModal = React.memo(({ name }: IDeleteCandidateModalProps) => {
-  const [deleteModal, setDeleteModal] = CandidatesModal.useSelectors((state) => [
-    state.deleteModal, state.setDeleteModal,
-  ]);
+export const DeleteCandidateModal = React.memo(
+  ({ firstName, lastName }: IDeleteCandidateModalProps) => {
+    const [deleteModal, setDeleteModal] = CandidatesModal.useSelectors((state) => [
+      state.deleteModal, state.setDeleteModal,
+    ]);
 
-  const closeModal = React.useCallback(() => setDeleteModal(false), [setDeleteModal]);
+    const closeModal = React.useCallback(() => setDeleteModal(false), [setDeleteModal]);
 
-  return (
-    <Modal
-      onClose={closeModal}
-      isOpen={deleteModal}
-      size={SIZE.default}
-      overrides={MODAL}
-      autofocus={false}
-    >
-      <CandidatesModalHeading text="Are you sure?" />
-      <CandidatesModalBody>
-        <Paragraph1>
-          If you proceed,
-          <b>{` ${name} Candidate `}</b>
-          will be deleted.
-        </Paragraph1>
-      </CandidatesModalBody>
-      <CandidatesModalFooter />
-    </Modal>
-  );
-});
+    return (
+      <Modal
+        onClose={closeModal}
+        isOpen={deleteModal}
+        size={SIZE.default}
+        overrides={MODAL}
+        autofocus={false}
+      >
+        <CandidatesModalHeading text="Are you sure?" />
+        <CandidatesModalBody>
+          <Paragraph1>
+            If you proceed,
+            <b>{` ${firstName} ${lastName}'s profile `}</b>
+            will be deleted.
+          </Paragraph1>
+        </CandidatesModalBody>
+        <CandidatesModalFooter />
+      </Modal>
+    );
+  },
+);

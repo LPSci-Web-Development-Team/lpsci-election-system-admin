@@ -9,13 +9,22 @@ import { ElectionCandidateEditButton } from '../ElectionCandidateEditButton';
 import { ElectionCandidateDeleteButton } from '../ElectionCandidateDeleteButton';
 
 interface IListButtonProps {
-  name: string;
-  color: string;
+  firstName: string;
+  lastName: string;
+  position: string;
 }
 
-export const ElectionCandidateListButton = React.memo(({ name, color }: IListButtonProps) => (
-  <ButtonGroup>
-    <ElectionCandidateEditButton name={name} color={color} />
-    <ElectionCandidateDeleteButton name={name} />
-  </ButtonGroup>
-));
+export const ElectionCandidateListButton = React.memo(
+  ({
+    firstName, lastName, position,
+  }: IListButtonProps) => (
+    <ButtonGroup>
+      <ElectionCandidateEditButton
+        firstName={firstName}
+        lastName={lastName}
+        position={position}
+      />
+      <ElectionCandidateDeleteButton firstName={firstName} lastName={lastName} />
+    </ButtonGroup>
+  ),
+);

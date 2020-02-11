@@ -5,6 +5,7 @@ import * as React from 'react';
 import { Modal, SIZE } from 'baseui/modal';
 import { FormControl } from 'baseui/form-control';
 import { Input } from 'baseui/input';
+import { Select } from 'baseui/select';
 
 // ANCHOR Scoped Models
 import { CandidatesModal } from 'scoped-models/candidates-modal/CandidatesModal';
@@ -16,6 +17,9 @@ import { useConstant } from '@lpsci/utils/hooks/useConstant';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag, faPalette } from '@fortawesome/free-solid-svg-icons';
 
+// ANCHOR Models
+import { PARTIES } from 'models/ui-models/party-list';
+
 // ANCHOR Components
 import { CandidatesModalHeading } from '../CandidatesModalHeading';
 import { CandidatesModalBody } from '../CandidatesModalBody';
@@ -25,6 +29,8 @@ import { CandidatesModalFooter } from '../CandidatesModalFooter';
 import { MODAL } from './styles';
 
 export const AddCandidatesModal = React.memo(() => {
+  const [selectedValue, setSelectedValue] = React.useState<any>([]);
+
   const [addModal, setAddModal] = CandidatesModal.useSelectors((state) => [
     state.addModal, state.setAddModal,
   ]);
@@ -33,6 +39,17 @@ export const AddCandidatesModal = React.memo(() => {
 
   const NameIcon = useConstant(() => <FontAwesomeIcon icon={faTag} />);
   const ColorIcon = useConstant(() => <FontAwesomeIcon icon={faPalette} />);
+
+  const optionParty: any = [];
+
+  React.useEffect(() => {
+    PARTIES.map(({ name }) => (
+      optionParty.push({
+        id: name,
+        label: name,
+      })
+    ));
+  }, [optionParty]);
 
   return (
     <Modal
@@ -46,21 +63,43 @@ export const AddCandidatesModal = React.memo(() => {
       <CandidatesModalBody>
         <form>
           <FormControl
-            label="Name"
+            label="First Name"
           >
             <Input
               startEnhancer={NameIcon}
-              name="name"
-              placeholder="THIRD"
+              name="firstName"
+              placeholder="Juan"
             />
           </FormControl>
           <FormControl
-            label="Color"
+            label="Last Name"
+          >
+            <Input
+              startEnhancer={NameIcon}
+              name="lastName"
+              placeholder="Dela Cruz"
+            />
+          </FormControl>
+          <FormControl
+            label="Position"
           >
             <Input
               startEnhancer={ColorIcon}
-              name="lrn"
-              placeholder="#F2F2F2"
+              name="position"
+              placeholder="President"
+            />
+          </FormControl>
+          <FormControl
+            label="Party"
+          >
+            <Select
+              options={optionParty}
+              labelKey="id"
+              valueKey="label"
+              onChange={({ value }) => {
+                setSelectedValue(value);
+              }}
+              value={selectedValue}
             />
           </FormControl>
         </form>

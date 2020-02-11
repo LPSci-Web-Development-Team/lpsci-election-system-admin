@@ -32,8 +32,8 @@ export const ElectionPartyList = React.memo(() => (
   <ListContainer>
     <ElectionPartyListHead />
     {
-        PARTIES.map(({ color, name }) => (
-          <Block overrides={LIST_ITEM}>
+        PARTIES.map(({ color, name }, index) => (
+          <Block key={index} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
                 <Tag
@@ -47,7 +47,7 @@ export const ElectionPartyList = React.memo(() => (
                 </Tag>
               )}
               endEnhancer={() => (
-                <ElectionPartyListButton name={name} color={color}/>
+                <ElectionPartyListButton name={name} color={color} />
               )}
             >
               <ListItemLabel>

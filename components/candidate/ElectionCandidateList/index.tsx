@@ -10,7 +10,7 @@ import { Paragraph1, Paragraph2 } from 'baseui/typography';
 import { Block } from 'baseui/block';
 
 // ANCHOR UI Models
-import { PARTIES } from 'models/ui-models/candidate-list';
+import { CANDIDATES } from 'models/ui-models/candidate-list';
 
 // ANCHOR Components
 import { ElectionCandidateListButton } from '../ElectionCandidateListButton';
@@ -32,8 +32,10 @@ export const ElectionCandidateList = React.memo(() => (
   <ListContainer>
     <ElectionCandidateListHead />
     {
-        PARTIES.map(({ color, name }) => (
-          <Block overrides={LIST_ITEM}>
+        CANDIDATES.map(({
+          firstName, lastName, position, party,
+        }, index) => (
+          <Block key={index} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
                 <Tag
@@ -41,21 +43,25 @@ export const ElectionCandidateList = React.memo(() => (
                   closeable={false}
                   variant={VARIANT.solid}
                   kind={KIND.custom}
-                  color={color}
+                  color={party.color}
                 >
-                  {color}
+                  {party.name}
                 </Tag>
               )}
               endEnhancer={() => (
-                <ElectionCandidateListButton name={name} color={color}/>
+                <ElectionCandidateListButton
+                  firstName={firstName}
+                  lastName={lastName}
+                  position={position}
+                />
               )}
             >
               <ListItemLabel>
                 <Block overrides={CONTAINER}>
                   <Paragraph1 overrides={CANDIDATE_NAME}>
-                    {name.toUpperCase()}
+                    {`${firstName} ${lastName}`}
                   </Paragraph1>
-                  <Paragraph2 overrides={CANDIDATE_LABEL}>Candidate</Paragraph2>
+                  <Paragraph2 overrides={CANDIDATE_LABEL}>{position}</Paragraph2>
                 </Block>
               </ListItemLabel>
             </ListItem>

@@ -9,8 +9,10 @@ export const CandidatesModal = createModel(() => {
   const [editModal, setEditModal] = React.useState<boolean>(false);
   const [deleteModal, setDeleteModal] = React.useState<boolean>(false);
   const [removeAllModal, setRemoveAllModal] = React.useState<boolean>(false);
-  const [name, setName] = React.useState<string>('');
-  const [color, setColor] = React.useState<string>('');
+  const [firstName, setFirstName] = React.useState<string>('');
+  const [lastName, setLastName] = React.useState<string>('');
+  const [position, setPosition] = React.useState<string>('');
+  const [party, setParty] = React.useState<any>([]);
 
   return {
     addModal,
@@ -21,9 +23,13 @@ export const CandidatesModal = createModel(() => {
     setDeleteModal,
     removeAllModal,
     setRemoveAllModal,
-    name,
-    setName,
-    color,
-    setColor,
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    position,
+    setPosition,
+    party,
+    setParty,
   };
 });

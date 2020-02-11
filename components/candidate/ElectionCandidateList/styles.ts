@@ -42,6 +42,7 @@ export const CANDIDATE_NAME: BlockOverrides = {
   Block: {
     style: {
       fontWeight: 700,
+      width: '280px',
     },
   },
 };

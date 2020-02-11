@@ -5,6 +5,7 @@ export const LIST_ITEM: BlockOverrides = {
     style: {
       borderBottom: '1px solid #A1A1A1',
       marginBottom: '5px',
+      paddingLeft: '5px',
     },
   },
 };
@@ -31,7 +32,17 @@ export const CONTAINER: BlockOverrides = {
   },
 };
 
-export const PARTY_LABEL: BlockOverrides = {
+export const NAME_LABEL: BlockOverrides = {
+  Block: {
+    style: {
+      fontWeight: 700,
+      fontSize: '18px',
+      width: '300px',
+    },
+  },
+};
+
+export const POSITION_LABEL: BlockOverrides = {
   Block: {
     style: {
       fontWeight: 700,
