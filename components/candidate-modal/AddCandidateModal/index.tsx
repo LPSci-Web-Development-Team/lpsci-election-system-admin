@@ -9,6 +9,7 @@ import { Select } from 'baseui/select';
 
 // ANCHOR Scoped Models
 import { CandidatesModal } from 'scoped-models/candidates-modal/CandidatesModal';
+import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
 
 // ANCHOR Hooks
 import { useConstant } from '@lpsci/utils/hooks/useConstant';
@@ -16,9 +17,6 @@ import { useConstant } from '@lpsci/utils/hooks/useConstant';
 // ANCHOR FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag, faPalette, faImage } from '@fortawesome/free-solid-svg-icons';
-
-// ANCHOR Models
-import { PARTIES } from 'models/ui-models/party-list';
 
 // ANCHOR Components
 import { CandidatesModalHeading } from '../CandidatesModalHeading';
@@ -35,6 +33,8 @@ export const AddCandidatesModal = React.memo(() => {
     state.addModal, state.setAddModal,
   ]);
 
+  const fetchParty = FetchedData.useSelector((state) => state.fetchParty);
+
   const closeModal = React.useCallback(() => setAddModal(false), [setAddModal]);
 
   const NameIcon = useConstant(() => <FontAwesomeIcon icon={faTag} />);
@@ -44,13 +44,13 @@ export const AddCandidatesModal = React.memo(() => {
   const optionParty: any = [];
 
   React.useEffect(() => {
-    PARTIES.map(({ name }) => (
+    fetchParty.map(({ id, name }) => (
       optionParty.push({
-        id: name,
+        id,
         label: name,
       })
     ));
-  }, [optionParty]);
+  }, [fetchParty, optionParty]);
 
   return (
     <Modal
