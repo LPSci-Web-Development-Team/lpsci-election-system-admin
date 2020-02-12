@@ -13,7 +13,7 @@ export interface IRowData {
   section: string;
   gradeLevel: number;
   lrn: number;
-  status: boolean;
+  status?: boolean;
 }
 
 export interface IRow {
