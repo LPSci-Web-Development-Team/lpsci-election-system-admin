@@ -1,6 +1,6 @@
 // ANCHOR Icons
 import {
-  faLock, faUser, faUsers, faUserCheck, faChartPie,
+  faLock, faUser, faUsers, faUserCheck, faChartPie, faLayerGroup,
 } from '@fortawesome/free-solid-svg-icons';
 
 // ANCHOR Interface
@@ -26,6 +26,11 @@ export const SECTIONS: ISection[] = [
     label: 'Candidates',
     Icon: faUserCheck,
     url: '/candidate',
+  },
+  {
+    label: 'Section',
+    Icon: faLayerGroup,
+    url: '/section',
   },
   {
     label: 'Analytics',
