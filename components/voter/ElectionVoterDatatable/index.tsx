@@ -8,23 +8,57 @@ import { Unstable_StatefulDataTable as DataTable, RowActionT } from 'baseui/data
 
 // ANCHOR UI Models
 import { VOTER_COLUMNS } from 'models/ui-models/voter-datatable/columns';
-import { VOTER_ROW } from 'models/ui-models/voter-datatable/rows';
+import { IRow } from 'models/interfaces/VoterDataTable';
 
 // ANCHOR Scoped Models
 import { VoteModal } from '@lpsci/scoped-models/vote-modal/VoteModal';
+import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
+
+// ANCHOR Utils
+import { GET } from '@lpsci/utils/axios/methods';
 
 export const ElectionVoterDatatable = React.memo(() => {
   // ANCHOR Voter Modal Model
   const setModal = VoteModal.useSelector((state) => state.setModal);
+  const [fetchVoter, setFetchVoter] = FetchedData.useSelectors((state) => [
+    state.fetchVoter, state.setFetchVoter,
+  ]);
 
   const rowActions: RowActionT[] = [{
     label: 'View',
-    onClick: ({ row }) => {
+    onClick: () => {
       // eslint-disable-next-line no-unused-expressions
-      row.data.status && setModal(true);
+      setModal(true);
     },
     renderIcon: Show,
   }];
+
+  // ANCHOR Fetch all voters
+  React.useEffect(() => {
+    const fetchedVoter: IRow[] = [];
+    // TODO Fix this on production
+    GET('http://localhost:5000/api/voters')
+      .then((response) => {
+        response.data.forEach(async (item: any) => {
+          const section = GET(`http://localhost:5000/api/sections/${item.sectionId}`)
+            .then((res) => ({
+              name: res.data.name,
+              gradeLevel: res.data.gradeLevel,
+            }));
+          fetchedVoter.push({
+            id: item.id,
+            data: {
+              firstName: item.firstName,
+              lastName: item.lastName,
+              lrn: item.lrn,
+              section: (await section).name,
+              gradeLevel: parseInt((await section).gradeLevel, 10),
+            },
+          });
+          setFetchVoter([...fetchedVoter]);
+        });
+      });
+  }, [setFetchVoter]);
 
   return (
     <Block overrides={{
@@ -38,7 +72,7 @@ export const ElectionVoterDatatable = React.memo(() => {
       <DataTable
         rowActions={rowActions}
         columns={VOTER_COLUMNS}
-        rows={VOTER_ROW}
+        rows={fetchVoter}
         emptyMessage="Oops, no users or voters matches your call."
       />
     </Block>

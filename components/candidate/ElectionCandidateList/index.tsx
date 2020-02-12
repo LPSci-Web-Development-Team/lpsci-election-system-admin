@@ -52,7 +52,7 @@ export const ElectionCandidateList = React.memo(() => {
             lastName: item.lastName,
             position: item.position,
             party: item.partyId,
-            image: item.imageURL,
+            image: item.imgUrl,
           });
           setFetchCandidate([...fetchedCandidates]);
         });
