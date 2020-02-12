@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Next
-import Link from 'next/link';
+import Router from 'next/router';
 
 // ANCHOR Base
 import { ModalButton } from 'baseui/modal';
@@ -10,23 +10,53 @@ import { ModalButton } from 'baseui/modal';
 // ANCHOR Scoped Models
 import { CandidatesModal } from 'scoped-models/candidates-modal/CandidatesModal';
 
+// ANCHOR Hooks
+import { usePromise } from '@lpsci/utils/hooks/usePromise';
+
+// ANCHOR Utils
+import { addCandidate } from '@lpsci/utils/api/candidate';
+
 export const CandidatesModalProceedButton = React.memo(() => {
   const [
-    setAddModal, setEditModal, setRemoveAllModal, setDeleteModal,
+    firstName, lastName, position, party, image, filled, setAddModal,
   ] = CandidatesModal.useSelectors((state) => [
-    state.setAddModal, state.setEditModal, state.setRemoveAllModal, state.setDeleteModal,
+    state.firstName,
+    state.lastName,
+    state.position,
+    state.party,
+    state.image,
+    state.filled,
+    state.setAddModal,
   ]);
 
-  const closeModal = React.useCallback(() => {
-    setAddModal(false);
-    setEditModal(false);
-    setRemoveAllModal(false);
-    setDeleteModal(false);
-  }, [setAddModal, setDeleteModal, setEditModal, setRemoveAllModal]);
+  const mounted = usePromise([
+    firstName, lastName, position, party, image, filled,
+  ]);
+
+  const onSubmit = React.useCallback(async (event) => {
+    event.preventDefault();
+
+    if (filled) {
+      try {
+        await mounted(addCandidate({
+          firstName,
+          lastName,
+          position,
+          imgUrl: image,
+          partyId: party,
+        }));
+        console.log('SUCCESS');
+        setAddModal(false);
+        Router.push('/');
+        Router.push('/candidate');
+      } catch (err) {
+        Router.push('/candidate');
+        console.log('SUCCESS BUT', err);
+      }
+    }
+  }, [filled, firstName, image, lastName, mounted, party, position, setAddModal]);
 
   return (
-    <Link href="#">
-      <ModalButton onClick={closeModal}>Proceed</ModalButton>
-    </Link>
+    <ModalButton onClick={onSubmit}>Proceed</ModalButton>
   );
 });

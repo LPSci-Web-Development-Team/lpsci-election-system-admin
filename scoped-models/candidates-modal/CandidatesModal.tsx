@@ -4,6 +4,9 @@ import * as React from 'react';
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
+// ANCHOR Hooks
+import { useConstant } from '@lpsci/utils/hooks/useConstant';
+
 export const CandidatesModal = createModel(() => {
   const [addModal, setAddModal] = React.useState<boolean>(false);
   const [editModal, setEditModal] = React.useState<boolean>(false);
@@ -12,7 +15,7 @@ export const CandidatesModal = createModel(() => {
   const [firstName, setFirstName] = React.useState<string>('');
   const [lastName, setLastName] = React.useState<string>('');
   const [position, setPosition] = React.useState<string>('');
-  const [party, setParty] = React.useState<string>('');
+  const [party, setParty] = React.useState();
   const [image, setImage] = React.useState<string>('');
 
   const handler = useConstant(() => ({
@@ -25,12 +28,10 @@ export const CandidatesModal = createModel(() => {
     positiom: (e: React.ChangeEvent<HTMLInputElement>) => {
       setPosition(e.target.value);
     },
-    party: (e: React.ChangeEvent<HTMLInputElement>) => {
-      setParty(e.target.value);
-    },
     image: (e: React.ChangeEvent<HTMLInputElement>) => {
       setImage(e.target.value);
     },
+    party: setParty,
   }));
 
   const filled = React.useMemo(() => (
