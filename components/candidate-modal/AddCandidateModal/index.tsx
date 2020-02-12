@@ -29,8 +29,22 @@ import { MODAL } from './styles';
 export const AddCandidatesModal = React.memo(() => {
   const [selectedValue, setSelectedValue] = React.useState<any>([]);
 
-  const [addModal, setAddModal] = CandidatesModal.useSelectors((state) => [
-    state.addModal, state.setAddModal,
+  const [
+    addModal,
+    setAddModal,
+    firstNameHandler,
+    lastNameHandler,
+    positionHandler,
+    imageHandler,
+    setParty,
+  ] = CandidatesModal.useSelectors((state) => [
+    state.addModal,
+    state.setAddModal,
+    state.handler.firstName,
+    state.handler.lastName,
+    state.handler.positiom,
+    state.handler.image,
+    state.setParty,
   ]);
 
   const fetchParty = FetchedData.useSelector((state) => state.fetchParty);
@@ -52,6 +66,11 @@ export const AddCandidatesModal = React.memo(() => {
     ));
   }, [fetchParty, optionParty]);
 
+  const handleParty = React.useCallback(({ value }) => {
+    setSelectedValue(value);
+    setParty(value[0].id);
+  }, [setParty]);
+
   return (
     <Modal
       onClose={closeModal}
@@ -70,6 +89,7 @@ export const AddCandidatesModal = React.memo(() => {
               startEnhancer={NameIcon}
               name="firstName"
               placeholder="Juan"
+              onChange={firstNameHandler}
             />
           </FormControl>
           <FormControl
@@ -79,6 +99,7 @@ export const AddCandidatesModal = React.memo(() => {
               startEnhancer={NameIcon}
               name="lastName"
               placeholder="Dela Cruz"
+              onChange={lastNameHandler}
             />
           </FormControl>
           <FormControl
@@ -88,19 +109,20 @@ export const AddCandidatesModal = React.memo(() => {
               startEnhancer={ColorIcon}
               name="position"
               placeholder="President"
+              onChange={positionHandler}
             />
           </FormControl>
           <FormControl
             label="Party"
           >
             <Select
-              options={optionParty}
-              labelKey="id"
-              valueKey="label"
-              onChange={({ value }) => {
-                setSelectedValue(value);
-              }}
+              onChange={handleParty}
               value={selectedValue}
+              options={optionParty}
+              placeholder="Select Section..."
+              searchable={false}
+              clearable={false}
+              required
             />
           </FormControl>
           <FormControl
@@ -110,6 +132,7 @@ export const AddCandidatesModal = React.memo(() => {
               startEnhancer={ImageIcon}
               name="image"
               placeholder="/img/party-name-position.jpg"
+              onChange={imageHandler}
             />
           </FormControl>
         </form>
