@@ -9,6 +9,7 @@ import { ResetModal } from '@lpsci/scoped-models/reset-modal/ResetModal';
 import { PartiesModal } from '@lpsci/scoped-models/parties-modal/PartiesModal';
 import { CandidatesModal } from '@lpsci/scoped-models/candidates-modal/CandidatesModal';
 import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
+import { SectionsModal } from '@lpsci/scoped-models/sections-modal/SectionsModal';
 
 export const makeProviders = () => [
   /*
@@ -46,4 +47,9 @@ export const makeProviders = () => [
  NOTE: Used for storing fetched data
  */
   <FetchedData.Provider key="FetchedData" />,
+  /*
+  ANCHOR: Provider for the SectionsModal
+  NOTE: Used for toggling modal for managing sections
+  */
+  <SectionsModal.Provider key="SectionsModal" />,
 ];
