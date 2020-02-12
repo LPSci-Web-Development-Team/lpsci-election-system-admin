@@ -19,16 +19,20 @@ import { GET } from '@lpsci/utils/axios/methods';
 
 export const ElectionVoterDatatable = React.memo(() => {
   // ANCHOR Voter Modal Model
-  const setModal = VoteModal.useSelector((state) => state.setModal);
+  const [setModal, setVoterId] = VoteModal.useSelectors((state) => [
+    state.setModal, state.setVoterId,
+  ]);
+
   const [fetchVoter, setFetchVoter] = FetchedData.useSelectors((state) => [
     state.fetchVoter, state.setFetchVoter,
   ]);
 
   const rowActions: RowActionT[] = [{
     label: 'View',
-    onClick: () => {
+    onClick: ({ row }) => {
       // eslint-disable-next-line no-unused-expressions
       setModal(true);
+      setVoterId(row.id);
     },
     renderIcon: Show,
   }];
