@@ -43,7 +43,7 @@ export const ElectionCandidateList = React.memo(() => {
   React.useEffect(() => {
     const fetchedCandidates: ICandidate[] = [];
     // TODO Fix this on production
-    GET('http://192.168.1.8:5000/api/candidates')
+    GET('http://localhost:5000/api/candidates')
       .then((response) => {
         response.data.forEach((item: any) => {
           fetchedCandidates.push({

@@ -6,5 +6,5 @@ import { IPartyPayload } from '../payloads/party';
 
 // TODO Fix this on production
 export async function addParty(payload: IPartyPayload) {
-  return POST('http://192.168.1.8:5000/api/parties', payload);
+  return POST('http://localhost:5000/api/parties', payload);
 }

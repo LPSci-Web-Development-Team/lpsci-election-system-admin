@@ -95,8 +95,8 @@ export const AddCandidatesModal = React.memo(() => {
           >
             <Select
               options={optionParty}
-              labelKey="id"
-              valueKey="label"
+              labelKey="label"
+              valueKey="id"
               onChange={({ value }) => {
                 setSelectedValue(value);
               }}

@@ -20,14 +20,14 @@ interface ICandidateTagProps {
 
 export const ElectionCandidatePartyTag = React.memo(({ id }: ICandidateTagProps) => {
   const [party, setParty] = React.useState<IParty>({
-    id: '',
-    name: '',
-    color: '',
+    id: '123',
+    name: 'THIRD',
+    color: '#F2f2f2',
   });
 
   React.useEffect(() => {
     // TODO Fix this on production
-    GET(`http://192.168.1.8:5000/api/parties/${id}`)
+    GET(`http://localhost:5000/api/parties/${id}`)
       .then((response) => {
         setParty({
           id: response.data.id,
