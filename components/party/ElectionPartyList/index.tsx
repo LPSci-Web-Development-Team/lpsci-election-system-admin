@@ -42,7 +42,7 @@ export const ElectionPartyList = React.memo(() => {
   React.useEffect(() => {
     const fetchedParties: IParty[] = [];
     // TODO Fix this on production
-    GET('http://localhost:5000/api/parties')
+    GET('/api/parties')
       .then((response) => {
         response.data.forEach((item: any) => {
           fetchedParties.push({

@@ -23,7 +23,7 @@ export const VoterModalListItem = React.memo(
 
     React.useEffect(() => {
       if (candidateId) {
-        GET(`http://localhost:5000/api/candidates/${candidateId}`)
+        GET(`/api/candidates/${candidateId}`)
           .then((response) => (
             setFetchedCandidate({
               firstName: response.data.firstName,
@@ -41,7 +41,7 @@ export const VoterModalListItem = React.memo(
     }, [candidateId, position]);
 
     React.useEffect(() => {
-      GET(`http://localhost:5000/api/parties/${fetchedCandidate.party}`)
+      GET(`/api/parties/${fetchedCandidate.party}`)
         .then((response) => (
           setFetchedParty(response.data.name)
         ));
