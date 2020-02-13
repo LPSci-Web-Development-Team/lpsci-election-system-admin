@@ -42,7 +42,7 @@ export const ElectionSectionList = React.memo(() => {
   React.useEffect(() => {
     const fetchedSections: IClassroomSection[] = [];
     // TODO Fix this on production
-    GET('http://localhost:5000/api/sections')
+    GET('/api/sections')
       .then((response) => {
         response.data.forEach((item: any) => {
           fetchedSections.push({

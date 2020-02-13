@@ -27,7 +27,7 @@ export const ElectionCandidatePartyTag = React.memo(({ id }: ICandidateTagProps)
 
   React.useEffect(() => {
     // TODO Fix this on production
-    GET(`http://localhost:5000/api/parties/${id}`)
+    GET(`/api/parties/${id}`)
       .then((response) => {
         setParty({
           id: response.data.id,
