@@ -26,7 +26,7 @@ export const VoterModalBody = React.memo(() => {
   const temporaryFetch: any = [];
 
   React.useEffect(() => {
-    GET(`http://localhost:5000/api/voters/${voterId}/votes`)
+    GET(`/api/voters/${voterId}/votes`)
       .then((response) => {
         response.data.map((item: any) => (
           temporaryFetch.push(item)

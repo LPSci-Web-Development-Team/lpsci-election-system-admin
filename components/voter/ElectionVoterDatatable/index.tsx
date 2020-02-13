@@ -41,10 +41,10 @@ export const ElectionVoterDatatable = React.memo(() => {
   React.useEffect(() => {
     const fetchedVoter: IRow[] = [];
     // TODO Fix this on production
-    GET('http://localhost:5000/api/voters')
+    GET('/api/voters')
       .then((response) => {
         response.data.forEach(async (item: any) => {
-          const section = GET(`http://localhost:5000/api/sections/${item.sectionId}`)
+          const section = GET(`/api/sections/${item.sectionId}`)
             .then((res) => ({
               name: res.data.name,
               gradeLevel: res.data.gradeLevel,
