@@ -8,6 +8,7 @@ export type TRowData = {
 };
 
 export interface IRowData {
+  id?: string;
   lastName: string;
   firstName: string;
   section: string;
