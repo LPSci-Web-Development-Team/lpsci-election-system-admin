@@ -5,6 +5,9 @@ export const TAG: TagOverrides = {
   Root: {
     style: () => ({
       height: '25px',
+      width: '125px',
+      display: 'flex',
+      justifyContent: 'center',
     }),
   },
   Text: {
