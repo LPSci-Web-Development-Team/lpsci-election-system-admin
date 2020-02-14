@@ -12,9 +12,10 @@ import { Block } from 'baseui/block';
 
 // ANCHOR Scoped Models
 import { ResetModal } from '@lpsci/scoped-models/reset-modal/ResetModal';
+import { ForgotSearch } from '@lpsci/scoped-models/forgot-search/ForgotSearch';
 
-// ANCHOR UI Models
-import { VOTER_ROW } from 'models/ui-models/voter-datatable/rows';
+// ANCHOR Utils
+import { getVotersFromLastName } from '@lpsci/utils/api/voter';
 
 // ANCHOR Styles
 import {
@@ -35,6 +36,25 @@ export const ElectionForgotList = React.memo(() => {
     state.setModal,
   ]);
 
+  const search = ForgotSearch.useSelector((state) => state.search);
+
+  const [voterList, setVoterList] = React.useState<Array<Record<string, any>>>([]);
+
+  React.useEffect(() => {
+    if (search.length >= 2) {
+      getVotersFromLastName(search)
+        .then((response) => {
+          setVoterList(response.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setVoterList([]);
+    }
+  }, [search]);
+
+
   const openModal = React.useCallback((voter) => {
     setVoter(voter);
     setModal(true);
@@ -42,9 +62,9 @@ export const ElectionForgotList = React.memo(() => {
 
   return (
     <ListContainer>
-      {VOTER_ROW.map(({ id, data }) => (
+      {voterList.map((data, index) => (
         <ListItem
-          key={id}
+          key={index}
           artwork={() => (
             <Tag
               overrides={TAG}
@@ -65,7 +85,7 @@ export const ElectionForgotList = React.memo(() => {
                 || data.gradeLevel === 9 && '#EE3D48'
                 || data.gradeLevel === 10 && '#1EC9E8'
                 || 'black'
-            }
+              }
             >
               {data.section}
             </Tag>
@@ -74,7 +94,7 @@ export const ElectionForgotList = React.memo(() => {
             <Button
               size="compact"
               kind="primary"
-              onClick={() => openModal(data.firstName)}
+              onClick={() => openModal(data.id)}
             >
               Reset Password
             </Button>

@@ -66,31 +66,31 @@ export const ElectionCandidateList = React.memo(() => {
         fetchCandidate.map(({
           id, firstName, lastName, position, party, image,
         }) => (
-          <Block key={id} overrides={LIST_ITEM}>
-            <ListItem
-              artwork={() => (
-                <ElectionCandidatePartyTag id={party} />
-              )}
-              endEnhancer={() => (
-                <ElectionCandidateListButton
-                  firstName={firstName}
-                  lastName={lastName}
-                  position={position}
-                  image={image}
-                />
-              )}
-            >
-              <ListItemLabel>
-                <Block overrides={CONTAINER}>
-                  <Paragraph1 overrides={CANDIDATE_NAME}>
-                    {`${firstName} ${lastName}`}
-                  </Paragraph1>
-                  <Paragraph2 overrides={CANDIDATE_LABEL}>{position}</Paragraph2>
-                </Block>
-              </ListItemLabel>
-            </ListItem>
-          </Block>
-        ))
+            <Block key={id} overrides={LIST_ITEM}>
+              <ListItem
+                artwork={() => (
+                  <ElectionCandidatePartyTag id={party} />
+                )}
+                endEnhancer={() => (
+                  <ElectionCandidateListButton
+                    firstName={firstName}
+                    lastName={lastName}
+                    position={position}
+                    image={image}
+                  />
+                )}
+              >
+                <ListItemLabel>
+                  <Block overrides={CONTAINER}>
+                    <Paragraph1 overrides={CANDIDATE_NAME}>
+                      {`${firstName} ${lastName}`}
+                    </Paragraph1>
+                    <Paragraph2 overrides={CANDIDATE_LABEL}>{position}</Paragraph2>
+                  </Block>
+                </ListItemLabel>
+              </ListItem>
+            </Block>
+          ))
       }
     </ListContainer>
   );
