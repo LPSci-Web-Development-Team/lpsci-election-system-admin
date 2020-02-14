@@ -32,6 +32,7 @@ const initialConfig = {
   distDir: 'build',
   env: {
     API: process.env.API,
+    TEMPORARY_ACCESS_TOKEN: process.env.TEMPORARY_ACCESS_TOKEN
   },
   generateinDevMode: true,
   workboxOpts: {

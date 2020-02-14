@@ -14,5 +14,9 @@ export async function getVotersFromLastName(lastName: string) {
 }
 
 export async function resetVoterPassword(userId: string, payload: IResetVoterPasswordPayload) {
-  return PATCH(`/api/voters/${userId}`, payload);
+  return PATCH(`/api/voters/${userId}`, payload, {
+    headers: {
+      Authorization: `${process.env.TEMPORARY_ACCESS_TOKEN}`,
+    },
+  });
 }

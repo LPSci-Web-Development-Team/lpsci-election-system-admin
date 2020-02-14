@@ -1,23 +1,24 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Next
-import Link from 'next/link';
-
 // ANCHOR Base
 import { ModalButton } from 'baseui/modal';
 
 // ANCHOR Scoped Models
 import { ResetModal } from '@lpsci/scoped-models/reset-modal/ResetModal';
 
-export const ForgotModalProceedButton = React.memo(() => {
-  const setModal = ResetModal.useSelector((state) => state.setModal);
+// ANCHOR Utils
+import { resetVoterPassword } from '@lpsci/utils/api/voter';
 
-  const closeModal = React.useCallback(() => setModal(false), [setModal]);
+export const ForgotModalProceedButton = React.memo(() => {
+  const [voter, setModal] = ResetModal.useSelectors((state) => [state.voter, state.setModal]);
+
+  const closeModal = React.useCallback(() => {
+    resetVoterPassword(voter, { password: 'ilovelpsci' });
+    setModal(false);
+  }, [setModal, voter]);
 
   return (
-    <Link href="/vote-success">
-      <ModalButton onClick={closeModal}>Proceed</ModalButton>
-    </Link>
+    <ModalButton onClick={closeModal}>Proceed</ModalButton>
   );
 });
