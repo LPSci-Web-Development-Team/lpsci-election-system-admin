@@ -12,18 +12,35 @@ import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
 
 // ANCHOR Models
 import { IParty } from 'models/interfaces/Party';
-
-// ANCHOR Utils
-import { GET } from '@lpsci/utils/axios/methods';
+import { PARTY } from 'models/ui-models/party-list';
 
 // ANCHOR Styles
+import { EPosition } from 'models/interfaces/Candidate';
+import { CANDIDATE } from 'models/ui-models/candidate-list';
 import { BLOCK } from './styles';
 
 // ANCHOR Chart
 const Chart = loadable(() => import('react-apexcharts'));
 
+interface ISeries {
+  name: string;
+  data: number[];
+}
+
+interface IPositionCount {
+  name: string;
+  count?: number;
+}
+
+interface IResultPosition {
+  id: string;
+  name: string;
+  position: IPositionCount[];
+}
+
+
 export const ElectionAnalyticsBar = React.memo(() => {
-  const [fetchParty, setFetchParty] = FetchedData.useSelector((state) => [
+  const [fetchParty, setFetchParty] = FetchedData.useSelectors((state) => [
     state.fetchParty, state.setFetchParty,
   ]);
 
@@ -31,20 +48,18 @@ export const ElectionAnalyticsBar = React.memo(() => {
   React.useEffect(() => {
     const fetchedParties: IParty[] = [];
     // TODO Fix this on production
-    GET('/api/parties')
-      .then((response) => {
-        response.data.forEach((item: any) => {
-          fetchedParties.push({
-            id: item.id,
-            name: item.name,
-            color: item.hexColor,
-          });
-          setFetchParty([...fetchedParties]);
-        });
+    PARTY.forEach((item: any) => {
+      fetchedParties.push({
+        id: item.id,
+        name: item.name,
+        hexColor: item.hexColor,
       });
+      setFetchParty([...fetchedParties]);
+    });
   }, [setFetchParty]);
 
-  const [options] = React.useState({
+  // ANCHOR Bar Graph Options
+  const [options] = React.useState<any>({
     chart: {
       type: 'bar',
       height: 350,
@@ -63,20 +78,7 @@ export const ElectionAnalyticsBar = React.memo(() => {
     },
     xaxis: {
       type: 'string',
-      categories: [
-        'President',
-        'Vice President',
-        'Secretary',
-        'Treasurer',
-        'Auditor',
-        'PIO',
-        'Peace Officer',
-        'Level Rep. (8)',
-        'Level Rep. (9)',
-        'Level Rep. (10)',
-        'Level Rep. (11)',
-        'Level Rep. (12)',
-      ],
+      categories: [],
     },
     legend: {
       position: 'right',
@@ -88,25 +90,64 @@ export const ElectionAnalyticsBar = React.memo(() => {
     colors: [''],
   });
 
-  const [series, setSeries] = React.useState<{ name: string; data: number[] }[]>([]);
+  const [series, setSeries] = React.useState<ISeries[]>([]);
 
-  const temporarySeries: { name: string; data: number[] }[] = [];
+  const temporarySeries: ISeries[] = [];
+  const resultPosition: IResultPosition[] = [];
+
+  // ANCHOR Fetch and group candidates
   React.useEffect(() => {
     fetchParty.map((item) => (
-      temporarySeries.push({
+      resultPosition.push({
+        id: item.id,
         name: item.name,
-        data: [44, 55, 41, 67, 22, 43, 44, 55, 41, 67, 22, 43],
+        position: [],
       })
     ));
-    setSeries([...temporarySeries]);
-  }, [fetchParty, temporarySeries]);
+    resultPosition.map((item) => (
+      CANDIDATE
+        .filter((cond) => (
+          cond.party === item.id
+        ))
+        .map((candidate) => (
+          item.position.push({
+            name: candidate.position,
+            count: candidate.count,
+          })
+        ))
+    ));
+  }, [fetchParty, resultPosition]);
 
+  // ANCHOR Set x axis categories
+  React.useEffect(() => {
+    Object.values(EPosition)
+      .map((item) => (
+        options.xaxis.categories.push(item)
+      ));
+  }, [options.xaxis.categories]);
+
+  // ANCHOR Set colors for the bar
   React.useEffect(() => {
     options.colors.pop();
     fetchParty.map((item: any) => (
-      options.colors.push(item.color)
+      options.colors.push(item.hexColor)
     ));
   }, [fetchParty, options.colors]);
+
+  // ANCHOR Set datatable series
+  React.useEffect(() => {
+    resultPosition.map((item) => {
+      const eachCount: any[] = [];
+      item.position.map((p) => (eachCount.push(p.count)));
+      return (
+        temporarySeries.push({
+          name: item.name,
+          data: eachCount,
+        })
+      );
+    });
+    setSeries([...temporarySeries]);
+  }, [resultPosition, temporarySeries]);
 
   return (
     <Block overrides={BLOCK}>

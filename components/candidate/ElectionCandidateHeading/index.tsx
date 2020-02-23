@@ -29,7 +29,7 @@ export const ElectionCandidateHeading = React.memo(() => {
           fetchedParties.push({
             id: item.id,
             name: item.name,
-            color: item.hexColor,
+            hexColor: item.hexColor,
           });
           setFetchParty([...fetchedParties]);
         });
