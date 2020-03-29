@@ -48,23 +48,179 @@ export const FetchedData = createModel(() => {
     }
   }, []);
 
-  // ANCHOR Fetch all candidates
-  const fetchedCandidates: ICandidateFetchedPayload[] = [];
+  // ANCHOR Fetch all candidates and order it
+  const fetchedPresidents: ICandidateFetchedPayload[] = [];
+  const fetchedVicePresidents: ICandidateFetchedPayload[] = [];
+  const fetchedSecretaries: ICandidateFetchedPayload[] = [];
+  const fetchedTreasurers: ICandidateFetchedPayload[] = [];
+  const fetchedAuditors: ICandidateFetchedPayload[] = [];
+  const fetchedPios: ICandidateFetchedPayload[] = [];
+  const fetchedPeaceOfficers: ICandidateFetchedPayload[] = [];
+  const fetched12Reps: ICandidateFetchedPayload[] = [];
+  const fetched11Reps: ICandidateFetchedPayload[] = [];
+  const fetched10Reps: ICandidateFetchedPayload[] = [];
+  const fetched9Reps: ICandidateFetchedPayload[] = [];
+  const fetched8Reps: ICandidateFetchedPayload[] = [];
   useIsomorphicEffect(() => {
     if (!hasCandidateFetched) {
       GET('/api/candidates')
         .then((res) => {
           res.data.map((item: ICandidateFetchedPayload) => (
-            fetchedCandidates.push({
-              id: item.id,
-              firstName: item.firstName,
-              lastName: item.lastName,
-              position: item.position,
-              imgUrl: item.imgUrl,
-              partyId: item.partyId,
-            })
+            GET(`/api/candidates/${item.id}/voters/count`)
+              .then((resCount) => {
+                switch (item.position) {
+                  case 'President':
+                    fetchedPresidents.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Vice President':
+                    fetchedVicePresidents.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Secretary':
+                    fetchedSecretaries.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Treasurer':
+                    fetchedTreasurers.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Auditor':
+                    fetchedAuditors.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'PIO':
+                    fetchedPios.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Peace Officer':
+                    fetchedPeaceOfficers.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Level Rep. (12)':
+                    fetched12Reps.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Level Rep. (11)':
+                    fetched11Reps.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Level Rep. (10)':
+                    fetched10Reps.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Level Rep. (9)':
+                    fetched9Reps.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  case 'Level Rep. (8)':
+                    fetched8Reps.push({
+                      id: item.id,
+                      firstName: item.firstName,
+                      lastName: item.lastName,
+                      position: item.position,
+                      imgUrl: item.imgUrl,
+                      partyId: item.partyId,
+                      count: resCount.data.count ,
+                    });
+                    break;
+                  default:
+                    break;
+                }
+
+                setFetchCandidate([
+                  ...fetchedPresidents,
+                  ...fetchedVicePresidents,
+                  ...fetchedSecretaries,
+                  ...fetchedTreasurers,
+                  ...fetchedAuditors,
+                  ...fetchedPios,
+                  ...fetchedPeaceOfficers,
+                  ...fetched12Reps,
+                  ...fetched11Reps,
+                  ...fetched10Reps,
+                  ...fetched9Reps,
+                  ...fetched8Reps,
+                ]);
+              })
           ));
-          setFetchCandidate([...fetchedCandidates]);
         })
         .catch((err) => console.log(err))
         .finally(() => {

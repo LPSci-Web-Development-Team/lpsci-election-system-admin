@@ -39,7 +39,6 @@ export const ElectionTallyVotes = React.memo(() => {
           });
       }
     }, 5000);
-    setHasFetched(false);
     return () => clearInterval(intervalId);
   }, [hasFetched, temporaryFetch]);
 
