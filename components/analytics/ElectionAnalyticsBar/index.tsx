@@ -10,13 +10,8 @@ import loadable from 'loadable-components';
 // ANCHOR Scoped Models
 import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
 
-// ANCHOR Models
-import { IParty } from 'models/interfaces/Party';
-import { PARTY } from 'models/ui-models/party-list';
-
 // ANCHOR Styles
 import { EPosition } from 'models/interfaces/Candidate';
-import { CANDIDATE } from 'models/ui-models/candidate-list';
 import { BLOCK } from './styles';
 
 // ANCHOR Chart
@@ -40,23 +35,9 @@ interface IResultPosition {
 
 
 export const ElectionAnalyticsBar = React.memo(() => {
-  const [fetchParty, setFetchParty] = FetchedData.useSelectors((state) => [
-    state.fetchParty, state.setFetchParty,
+  const [fetchParty, fetchCandidate] = FetchedData.useSelectors((state) => [
+    state.fetchParty, state.fetchCandidate,
   ]);
-
-  // ANCHOR Fetch all parties
-  React.useEffect(() => {
-    const fetchedParties: IParty[] = [];
-    // TODO Fix this on production
-    PARTY.forEach((item: any) => {
-      fetchedParties.push({
-        id: item.id,
-        name: item.name,
-        hexColor: item.hexColor,
-      });
-      setFetchParty([...fetchedParties]);
-    });
-  }, [setFetchParty]);
 
   // ANCHOR Bar Graph Options
   const [options] = React.useState<any>({
@@ -105,18 +86,18 @@ export const ElectionAnalyticsBar = React.memo(() => {
       })
     ));
     resultPosition.map((item) => (
-      CANDIDATE
-        .filter((cond) => (
-          cond.party === item.id
+      fetchCandidate
+        .filter((cand) => (
+          cand.partyId !== item.id
         ))
         .map((candidate) => (
           item.position.push({
             name: candidate.position,
-            count: candidate.count,
+            count: 31,
           })
         ))
     ));
-  }, [fetchParty, resultPosition]);
+  }, [fetchCandidate, fetchParty, resultPosition]);
 
   // ANCHOR Set x axis categories
   React.useEffect(() => {
