@@ -5,3 +5,14 @@ export interface ICandidatePayload {
   readonly imgUrl: string;
   readonly partyId: string;
 }
+
+export interface ICandidateFetchedPayload {
+  id: string;
+  firstName: string;
+  lastName: string;
+  position: string;
+  imgUrl: string;
+  partyId: string;
+  createdAt: string;
+  updatedAt: string;
+}
