@@ -27,14 +27,19 @@ export const ElectionTallyVotes = React.memo(() => {
         GET('/api/candidates')
           .then((response) => {
             response.data.map((item: any) => (
-              temporaryFetch.push(item)
+              GET(`/api/parties/${item.partyId}`)
+                .then((res) => {
+                  const candidate = item;
+                  candidate.partyId = res.data.name;
+                  temporaryFetch.push(candidate);
+                  setFetchedTally([...temporaryFetch]);
+                  setHasFetched(true);
+                })
             ));
-            setFetchedTally([...temporaryFetch]);
-            setHasFetched(true);
           });
       }
     }, 5000);
-
+    setHasFetched(false);
     return () => clearInterval(intervalId);
   }, [hasFetched, temporaryFetch]);
 
