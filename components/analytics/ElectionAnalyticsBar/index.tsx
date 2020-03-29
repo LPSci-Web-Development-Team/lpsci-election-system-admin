@@ -88,12 +88,12 @@ export const ElectionAnalyticsBar = React.memo(() => {
     resultPosition.map((item) => (
       fetchCandidate
         .filter((cand) => (
-          cand.partyId !== item.id
+          cand.partyId === item.id
         ))
         .map((candidate) => (
           item.position.push({
             name: candidate.position,
-            count: 31,
+            count: candidate.count,
           })
         ))
     ));
