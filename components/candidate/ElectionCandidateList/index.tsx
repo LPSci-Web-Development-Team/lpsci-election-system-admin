@@ -11,12 +11,6 @@ import { Block } from 'baseui/block';
 // ANCHOR Scoped Models
 import { FetchedData } from '@lpsci/scoped-models/fetched-data/FetchedData';
 
-// ANCHOR Models
-import { ICandidate } from 'models/interfaces/Candidate';
-
-// ANCHOR Utils
-import { GET } from '@lpsci/utils/axios/methods';
-
 // ANCHOR Components
 import { ElectionCandidateListButton } from '../ElectionCandidateListButton';
 import { ElectionCandidateListHead } from '../ElectionCandidateListHead';
@@ -35,48 +29,26 @@ const ListContainer = styled('ul', {
 });
 
 export const ElectionCandidateList = React.memo(() => {
-  const [fetchCandidate, setFetchCandidate] = FetchedData.useSelector((state) => [
-    state.fetchCandidate, state.setFetchCandidate,
-  ]);
-
-  // ANCHOR Fetch all parties
-  React.useEffect(() => {
-    const fetchedCandidates: ICandidate[] = [];
-    // TODO Fix this on production
-    GET('/api/candidates')
-      .then((response) => {
-        response.data.forEach((item: any) => {
-          fetchedCandidates.push({
-            id: item.id,
-            firstName: item.firstName,
-            lastName: item.lastName,
-            position: item.position,
-            party: item.partyId,
-            image: item.imgUrl,
-          });
-          setFetchCandidate([...fetchedCandidates]);
-        });
-      });
-  }, [setFetchCandidate]);
+  const fetchCandidate = FetchedData.useSelector((state) => state.fetchCandidate);
 
   return (
     <ListContainer>
       <ElectionCandidateListHead />
       {
         fetchCandidate.map(({
-          id, firstName, lastName, position, party, image,
+          id, firstName, lastName, position, partyId, imgUrl,
         }) => (
           <Block key={id} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
-                <ElectionCandidatePartyTag id={party} />
+                <ElectionCandidatePartyTag id={partyId} />
               )}
               endEnhancer={() => (
                 <ElectionCandidateListButton
                   firstName={firstName}
                   lastName={lastName}
                   position={position}
-                  image={image}
+                  image={imgUrl}
                 />
               )}
             >
