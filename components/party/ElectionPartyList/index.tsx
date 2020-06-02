@@ -48,7 +48,7 @@ export const ElectionPartyList = React.memo(() => {
           fetchedParties.push({
             id: item.id,
             name: item.name,
-            color: item.hexColor,
+            hexColor: item.hexColor,
           });
           setFetchParty([...fetchedParties]);
         });
@@ -59,7 +59,7 @@ export const ElectionPartyList = React.memo(() => {
     <ListContainer>
       <ElectionPartyListHead />
       {
-        fetchParty.map(({ id, name, color }) => (
+        fetchParty.map(({ id, name, hexColor }) => (
           <Block key={id} overrides={LIST_ITEM}>
             <ListItem
               artwork={() => (
@@ -68,13 +68,13 @@ export const ElectionPartyList = React.memo(() => {
                   closeable={false}
                   variant={VARIANT.solid}
                   kind={KIND.custom}
-                  color={color}
+                  color={hexColor}
                 >
-                  {color}
+                  {hexColor}
                 </Tag>
               )}
               endEnhancer={() => (
-                <ElectionPartyListButton name={name} color={color} />
+                <ElectionPartyListButton name={name} color={hexColor} />
               )}
             >
               <ListItemLabel>

@@ -22,7 +22,7 @@ export const ElectionCandidatePartyTag = React.memo(({ id }: ICandidateTagProps)
   const [party, setParty] = React.useState<IParty>({
     id: '123',
     name: 'THIRD',
-    color: '#F2f2f2',
+    hexColor: '#F2f2f2',
   });
 
   React.useEffect(() => {
@@ -32,7 +32,7 @@ export const ElectionCandidatePartyTag = React.memo(({ id }: ICandidateTagProps)
         setParty({
           id: response.data.id,
           name: response.data.name,
-          color: response.data.hexColor,
+          hexColor: response.data.hexColor,
         });
       });
   }, [id]);
@@ -43,7 +43,7 @@ export const ElectionCandidatePartyTag = React.memo(({ id }: ICandidateTagProps)
       closeable={false}
       variant={VARIANT.solid}
       kind={KIND.custom}
-      color={party && party.color}
+      color={party && party.hexColor}
     >
       {party && party.name}
     </Tag>
