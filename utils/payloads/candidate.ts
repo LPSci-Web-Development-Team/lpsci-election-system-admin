@@ -14,4 +14,6 @@ export interface ICandidateFetchedPayload {
   imgUrl: string;
   partyId: string;
   count: number;
+  createdAt: string;
+  updatedAt: string;
 }
