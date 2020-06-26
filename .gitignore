@@ -73,6 +73,7 @@ node_modules/
 .idea
 build/
 .DS_Store
+.env
 
 yarn.lock
 yarn-error.log
