@@ -31,8 +31,14 @@
       "@lpsci/scoped-models/*": [
         "scoped-models/*"
       ],
-      "@lpsci/utils/*": [
-        "utils/*"
+      "@lpsci/api/*": [
+        "utils/api/*"
+      ],
+      "@lpsci/payloads/*": [
+        "utils/payloads/*"
+      ],
+      "@lpsci/themes/*": [
+        "utils/themes/*"
       ],
     },
   },
