@@ -12,30 +12,27 @@
     "lint:utils": "eslint \"./utils/**/*.{js,ts,tsx,json}\""
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
-    "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "@fortawesome/react-fontawesome": "^0.1.8",
     "@lpsci/hooks": "^1.0.2",
     "@lxsmnsyc/react-image": "^0.3.1",
     "@lxsmnsyc/react-scoped-model": "^0.12.1",
-    "apexcharts": "^3.15.5",
     "axios": "^0.19.2",
     "baseui": "^9.84.2",
     "date-fns": "^2.9.0",
     "dotenv": "^8.2.0",
+    "firebase": "^7.15.3",
     "interweave": "^12.5.0",
     "loadable-components": "^2.2.3",
-    "next": "^9.2.1",
-    "next-offline": "^5.0.0",
+    "next": "^9.4.4",
     "normalize.css": "^8.0.1",
-    "react": "^16.12.0",
-    "react-apexcharts": "^1.3.6",
-    "react-dom": "^16.12.0",
-    "styletron-engine-atomic": "^1.4.4",
-    "styletron-react": "^5.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons-kit": "^1.3.1",
+    "recharts": "^1.8.5",
+    "styletron-engine-atomic": "^1.4.6",
+    "styletron-react": "^5.2.7",
     "swr": "^0.2.3",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
-    "webpack": "^4.41.5"
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@types/node": "^14.0.14",
@@ -54,6 +51,6 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
-    "typescript": "^3.7.2"
+    "typescript": "^3.9.5"
   }
 }
