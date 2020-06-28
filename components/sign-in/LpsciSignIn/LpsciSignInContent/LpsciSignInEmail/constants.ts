@@ -1,5 +1,5 @@
-// ANCHOR Card Title
-export const TITLE = 'LPSci Admin Console';
+// ANCHOR Input Label
+export const LABEL = 'Email';
 
-// ANCHOR Card Image
-export const SRC = '/img/lpsci-logo.png';
+// ANCHOR Input Placeholder
+export const PLACEHOLDER = 'juandelacruz@gmail.com';

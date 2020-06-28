@@ -2,16 +2,21 @@
 import * as React from 'react';
 
 // ANCHOR Base
+import { withStyle } from 'baseui';
 import { StyledBody } from 'baseui/card';
-import { ParagraphMedium } from 'baseui/typography';
+
+// ANCHOR Styles
+import { FORM } from './styles';
+
+// ANCHOR Components
+import { LpsciSignInEmail } from './LpsciSignInEmail';
+import { LpsciSignInPassword } from './LpsciSignInPassword';
+
+const LpsciForm = withStyle(StyledBody, FORM);
 
 export const LpsciSignInContent = React.memo(() => (
-  <StyledBody>
-    <ParagraphMedium>
-      Proin ut dui sed metus pharetra hend rerit vel non
-      mi. Nulla ornare faucibus ex, non facilisis nisl.
-      Proin ut dui sed metus pharetra hend rerit vel non
-      mi. Nulla ornare faucibus ex, non facilisis nisl.
-    </ParagraphMedium>
-  </StyledBody>
+  <LpsciForm>
+    <LpsciSignInEmail />
+    <LpsciSignInPassword />
+  </LpsciForm>
 ));

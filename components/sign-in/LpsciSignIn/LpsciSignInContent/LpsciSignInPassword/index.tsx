@@ -1,39 +1,42 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Base
-import {
-  Card,
-  StyledBody,
-} from 'baseui/card';
-import { ParagraphMedium } from 'baseui/typography';
+// ANCHOR Hooks
+import { useConstant } from '@lpsci/hooks';
+
+// ANCHOR React Icons
+import { Icon } from 'react-icons-kit';
+import { lock } from 'react-icons-kit/fa/lock';
+
+// ANCHOR Models
+import { ForgotPasswordVisibility } from '@scoped-models/sign-in/ForgotPasswordVisibility';
 
 // ANCHOR Component
-import { LpsciSignInPage } from '@components/page/LpsciSignInPage';
-import { LpsciSignInAction } from './LpsciSignInAction';
-
-// ANCHOR Styles
-import { CARD } from './styles';
+import { FormField } from '@components/utils/FormField';
+import { LpsciSignInForgotPassword } from './LpsciSignInForgotPassword';
 
 // ANCHOR Constants
-import { TITLE, SRC } from './constants';
+import { LABEL, PLACEHOLDER } from './constants';
 
-export const LpsciSignIn = React.memo(() => (
-  <LpsciSignInPage>
-    <Card
-      title={TITLE}
-      headerImage={SRC}
-      overrides={CARD}
-    >
-      <StyledBody>
-        <ParagraphMedium>
-          Proin ut dui sed metus pharetra hend rerit vel non
-          mi. Nulla ornare faucibus ex, non facilisis nisl.
-          Proin ut dui sed metus pharetra hend rerit vel non
-          mi. Nulla ornare faucibus ex, non facilisis nisl.
-        </ParagraphMedium>
-      </StyledBody>
-      <LpsciSignInAction />
-    </Card>
-  </LpsciSignInPage>
-));
+export const LpsciSignInPassword = React.memo(() => {
+  const startEnhancer = useConstant(() => (
+    <Icon icon={lock} />
+  ));
+
+  const caption = useConstant(() => (
+    <ForgotPasswordVisibility.Provider>
+      <LpsciSignInForgotPassword />
+    </ForgotPasswordVisibility.Provider>
+  ));
+
+  return (
+    <FormField
+      label={LABEL}
+      caption={caption}
+      placeholder={PLACEHOLDER}
+      startEnhancer={startEnhancer}
+      type="password"
+      required
+    />
+  );
+});

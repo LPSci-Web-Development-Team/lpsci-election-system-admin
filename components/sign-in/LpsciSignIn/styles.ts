@@ -10,9 +10,9 @@ export const CARD: CardOverrides = {
       justifyContent: 'center',
       alignItems: 'center',
       paddingTop: '40px',
-      paddingRight: '24px',
+      paddingRight: '32px',
       paddingBottom: '8px',
-      paddingLeft: '24px',
+      paddingLeft: '32px',
       borderTopColor: THEME.colors.primary,
       borderRightColor: THEME.colors.primary,
       borderBottomColor: THEME.colors.primary,
@@ -29,10 +29,7 @@ export const CARD: CardOverrides = {
   },
   Contents: {
     style: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
+      width: '100%',
     },
   },
   HeaderImage: {
@@ -49,9 +46,11 @@ export const CARD: CardOverrides = {
     style: {
       textAlign: 'center',
       fontSize: '32px',
+      marginBottom: '32px',
 
       [BREAKPOINTS.small]: {
         fontSize: '24px',
+        marginBottom: '24px',
       },
     },
   },

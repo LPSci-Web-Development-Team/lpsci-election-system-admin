@@ -1,3 +1,4 @@
+import { InputOverrides } from 'baseui/input';
 import { BlockOverrides } from 'baseui/block';
 import { THEME } from '@themes/theme';
 import { FormControlOverrides } from 'baseui/form-control';
@@ -28,6 +29,14 @@ export const FORM_CONTROL: FormControlOverrides = {
   ControlContainer: {
     style: {
       position: 'relative',
+    },
+  },
+};
+
+export const INPUT: InputOverrides = {
+  Root: {
+    style: {
+      lineHeight: '1px',
     },
   },
 };

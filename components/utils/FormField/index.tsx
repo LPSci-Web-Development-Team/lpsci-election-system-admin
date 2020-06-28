@@ -14,11 +14,13 @@ import { Markup } from 'interweave';
 import { useConstantCallback } from '@lpsci/hooks';
 
 // ANCHOR Styles
-import { TOOLTIP, TEXT, FORM_CONTROL } from './styles';
+import {
+  TOOLTIP, TEXT, FORM_CONTROL, INPUT,
+} from './styles';
 
 interface IProps extends InputProps {
   label?: string;
-  caption?: string;
+  caption?: React.ReactNode;
   tooltip?: string;
   errorMessage?: string;
 }
@@ -30,6 +32,7 @@ export const FormField = React.memo(({
   caption,
   clearable,
   disabled,
+  endEnhancer,
   error,
   errorMessage,
   id,
@@ -48,6 +51,7 @@ export const FormField = React.memo(({
   placeholder,
   rows,
   size,
+  startEnhancer,
   tooltip,
   type,
   value,
@@ -91,6 +95,9 @@ export const FormField = React.memo(({
           rows={rows}
           min={min}
           max={max}
+          startEnhancer={startEnhancer}
+          endEnhancer={endEnhancer}
+          overrides={INPUT}
         />
         {(focused && tooltip) && (
           <Block overrides={TOOLTIP}>
