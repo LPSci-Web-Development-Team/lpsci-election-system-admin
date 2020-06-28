@@ -6,7 +6,7 @@ import { BREAKPOINTS } from './breakpoints';
 import { TYPOGRAPHY } from './typography';
 
 export const DARK_THEME = {
-  ...DarkTheme
+  ...DarkTheme,
   media: BREAKPOINTS,
   typography: TYPOGRAPHY,
   name: 'lpsci-dark-theme',
