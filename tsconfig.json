@@ -40,6 +40,9 @@
       "@lpsci/themes/*": [
         "utils/themes/*"
       ],
+      "@lpsci/functions/*": [
+        "utils/functions/*"
+      ],
     },
   },
   "exclude": [

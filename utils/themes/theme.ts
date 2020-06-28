@@ -1,3 +1,4 @@
+import { userTheme } from './../functions/userTheme';
 // ANCHOR Base
 import { DarkTheme, LightTheme } from 'baseui';
 import { Theme } from 'baseui/theme';
@@ -30,9 +31,8 @@ export const LIGHT_THEME: ILpsciTheme = {
   name: 'lpsci-light-theme',
 };
 
-const userTheme = localStorage.getItem("theme");
 
 // ANCHOR Smart Theme Definition
-export const THEME: ILpsciTheme = userTheme === 'dark'
-  ? DARK_THEME
-  : LIGHT_THEME;
+export const THEME: ILpsciTheme = userTheme().isLight
+  ? LIGHT_THEME
+  : DARK_THEME;
