@@ -43,8 +43,9 @@ module.exports = {
   rules: {
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "no-param-reassign": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -55,9 +56,13 @@ module.exports = {
         "tsx": "never"
       }
     ],
+    "import/no-unresolved": "error",
     "import/no-default-export": "error",
     "import/prefer-default-export": "off",
     "react/no-array-index-key": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-unsafe-member-access": "off",
   },
 };
