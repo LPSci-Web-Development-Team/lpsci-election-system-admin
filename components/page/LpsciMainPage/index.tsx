@@ -15,17 +15,17 @@ interface IProps extends IChildrenProps {
   useSidebarDrawer?: boolean;
 }
 
-export function LpsciMainPage({ hideSidebar, useSidebarDrawer, children }: IProps) {
-  return (
-    <LpsciMainLayout>
-      <LpsciMainContent useSidebarDrawer={useSidebarDrawer}>
-        {children}
-      </LpsciMainContent>
-      <LpsciSidebar
-        hideInitial={hideSidebar}
-        useDrawer={useSidebarDrawer}
-      />
-      <LpsciNavBar />
-    </LpsciMainLayout>
-  );
-}
+export const LpsciMainPage = (
+  { hideSidebar, useSidebarDrawer, children }: IProps,
+) => (
+  <LpsciMainLayout>
+    <LpsciMainContent useSidebarDrawer={useSidebarDrawer}>
+      {children}
+    </LpsciMainContent>
+    <LpsciSidebar
+      hideInitial={hideSidebar}
+      useDrawer={useSidebarDrawer}
+    />
+    <LpsciNavBar />
+  </LpsciMainLayout>
+);
