@@ -10,10 +10,18 @@ import { LpsciSignInContent } from '@components/content/LpsciSignInContent';
 
 export const LpsciSignInPage = (
   { children }: IChildrenProps,
-) => (
-  <LpsciSignInLayout>
-    <LpsciSignInContent>
-      {children}
-    </LpsciSignInContent>
-  </LpsciSignInLayout>
-);
+) => {
+  React.useEffect(() => {
+    if (window.localStorage.getItem('theme') === null) {
+      window.localStorage.setItem('theme', 'light');
+    }
+  }, []);
+
+  return (
+    <LpsciSignInLayout>
+      <LpsciSignInContent>
+        {children}
+      </LpsciSignInContent>
+    </LpsciSignInLayout>
+  );
+};

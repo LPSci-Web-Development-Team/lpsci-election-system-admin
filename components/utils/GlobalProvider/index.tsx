@@ -5,9 +5,11 @@ import * as React from 'react';
 import { Provider as StyletronProvider } from 'styletron-react';
 
 // ANCHOR Base
-import { BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkThemePrimitives } from 'baseui';
+import {
+  BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkThemePrimitives,
+} from 'baseui';
 
-// ANCHOR LPSci Hooks
+// ANCHOR Hooks
 import { useConstant } from '@lpsci/hooks';
 
 // ANCHOR Themes

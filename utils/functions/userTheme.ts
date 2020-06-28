@@ -6,7 +6,9 @@
  * localStorage with the key "theme".
  */
 export const userTheme = () => {
-  const theme = window.localStorage.getItem('theme');
+  const theme = typeof window === 'undefined'
+    ? 'light'
+    : window.localStorage.getItem('theme');
 
   return {
     theme,
