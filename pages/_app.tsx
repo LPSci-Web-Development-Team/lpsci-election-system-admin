@@ -5,7 +5,7 @@ import App from 'next/app';
 import * as React from 'react';
 
 // ANCHOR Component
-import { GlobalProvider } from '../components/GlobalProvider';
+import { GlobalProvider } from '@lpsci/components/utils/GlobalProvider';
 
 // ANCHOR CSS
 import 'normalize.css/normalize.css';

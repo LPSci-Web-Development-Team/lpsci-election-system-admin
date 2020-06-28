@@ -20,14 +20,13 @@ import { PROVIDERS } from '@lpsci/scoped-models/Providers';
 // ANCHOR Functions
 import { userTheme } from '@lpsci/functions/userTheme';
 
+// ANCHOR Types
+import { IChildrenProps } from '@lpsci/types/Common';
+
 // ANCHOR Utils
-import { Compose } from './utils/Compose';
+import { Compose } from '../Compose';
 
-interface IGlobalProviderProps {
-  children?: React.ReactNode;
-}
-
-export function GlobalProvider({ children }: IGlobalProviderProps) {
+export function GlobalProvider({ children }: IChildrenProps) {
   const theme = useConstant(() => {
     if (userTheme().isLight) {
       // Create a light theme

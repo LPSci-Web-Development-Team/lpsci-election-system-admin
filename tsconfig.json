@@ -43,6 +43,9 @@
       "@lpsci/functions/*": [
         "utils/functions/*"
       ],
+      "@lpsci/types/*": [
+        "utils/types/*"
+      ],
     },
   },
   "exclude": [

@@ -1,8 +1,11 @@
+// ANCHOR React
 import * as React from 'react';
 
-interface IProps {
+// ANCHOR Types
+import { IChildrenProps } from '@lpsci/types/Common';
+
+interface IProps extends IChildrenProps {
   elements: Array<React.FunctionComponentElement<any>>;
-  children: React.ReactNode;
 }
 
 export function Compose({ elements, children }: IProps) {
