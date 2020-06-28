@@ -21,7 +21,7 @@ import { PROVIDERS } from '@scoped-models/Providers';
 import { userTheme } from '@functions/userTheme';
 
 // ANCHOR Types
-import { IChildrenProps } from '@types/Common';
+import { IChildrenProps } from '@interfaces/Common';
 
 // ANCHOR Utils
 import { Compose } from '../Compose';

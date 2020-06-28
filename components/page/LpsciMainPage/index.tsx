@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Types
-import { IChildrenProps } from '@types/Common';
+import { IChildrenProps } from '@interfaces/Common';
 
 // ANCHOR Components
 import { LpsciMainLayout } from '@components/base/LpsciMainLayout';

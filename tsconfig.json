@@ -40,11 +40,11 @@
       "@themes/*": [
         "utils/themes/*"
       ],
+      "@interfaces/*": [
+        "utils/interfaces/*"
+      ],
       "@functions/*": [
         "utils/functions/*"
-      ],
-      "@types/*": [
-        "utils/types/*"
       ],
     },
   },
