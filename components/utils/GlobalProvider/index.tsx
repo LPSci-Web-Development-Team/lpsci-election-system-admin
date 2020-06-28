@@ -7,7 +7,7 @@ import { Provider as StyletronProvider } from 'styletron-react';
 // ANCHOR Base
 import { BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkThemePrimitives } from 'baseui';
 
-// ANCHOR Hooks
+// ANCHOR LPSci Hooks
 import { useConstant } from '@lpsci/hooks';
 
 // ANCHOR Themes

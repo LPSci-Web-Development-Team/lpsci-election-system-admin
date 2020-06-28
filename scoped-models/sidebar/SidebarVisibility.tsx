@@ -3,7 +3,7 @@ import * as React from 'react';
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
-// ANCHOR Hooks
+// ANCHOR LPSci Hooks
 import { useToggle } from '@lpsci/hooks';
 
 // ANCHOR Models

@@ -9,7 +9,6 @@ import { GlobalProvider } from '@components/utils/GlobalProvider';
 
 // ANCHOR CSS
 import 'normalize.css/normalize.css';
-import '../public/styles/parsed-link.css';
 
 // NOTE Next App requires this to be exported by default
 // eslint-disable-next-line import/no-default-export

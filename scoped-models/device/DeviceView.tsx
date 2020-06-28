@@ -1,7 +1,7 @@
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
-// ANCHOR Hooks
+// ANCHOR LPSci Hooks
 import { useWindowSize } from '@lpsci/hooks';
 
 interface IState {

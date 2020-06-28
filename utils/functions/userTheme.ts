@@ -6,11 +6,11 @@
  * localStorage with the key "theme".
  */
 export const userTheme = () => {
-  const theme = localStorage.getItem("theme");
+  const theme = window.localStorage.getItem('theme');
 
   return {
     theme,
     isLight: !theme || theme === 'light',
     isDark: theme === 'dark',
-  }
-}
+  };
+};
