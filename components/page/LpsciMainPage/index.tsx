@@ -5,7 +5,7 @@ import * as React from 'react';
 import { IChildrenProps } from '@interfaces/Common';
 
 // ANCHOR Components
-import { LpsciMainLayout } from '@components/base/LpsciMainLayout';
+import { LpsciMainLayout } from '@components/layout/LpsciMainLayout';
 import { LpsciMainContent } from '@components/content/LpsciMainContent';
 import { LpsciNavBar } from '@components/navbar/LpsciNavBar';
 import { LpsciSidebar } from '@components/sidebar/LpsciSidebar';
@@ -21,7 +21,10 @@ export function LpsciMainPage({ hideSidebar, useSidebarDrawer, children }: IProp
       <LpsciMainContent useSidebarDrawer={useSidebarDrawer}>
         {children}
       </LpsciMainContent>
-      <LpsciSidebar hideInitial={hideSidebar} useDrawer={useSidebarDrawer} />
+      <LpsciSidebar
+        hideInitial={hideSidebar}
+        useDrawer={useSidebarDrawer}
+      />
       <LpsciNavBar />
     </LpsciMainLayout>
   );
