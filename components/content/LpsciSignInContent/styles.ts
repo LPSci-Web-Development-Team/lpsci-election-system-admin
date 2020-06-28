@@ -8,7 +8,7 @@ export const BLOCK: BlockOverrides = {
   Block: {
     style: {
       display: 'flex',
-      backgroundColor: THEME.colors.backgroundInversePrimary,
+      backgroundColor: THEME.colors.backgroundTertiary,
       width: '100vw',
       height: '100vh',
       color: 'white',

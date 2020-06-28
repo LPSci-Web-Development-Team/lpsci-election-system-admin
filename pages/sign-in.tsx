@@ -32,7 +32,7 @@ export default React.memo(() => (
         description="Sign in to your Las Piñas City National Science High School account"
         width="1366"
         height="768"
-        image="public/img/lpsci-logo.png"
+        image="/img/lpsci-logo.png"
       />
     </LpsciAppHead>
     <LpsciSignInPage />

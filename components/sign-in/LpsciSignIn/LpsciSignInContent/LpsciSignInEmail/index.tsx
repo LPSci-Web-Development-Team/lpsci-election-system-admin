@@ -11,7 +11,6 @@ import { ParagraphMedium } from 'baseui/typography';
 // ANCHOR Component
 import { LpsciSignInPage } from '@components/page/LpsciSignInPage';
 import { LpsciSignInAction } from './LpsciSignInAction';
-import { LpsciSignInContent } from './LpsciSignInContent';
 
 // ANCHOR Styles
 import { CARD } from './styles';
@@ -26,7 +25,14 @@ export const LpsciSignIn = React.memo(() => (
       headerImage={SRC}
       overrides={CARD}
     >
-      <LpsciSignInContent />
+      <StyledBody>
+        <ParagraphMedium>
+          Proin ut dui sed metus pharetra hend rerit vel non
+          mi. Nulla ornare faucibus ex, non facilisis nisl.
+          Proin ut dui sed metus pharetra hend rerit vel non
+          mi. Nulla ornare faucibus ex, non facilisis nisl.
+        </ParagraphMedium>
+      </StyledBody>
       <LpsciSignInAction />
     </Card>
   </LpsciSignInPage>
