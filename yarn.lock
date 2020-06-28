@@ -1200,10 +1200,17 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@lpsci/hooks@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@lpsci/hooks/-/hooks-1.0.0.tgz#b80bd2fa9e44e0ff66bbd131c09f00154028a2c6"
-  integrity sha512-fSmKDFdIePiV84uqC5mV7XO5x+jATVH5CMte5cb0cKbvO3RaKQD4AmEwhtmmKK9e4cxCdsOWWFCMaHpreQpcqg==
+"@lpsci/hooks@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@lpsci/hooks/-/hooks-1.0.2.tgz#88a172a0f8fb1d33b66d352d23a93b512ae0a218"
+  integrity sha512-deo1xyAaVvtOmzsw0Yl1tDm76PExZqcGANnBhayENzCep5Oz3zhWLdazkurDgPId2ob2SCVp5w2OX5pNfAv9nQ==
+
+"@lxsmnsyc/react-image@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@lxsmnsyc/react-image/-/react-image-0.3.1.tgz#aafe9da935f69a3998f6c7438df708e7e495519a"
+  integrity sha512-gTCvCPceRZFgBof3d78ahmyB6vQc6XyG6MkBcNkJ/AmJrODfw3CkeNHM0RZkrQ0v+SdXsiJarCO7Yd/9Tm2BSg==
+  dependencies:
+    prop-types "^15.7.2"
 
 "@lxsmnsyc/react-scoped-model@^0.12.1":
   version "0.12.1"
