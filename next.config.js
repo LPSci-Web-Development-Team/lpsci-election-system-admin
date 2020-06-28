@@ -15,8 +15,6 @@ require('dotenv').config();
 
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
-const withOffline = require('next-offline')
-
 function foldLeft(...values) {
   return values.reduceRight((p, c) => c(p));
 }
@@ -113,7 +111,6 @@ const initialConfig = {
 };
 
 module.exports = foldLeft(
-  withOffline,
   withTSConfig,
   initialConfig,
 );
