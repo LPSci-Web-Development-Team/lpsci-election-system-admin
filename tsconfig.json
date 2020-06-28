@@ -46,6 +46,9 @@
       "@functions/*": [
         "utils/functions/*"
       ],
+      "@firebase/*": [
+        "utils/firebase/*"
+      ],
     },
   },
   "exclude": [
