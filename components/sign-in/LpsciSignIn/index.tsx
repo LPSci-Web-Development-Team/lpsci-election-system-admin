@@ -2,16 +2,14 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import {
-  Card,
-  StyledBody,
-} from 'baseui/card';
-import { ParagraphMedium } from 'baseui/typography';
+import { Card } from 'baseui/card';
+
+// ANCHOR Models
+import { SignInForm } from '@scoped-models/sign-in/SignInForm';
 
 // ANCHOR Component
 import { LpsciSignInPage } from '@components/page/LpsciSignInPage';
-import { LpsciSignInAction } from './LpsciSignInAction';
-import { LpsciSignInContent } from './LpsciSignInContent';
+import { LpsciSignInBody } from './LpsciSignInBody';
 
 // ANCHOR Styles
 import { CARD } from './styles';
@@ -26,8 +24,9 @@ export const LpsciSignIn = React.memo(() => (
       headerImage={SRC}
       overrides={CARD}
     >
-      <LpsciSignInContent />
-      <LpsciSignInAction />
+      <SignInForm.Provider>
+        <LpsciSignInBody />
+      </SignInForm.Provider>
     </Card>
   </LpsciSignInPage>
 ));
