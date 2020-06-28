@@ -1,4 +1,13 @@
 // ANCHOR React
 import * as React from 'react';
 
-export const LpsciSignIn = React.memo(() => null);
+// ANCHOR Component
+import { LpsciSignInPage } from '@components/page/LpsciSignInPage';
+
+export const LpsciSignIn = React.memo(() => (
+  <LpsciSignInPage>
+    <p>
+      Hi
+    </p>
+  </LpsciSignInPage>
+));
