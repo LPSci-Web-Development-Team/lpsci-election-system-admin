@@ -23,6 +23,7 @@
     "baseui": "^9.84.2",
     "date-fns": "^2.9.0",
     "dotenv": "^8.2.0",
+    "interweave": "^12.5.0",
     "loadable-components": "^2.2.3",
     "next": "^9.2.1",
     "next-offline": "^5.0.0",
