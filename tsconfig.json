@@ -22,28 +22,28 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@lpsci/components/*": [
+      "@components/*": [
         "components/*"
       ],
-      "@lpsci/pages/*": [
+      "@pages/*": [
         "pages/*"
       ],
-      "@lpsci/scoped-models/*": [
+      "@scoped-models/*": [
         "scoped-models/*"
       ],
-      "@lpsci/api/*": [
+      "@api/*": [
         "utils/api/*"
       ],
-      "@lpsci/payloads/*": [
+      "@payloads/*": [
         "utils/payloads/*"
       ],
-      "@lpsci/themes/*": [
+      "@themes/*": [
         "utils/themes/*"
       ],
-      "@lpsci/functions/*": [
+      "@functions/*": [
         "utils/functions/*"
       ],
-      "@lpsci/types/*": [
+      "@types/*": [
         "utils/types/*"
       ],
     },

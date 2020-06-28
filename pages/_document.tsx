@@ -10,7 +10,7 @@ import Document, {
 import { Client, Sheet } from 'styletron-engine-atomic';
 
 // ANCHOR Utils
-import { styletron } from '@lpsci/themes/styletron';
+import { styletron } from '@themes/styletron';
 
 function getStylesheets() {
   if (styletron instanceof Client) {

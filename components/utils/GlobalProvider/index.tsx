@@ -11,17 +11,17 @@ import { BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkT
 import { useConstant } from '@lpsci/hooks';
 
 // ANCHOR Themes
-import { debug, styletron } from '@lpsci/themes/styletron';
-import { LIGHT_THEME, DARK_THEME } from '@lpsci/themes/theme';
+import { debug, styletron } from '@themes/styletron';
+import { LIGHT_THEME, DARK_THEME } from '@themes/theme';
 
 // ANCHOR Providers
-import { PROVIDERS } from '@lpsci/scoped-models/Providers';
+import { PROVIDERS } from '@scoped-models/Providers';
 
 // ANCHOR Functions
-import { userTheme } from '@lpsci/functions/userTheme';
+import { userTheme } from '@functions/userTheme';
 
 // ANCHOR Types
-import { IChildrenProps } from '@lpsci/types/Common';
+import { IChildrenProps } from '@types/Common';
 
 // ANCHOR Utils
 import { Compose } from '../Compose';

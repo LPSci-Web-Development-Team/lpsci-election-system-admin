@@ -1,6 +1,6 @@
 // ANCHOR Theme
-import { styletron } from '@lpsci/themes/styletron';
-import { THEME } from '@lpsci/themes/theme';
+import { styletron } from '@themes/styletron';
+import { THEME } from '@themes/theme';
 
 // ANCHOR Styletron
 import { StyleObject } from 'styletron-react';

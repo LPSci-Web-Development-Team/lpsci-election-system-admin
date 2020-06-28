@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Types
-import { IChildrenProps } from '@lpsci/types/Common';
+import { IChildrenProps } from '@types/Common';
 
 interface IProps extends IChildrenProps {
   elements: Array<React.FunctionComponentElement<any>>;
