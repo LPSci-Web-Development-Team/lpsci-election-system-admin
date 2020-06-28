@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // ANCHOR Base
 import { FormControl } from 'baseui/form-control';
-import { Input, SIZE } from 'baseui/input';
+import { Input, SIZE, InputProps } from 'baseui/input';
 import { Block } from 'baseui/block';
 import { LabelSmall } from 'baseui/typography';
 
@@ -14,34 +14,43 @@ import { Markup } from 'interweave';
 import { useConstantCallback } from '@lpsci/hooks';
 
 // ANCHOR Styles
-import { TOOLTIP, TEXT } from './styles';
+import { TOOLTIP, TEXT, FORM_CONTROL } from './styles';
 
-interface IProps {
+interface IProps extends InputProps {
   label?: string;
   caption?: string;
   tooltip?: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  autoComplete?: string;
-  placeholder?: string;
-  required?: boolean;
   errorMessage?: string;
-  error?: boolean;
-  type?: string;
 }
 
 export const FormField = React.memo(({
-  label,
-  caption,
-  tooltip,
-  onChange,
-  onKeyPress,
+  adjoined,
   autoComplete,
-  placeholder,
-  required,
+  autoFocus,
+  caption,
+  clearable,
+  disabled,
   error,
   errorMessage,
+  id,
+  inputMode,
+  inputRef,
+  label,
+  max,
+  min,
+  name,
+  onChange,
+  onKeyDown,
+  onKeyPress,
+  onKeyUp,
+  positive,
+  pattern,
+  placeholder,
+  rows,
+  size,
+  tooltip,
   type,
+  value,
 }: IProps) => {
   const [focused, setFocused] = React.useState<boolean>(false);
 
@@ -53,19 +62,35 @@ export const FormField = React.memo(({
       label={label}
       caption={caption}
       error={error && errorMessage}
+      overrides={FORM_CONTROL}
     >
       <>
         <Input
-          onChange={onChange}
-          onKeyPress={onKeyPress}
+          adjoined={adjoined}
           autoComplete={autoComplete}
-          placeholder={placeholder}
-          size={SIZE.compact}
-          onFocus={focus}
-          onBlur={blur}
-          required={required}
+          autoFocus={autoFocus}
+          clearable={clearable}
+          disabled={disabled}
           error={error}
+          positive={positive}
+          id={id}
+          inputMode={inputMode}
+          pattern={pattern}
+          placeholder={placeholder}
+          inputRef={inputRef}
+          name={name}
+          onBlur={blur}
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          onKeyPress={onKeyPress}
+          onKeyUp={onKeyUp}
+          onFocus={focus}
+          size={size}
           type={type}
+          value={value}
+          rows={rows}
+          min={min}
+          max={max}
         />
         {(focused && tooltip) && (
           <Block overrides={TOOLTIP}>

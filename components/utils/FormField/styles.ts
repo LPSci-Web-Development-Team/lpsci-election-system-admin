@@ -1,5 +1,6 @@
 import { BlockOverrides } from 'baseui/block';
 import { THEME } from '@themes/theme';
+import { FormControlOverrides } from 'baseui/form-control';
 
 export const TOOLTIP: BlockOverrides = {
   Block: {
@@ -19,6 +20,14 @@ export const TEXT: BlockOverrides = {
   Block: {
     style: {
       color: THEME.colors.tooltipText,
+    },
+  },
+};
+
+export const FORM_CONTROL: FormControlOverrides = {
+  ControlContainer: {
+    style: {
+      position: 'relative',
     },
   },
 };
