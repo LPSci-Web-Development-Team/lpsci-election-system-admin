@@ -1,16 +1,20 @@
 // ANCHOR Base
-import { LightTheme } from 'baseui';
+import { DarkTheme, LightTheme } from 'baseui';
 
 // ANCHOR Theme
+import { BREAKPOINTS } from './breakpoints';
 import { TYPOGRAPHY } from './typography';
 
-export const THEME = {
-  colors: {
-    ...LightTheme.colors,
-  },
-  lighting: {
-    ...LightTheme.lighting,
-  },
+export const DARK_THEME = {
+  ...DarkTheme
+  media: BREAKPOINTS,
   typography: TYPOGRAPHY,
-  name: 'election-theme',
+  name: 'lpsci-dark-theme',
+};
+
+export const LIGHT_THEME = {
+  ...LightTheme,
+  media: BREAKPOINTS,
+  typography: TYPOGRAPHY,
+  name: 'lpsci-light-theme',
 };
