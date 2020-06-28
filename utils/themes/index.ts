@@ -5,6 +5,7 @@ import { DarkTheme, LightTheme } from 'baseui';
 import { BREAKPOINTS } from './breakpoints';
 import { TYPOGRAPHY } from './typography';
 
+// ANCHOR Dark Theme Definition
 export const DARK_THEME = {
   ...DarkTheme,
   media: BREAKPOINTS,
@@ -12,6 +13,7 @@ export const DARK_THEME = {
   name: 'lpsci-dark-theme',
 };
 
+// ANCHOR Light Theme Definition
 export const LIGHT_THEME = {
   ...LightTheme,
   media: BREAKPOINTS,
