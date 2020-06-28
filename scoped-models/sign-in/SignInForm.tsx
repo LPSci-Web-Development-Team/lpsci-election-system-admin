@@ -8,6 +8,9 @@ import createModel from '@lxsmnsyc/react-scoped-model';
 import { useDebouncedState, useDebouncedCallback } from '@lpsci/hooks';
 import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
 
+// ANCHOR Functions
+import { isEmail } from '@functions/isEmail';
+
 interface IState {
   state: {
     email: State<string>;
@@ -55,7 +58,7 @@ export const SignInForm = createModel<IState>(() => {
     await signIn();
   }, [setLoading, signIn]);
 
-  const validEmail = !!email;
+  const validEmail = isEmail(email as string);
   const validPassword = password.length > 7;
   const validAll = validEmail && validPassword;
 
