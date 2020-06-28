@@ -9,7 +9,7 @@ import {
   BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkThemePrimitives,
 } from 'baseui';
 
-// ANCHOR Hooks
+// ANCHOR LPSci Hooks
 import { useConstant } from '@lpsci/hooks';
 
 // ANCHOR Themes

@@ -9,6 +9,17 @@ export const BLOCK: BlockOverrides = {
     style: {
       display: 'flex',
       backgroundColor: THEME.colors.backgroundInversePrimary,
+      width: '100vw',
+      height: '100vh',
+      color: 'white',
+    },
+  },
+};
+
+export const AREA: BlockOverrides = {
+  Block: {
+    style: {
+      display: 'flex',
       width: '100%',
       justifyContent: 'center',
       alignItems: 'center',

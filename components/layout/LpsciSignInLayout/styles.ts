@@ -7,6 +7,8 @@ export const BLOCK: BlockOverrides = {
       width: '100vw',
       height: '100vh',
       overflow: 'hidden',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   },
 };
