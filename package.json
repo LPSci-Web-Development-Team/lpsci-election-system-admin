@@ -12,7 +12,7 @@
     "lint:utils": "eslint \"./utils/**/*.{js,ts,tsx,json}\""
   },
   "dependencies": {
-    "@lpsci/hooks": "^1.0.4",
+    "@lpsci/hooks": "^1.0.6",
     "@lxsmnsyc/react-image": "^0.3.1",
     "@lxsmnsyc/react-scoped-model": "^0.12.1",
     "axios": "^0.19.2",

@@ -11,6 +11,9 @@ import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
 // ANCHOR Functions
 import { isEmail } from '@functions/isEmail';
 
+// ANCHOR Firebase
+import { useAuthSignIn } from '@firebase/hooks/useAuthSignIn';
+
 interface IState {
   state: {
     email: State<string>;
@@ -21,7 +24,7 @@ interface IState {
   handler: {
     email: SetState<string>;
     password: SetState<string>;
-    submit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+    submit: (event: React.FormEvent<HTMLFormElement>) => void;
   }
   valid: {
     all: boolean,
@@ -37,6 +40,8 @@ export const SignInForm = createModel<IState>(() => {
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string>('');
 
+  const { call } = useAuthSignIn();
+
   const signIn = useDebouncedCallback(() => {
     call(email, password)
       .then(
@@ -48,17 +53,17 @@ export const SignInForm = createModel<IState>(() => {
     call, email, password, setLoading, setError,
   ]);
 
-  const submit = React.useCallback(async (
+  const submit = React.useCallback((
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
 
     setLoading(true);
 
-    await signIn();
+    signIn();
   }, [setLoading, signIn]);
 
-  const validEmail = isEmail(email as string);
+  const validEmail = isEmail(email);
   const validPassword = password.length > 7;
   const validAll = validEmail && validPassword;
 
