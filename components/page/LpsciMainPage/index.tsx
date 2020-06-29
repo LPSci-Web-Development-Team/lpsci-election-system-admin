@@ -8,15 +8,15 @@ import { IChildrenProps } from '@interfaces/Common';
 import { LpsciMainLayout } from '@components/layout/LpsciMainLayout';
 import { LpsciMainContent } from '@components/content/LpsciMainContent';
 import { LpsciNavBar } from '@components/navbar/LpsciNavBar';
-import { LpsciSidebar } from '@components/sidebar/LpsciSidebar';
+import { LpsciSidebar } from '@components/sidebar/LpsciSidebar/LpsciSidebarContent';
 
 interface IProps extends IChildrenProps {
   hideSidebar?: boolean;
-  useSidebarDrawer?: boolean;
+  useSidebarPanel?: boolean;
 }
 
 export const LpsciMainPage = (
-  { hideSidebar, useSidebarDrawer, children }: IProps,
+  { hideSidebar, useSidebarPanel, children }: IProps,
 ) => {
   React.useEffect(() => {
     if (window.localStorage.getItem('theme') === null) {
@@ -26,12 +26,12 @@ export const LpsciMainPage = (
 
   return (
     <LpsciMainLayout>
-      <LpsciMainContent useSidebarDrawer={useSidebarDrawer}>
+      <LpsciMainContent useSidebarPanel={useSidebarPanel}>
         {children}
       </LpsciMainContent>
       <LpsciSidebar
         hideInitial={hideSidebar}
-        useDrawer={useSidebarDrawer}
+        usePanel={useSidebarPanel}
       />
       <LpsciNavBar />
     </LpsciMainLayout>
