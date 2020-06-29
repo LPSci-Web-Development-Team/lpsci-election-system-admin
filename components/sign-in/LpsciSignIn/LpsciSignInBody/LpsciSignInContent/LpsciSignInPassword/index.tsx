@@ -12,12 +12,12 @@ import { lock } from 'react-icons-kit/fa/lock';
 import { ForgotPasswordVisibility } from '@scoped-models/sign-in/ForgotPasswordVisibility';
 import { SignInForm } from '@scoped-models/sign-in/SignInForm';
 
+// ANCHOR Constants
+import { PASSWORD_LABEL, PASSWORD_PLACEHOLDER } from '@constants/forms/password';
+
 // ANCHOR Component
 import { FormField } from '@components/utils/FormField';
 import { LpsciSignInForgotPassword } from './LpsciSignInForgotPassword';
-
-// ANCHOR Constants
-import { LABEL, PLACEHOLDER } from './constants';
 
 export const LpsciSignInPassword = React.memo(() => {
   const setPassword = SignInForm.useSelector((state) => state.handler.password);
@@ -38,9 +38,9 @@ export const LpsciSignInPassword = React.memo(() => {
 
   return (
     <FormField
-      label={LABEL}
+      label={PASSWORD_LABEL}
       caption={caption}
-      placeholder={PLACEHOLDER}
+      placeholder={PASSWORD_PLACEHOLDER}
       startEnhancer={startEnhancer}
       onChange={onChange}
       type="password"

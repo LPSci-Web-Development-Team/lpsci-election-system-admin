@@ -15,7 +15,7 @@ import { SignInForm } from '@scoped-models/sign-in/SignInForm';
 import { FormField } from '@components/utils/FormField';
 
 // ANCHOR Constants
-import { LABEL, PLACEHOLDER } from './constants';
+import { EMAIL_LABEL, EMAIL_PLACEHOLDER } from '@constants/forms/email';
 
 export const LpsciSignInEmail = React.memo(() => {
   const setEmail = SignInForm.useSelector((state) => state.handler.email);
@@ -30,8 +30,8 @@ export const LpsciSignInEmail = React.memo(() => {
 
   return (
     <FormField
-      label={LABEL}
-      placeholder={PLACEHOLDER}
+      label={EMAIL_LABEL}
+      placeholder={EMAIL_PLACEHOLDER}
       startEnhancer={startEnhancer}
       onChange={onChange}
       type="email"

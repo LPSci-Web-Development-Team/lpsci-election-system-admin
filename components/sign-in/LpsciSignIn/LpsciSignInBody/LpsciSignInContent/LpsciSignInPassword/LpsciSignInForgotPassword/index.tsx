@@ -8,7 +8,7 @@ import { Button, KIND, SIZE } from 'baseui/button';
 import { ForgotPasswordVisibility } from '@scoped-models/sign-in/ForgotPasswordVisibility';
 
 // ANCHOR Constants
-import { TITLE } from './constants';
+import { PASSWORD_CAPTION } from '@constants/forms/password';
 
 // ANCHOR Styles
 import { BUTTON } from './styles';
@@ -24,7 +24,7 @@ export const LpsciSignInForgotPassword = React.memo(() => {
       overrides={BUTTON}
       type="button"
     >
-      {TITLE}
+      {PASSWORD_CAPTION}
     </Button>
   );
 });
