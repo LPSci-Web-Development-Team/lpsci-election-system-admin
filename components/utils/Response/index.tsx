@@ -7,12 +7,12 @@ import { KIND, Notification } from 'baseui/notification';
 // ANCHOR Styles
 import { NOTIFICATION } from './styles';
 
-interface ILyonSignUpErrorProps {
+interface ILpsciSignUpErrorProps {
   message?: string;
   kind: KIND[keyof KIND];
 }
 
-export const Response = React.memo(({ message, kind }: ILyonSignUpErrorProps) => {
+export const Response = React.memo(({ message, kind }: ILpsciSignUpErrorProps) => {
   if (!message) {
     return null;
   }

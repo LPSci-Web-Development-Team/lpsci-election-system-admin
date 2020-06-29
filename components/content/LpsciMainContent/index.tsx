@@ -19,7 +19,6 @@ import { BLOCK, DESKTOP_COLUMN, MOBILE_COLUMN } from './styles';
 
 interface IProps extends IChildrenProps {
   useSidebarDrawer?: boolean;
-  children: React.ReactNode;
 }
 
 export const LpsciMainContent = (

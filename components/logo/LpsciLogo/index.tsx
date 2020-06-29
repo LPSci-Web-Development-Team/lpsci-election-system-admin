@@ -45,6 +45,10 @@ export const LpsciLogo = React.memo((
 ) => {
   const container = React.useRef(null);
 
+  const Fallback = React.useMemo(() => (
+    <LogoSkeleton $width={width} $height={height} />
+  ), [height, width]);
+
   return (
     <Link href={LINK_URL} passHref>
       <StyledLink>
@@ -56,7 +60,7 @@ export const LpsciLogo = React.memo((
           <StyledImage
             src={IMG_SOURCE}
             alt={IMG_ALT}
-            fallback={LogoSkeleton}
+            fallback={Fallback}
             $width={width}
             $height={height}
             containerRef={container}

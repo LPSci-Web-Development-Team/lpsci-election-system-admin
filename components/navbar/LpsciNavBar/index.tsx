@@ -9,14 +9,16 @@ import { HeaderNavigation } from 'baseui/header-navigation';
 import { HEADER_NAVIGATION, BLOCK } from './styles';
 
 // ANCHOR Components
-// import { LyonNavBarLeft } from './LyonNavCenterLeft';
-// import { LyonNavBarCenter } from './LyonNavBarCenter';
-// import { LyonNavBarRight } from './LyonNavCenterRight';
+import { LpsciNavBarLeft } from './LpsciNavBarLeft';
+import { LpsciNavBarRight } from './LpsciNavBarRight';
+import { LpsciNavBarCenter } from './LpsciNavBarCenter';
 
 export const LpsciNavBar = React.memo(() => (
   <Block overrides={BLOCK}>
     <HeaderNavigation overrides={HEADER_NAVIGATION}>
-      <p>Hi</p>
+      <LpsciNavBarLeft />
+      <LpsciNavBarCenter />
+      <LpsciNavBarRight />
     </HeaderNavigation>
   </Block>
 ));
