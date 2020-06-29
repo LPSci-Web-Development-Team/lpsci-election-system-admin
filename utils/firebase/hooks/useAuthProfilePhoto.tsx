@@ -1,36 +1,30 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Themes
+import { THEME } from '@themes/theme';
+
 // ANCHOR Hooks
 import { useAuthState } from './useAuthState';
 
 // ANCHOR Base URL for UI Avatar
-const BASE_URL = 'https://ui-avatars.com/api/?background=5B36C9&color=ffffff&size=256&name=';
-
-const EMPTY = '?';
+const BASE_URL = `https://ui-avatars.com/api/?background=${(THEME.colors.primary).slice(1)}&color=${(THEME.colors.backgroundPrimary).slice(1)}&size=256&name=`;
 
 export function useAuthProfilePhoto() {
   // get user data
   const { user } = useAuthState();
 
-  const name = user ? user.displayName : EMPTY;
+  const name = user ? (user.displayName ?? 'Cedrick Castro') : 'Cedrick Castro';
 
   // generate avatar from username
   const avatar = React.useMemo(() => `${BASE_URL}${name}`, [name]);
 
   return React.useMemo(() => {
     // Check if user exists
-    if (user) {
-      // Check if there is a photoU
-      if (user.photoURL) {
-        // Format to photo cdn
-        return user.photoURL;
-      }
-
-      // return a generated avatar cdn
-      return avatar;
+    if (user && user.photoURL) {
+      return user.photoURL;
     }
 
-    return EMPTY;
+    return avatar;
   }, [avatar, user]);
 }
