@@ -9,13 +9,14 @@ import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 import { LpsciSidebarDrawer } from './LpsciSidebarDrawer';
 import { LpsciSidebarPanel } from './LpsciSidebarPanel';
 import { LpsciSidebarContent } from './LpsciSidebarContent';
+import { LpsciLargeSidebarContent } from '../LpsciLargeSidebar';
 
 interface IProps {
   hideInitial?: boolean;
   usePanel?: boolean;
 }
 
-export const LpsciSidebar = React.memo(({ hideInitial, usePanel }: IProps) => {
+export const LpsciMiniSidebar = React.memo(({ hideInitial, usePanel }: IProps) => {
   const isDesktop = DeviceView.useSelector((state) => state.isDesktop);
 
   const hide = SidebarVisibility.useSelector((state) => state.hide);
@@ -36,6 +37,7 @@ export const LpsciSidebar = React.memo(({ hideInitial, usePanel }: IProps) => {
       {(!isDesktop || usePanel) && (
         <LpsciSidebarPanel>
           <LpsciSidebarContent />
+          <LpsciLargeSidebarContent />
         </LpsciSidebarPanel>
       )}
     </>

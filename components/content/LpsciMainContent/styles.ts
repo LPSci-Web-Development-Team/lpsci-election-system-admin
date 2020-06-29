@@ -13,6 +13,15 @@ export const BLOCK: BlockOverrides = {
   },
 };
 
+export const CONTENT: BlockOverrides = {
+  Block: {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: '240px auto',
+    },
+  },
+};
+
 /**
  * ANCHOR Grid column definition for mobile
  *

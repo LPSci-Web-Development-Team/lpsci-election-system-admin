@@ -3,19 +3,22 @@ import { DrawerOverrides } from 'baseui/drawer';
 export const DRAWER: DrawerOverrides = {
   Root: {
     style: {
-      width: '240px',
+      width: '300px',
     },
   },
   DrawerContainer: {
     style: {
-      width: '240px',
+      width: '300px',
     },
   },
   DrawerBody: {
     style: {
+      marginTop: 0,
       marginLeft: 0,
       marginRight: 0,
       marginBottom: 0,
+      display: 'grid',
+      gridTemplateColumns: '68px auto',
     },
   },
 };
