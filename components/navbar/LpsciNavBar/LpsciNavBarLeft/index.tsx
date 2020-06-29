@@ -10,6 +10,9 @@ import { styled } from 'baseui';
 // ANCHOR Models
 import { DeviceView } from '@scoped-models/device/DeviceView';
 
+// ANCHOR Constants
+import { LOGO_TEXT } from '@constants/logo';
+
 // ANCHOR Components
 import { LpsciLogo } from '@components/logo/LpsciLogo';
 import { LpsciNavBarBurger } from './LpsciNavBarBurger';
@@ -31,7 +34,7 @@ export const LpsciNavBarLeft = React.memo(() => {
             <Block overrides={BLOCK}>
               <LpsciLogo height="24px" />
               <LabelMedium overrides={TEXT}>
-                LPSci Admin Console
+                {LOGO_TEXT}
               </LabelMedium>
             </Block>
           </LpsciLink>
