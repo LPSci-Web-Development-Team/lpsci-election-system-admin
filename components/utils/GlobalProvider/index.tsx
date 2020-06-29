@@ -9,9 +9,6 @@ import {
   BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkThemePrimitives,
 } from 'baseui';
 
-// ANCHOR LPSci Hooks
-import { useConstant } from '@lpsci/hooks';
-
 // ANCHOR Themes
 import { debug, styletron } from '@themes/styletron';
 import { LIGHT_THEME, DARK_THEME } from '@themes/theme';
@@ -29,15 +26,17 @@ import { IChildrenProps } from '@interfaces/Common';
 import { Compose } from '../Compose';
 
 export function GlobalProvider({ children }: IChildrenProps) {
-  const theme = useConstant(() => {
-    if (userTheme().isLight) {
+  const { isLight } = userTheme();
+
+  const theme = React.useMemo(() => {
+    if (isLight) {
       // Create a light theme
       return createTheme(lightThemePrimitives, LIGHT_THEME);
     }
 
     // Create a dark theme
     return createDarkTheme(darkThemePrimitives, DARK_THEME);
-  });
+  }, [isLight]);
 
   return (
     <Compose elements={PROVIDERS()}>
