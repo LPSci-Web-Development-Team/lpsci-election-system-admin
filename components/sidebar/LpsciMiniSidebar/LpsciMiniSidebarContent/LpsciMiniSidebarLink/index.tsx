@@ -20,10 +20,12 @@ import { IMiniSidebar } from '@interfaces/Sidebar';
 import { BUTTON, TEXT } from './styles';
 
 export const LpsciMiniSidebarLink = React.memo((
-  { icon, label, key }: IMiniSidebar,
+  {
+    icon, label, key, sublinks,
+  }: IMiniSidebar,
 ) => {
   const onClick = useConstantCallback(() => {
-    console.log(key);
+    console.log(key, sublinks);
   });
 
   return (
