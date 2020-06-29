@@ -31,6 +31,9 @@
       "@scoped-models/*": [
         "scoped-models/*"
       ],
+      "@constants/*": [
+        "constants/*"
+      ],
       "@api/*": [
         "utils/api/*"
       ],
