@@ -8,7 +8,7 @@ import { IChildrenProps } from '@interfaces/Common';
 import { LpsciMainLayout } from '@components/layout/LpsciMainLayout';
 import { LpsciMainContent } from '@components/content/LpsciMainContent';
 import { LpsciNavBar } from '@components/navbar/LpsciNavBar';
-import { LpsciSidebar } from '@components/sidebar/LpsciSidebar/LpsciSidebarContent';
+import { LpsciSidebar } from '@components/sidebar/LpsciSidebar';
 
 interface IProps extends IChildrenProps {
   hideSidebar?: boolean;

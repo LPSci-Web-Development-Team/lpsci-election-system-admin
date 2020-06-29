@@ -1,6 +1,5 @@
 import { THEME } from '@themes/theme';
 import { CardOverrides } from 'baseui/card';
-import { BREAKPOINTS } from '@themes/breakpoints';
 
 export const CARD: CardOverrides = {
   Root: {
@@ -20,7 +19,7 @@ export const CARD: CardOverrides = {
       backgroundColor: THEME.colors.backgroundPrimary,
       width: '32%',
 
-      [BREAKPOINTS.small]: {
+      [THEME.media.small]: {
         width: '80%',
         paddingRight: '16px',
         paddingLeft: '16px',
@@ -37,7 +36,7 @@ export const CARD: CardOverrides = {
       height: '112px',
       marginBottom: 0,
 
-      [BREAKPOINTS.small]: {
+      [THEME.media.small]: {
         height: '96px',
       },
     },
@@ -48,7 +47,7 @@ export const CARD: CardOverrides = {
       fontSize: '32px',
       marginBottom: '32px',
 
-      [BREAKPOINTS.small]: {
+      [THEME.media.small]: {
         fontSize: '24px',
         marginBottom: '24px',
       },

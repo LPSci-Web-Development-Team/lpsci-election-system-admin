@@ -15,8 +15,9 @@ interface IProps {
   usePanel?: boolean;
 }
 
-export const LyonSidebar = React.memo(({ hideInitial, usePanel }: IProps) => {
+export const LpsciSidebar = React.memo(({ hideInitial, usePanel }: IProps) => {
   const isDesktop = DeviceView.useSelector((state) => state.isDesktop);
+
   const hide = SidebarVisibility.useSelector((state) => state.hide);
 
   React.useEffect(() => {
