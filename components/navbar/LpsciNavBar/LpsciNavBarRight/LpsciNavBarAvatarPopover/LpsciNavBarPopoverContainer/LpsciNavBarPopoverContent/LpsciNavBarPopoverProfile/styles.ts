@@ -11,7 +11,7 @@ export const BLOCK: BlockOverrides = {
       paddingRight: '32px',
       paddingTop: '16px',
       paddingBottom: '16px',
-      backgroundColor: THEME.colors.backgroundPrimary,
+      backgroundColor: THEME.colors.backgroundSecondary,
       cursor: 'pointer',
     },
   },

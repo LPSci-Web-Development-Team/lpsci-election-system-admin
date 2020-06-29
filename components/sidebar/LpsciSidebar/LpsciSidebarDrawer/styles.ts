@@ -7,7 +7,7 @@ export const BLOCK: BlockOverrides = {
     style: {
       gridColumn: '1 / 2',
       gridRow: '2 / 3',
-      backgroundColor: THEME.colors.backgroundSecondary,
+      backgroundColor: THEME.colors.backgroundTertiary,
       overflowX: 'hidden',
       boxShadow: THEME.shadow.shadow500,
     },

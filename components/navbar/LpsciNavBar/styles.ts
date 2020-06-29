@@ -12,6 +12,7 @@ export const HEADER_NAVIGATION: HeaderNavigationOverrides = {
       borderBottomStyle: 'none',
       display: 'flex',
       justifyContent: 'space-between',
+      backgroundColor: THEME.colors.backgroundSecondary,
     },
   },
 };

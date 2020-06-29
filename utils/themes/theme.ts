@@ -19,6 +19,7 @@ interface IGeneralTheme {
     xxxlarge: string;
   },
   shadow: {
+    shadow300: string;
     shadow400: string;
     shadow500: string;
     shadow600: string;

@@ -12,11 +12,13 @@ export const CARD: CardOverrides = {
       paddingRight: '32px',
       paddingBottom: '8px',
       paddingLeft: '32px',
-      borderTopColor: THEME.colors.primary,
-      borderRightColor: THEME.colors.primary,
-      borderBottomColor: THEME.colors.primary,
-      borderLeftColor: THEME.colors.primary,
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      borderBottomWidth: 0,
+      borderLeftWidth: 0,
+      boxShadow: THEME.shadow.shadow300,
       backgroundColor: THEME.colors.backgroundPrimary,
+      borderRadius: '10px',
       width: '32%',
 
       [THEME.media.small]: {
