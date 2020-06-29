@@ -4,6 +4,9 @@ import * as React from 'react';
 // ANCHOR Base
 import { Block } from 'baseui/block';
 
+// ANCHOR Constants
+import { NAV_LINKS } from '@constants/navbar';
+
 // ANCHOR Components
 import { LpsciNavBarPopoverProfile } from './LpsciNavBarPopoverProfile';
 import { LpsciNavBarPopoverLogout } from './LpsciNavBarPopoverLogout';
@@ -12,14 +15,11 @@ import { LpsciNavBarPopoverLink } from './LpsciNavBarPopoverItemLink';
 // ANCHOR Styles
 import { BLOCK, ROOT } from './styles';
 
-// ANCHOR Constants
-import { LINKS } from './constants';
-
 export const LpsciNavBarPopoverContent = React.memo(() => (
   <Block overrides={ROOT}>
     <LpsciNavBarPopoverProfile />
     <Block overrides={BLOCK}>
-      {LINKS.map((item, key) => (
+      {NAV_LINKS.map((item, key) => (
         <LpsciNavBarPopoverLink
           key={key}
           label={item.label}

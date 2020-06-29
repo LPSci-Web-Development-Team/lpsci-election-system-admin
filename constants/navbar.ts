@@ -1,14 +1,11 @@
 // ANCHOR React Icons
 import { user } from 'react-icons-kit/fa/user';
 
-export interface ILink {
-  label: string;
-  href: string;
-  as?: string;
-  icon: any;
-}
+// ANCHOR Interfaces
+import { INavLink } from '@interfaces/Navbar';
 
-export const LINKS: ILink[] = [
+// ANCHOR Popover links
+export const NAV_LINKS: INavLink[] = [
   {
     label: 'My Profile',
     href: '/profile',
