@@ -19,7 +19,7 @@ export const DRAWER: DrawerOverrides = {
       marginRight: 0,
       marginBottom: 0,
       display: 'grid',
-      gridTemplateColumns: '68px auto',
+      gridTemplateColumns: '72px auto',
     },
   },
 };

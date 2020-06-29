@@ -6,14 +6,17 @@ import { Block } from 'baseui/block';
 
 // ANCHOR Component
 import { Scrollbar } from '@components/utils/Scrollbar';
+import { LpsciMiniSidebarLink } from './LpsciMiniSidebarLink';
 
 // ANCHOR Styles
 import { MINI } from './styles';
 
-export const LpsciSidebarContent = React.memo(() => (
+export const LpsciMiniSidebarContent = React.memo(() => (
   <Scrollbar>
     <Block overrides={MINI}>
-      Mini
+      <LpsciMiniSidebarLink />
+      <LpsciMiniSidebarLink />
+      <LpsciMiniSidebarLink />
     </Block>
   </Scrollbar>
 ));

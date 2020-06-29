@@ -13,7 +13,7 @@ import { Menu } from 'baseui/icon';
 import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 
 // ANCHOR Styles
-import { MENU_SIZE, BURGER } from './styles';
+import { MENU_SIZE, BURGER, BUTTON } from './styles';
 
 const BurgerContainer = withStyle(StyledNavigationItem, BURGER);
 
@@ -27,6 +27,7 @@ export const LpsciNavBarBurger = React.memo(() => {
         size={SIZE.default}
         shape={SHAPE.square}
         onClick={toggle}
+        overrides={BUTTON}
       >
         <Menu size={MENU_SIZE} />
       </Button>

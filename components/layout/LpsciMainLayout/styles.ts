@@ -8,10 +8,10 @@ export const WIDTH = '100vw';
 export const HEIGHT = '100vh';
 
 // ANCHOR Height of the navbar
-export const NAVBAR_HEIGHT = '48px';
+export const NAVBAR_HEIGHT = '56px';
 
 // ANCHOR Width of the sidebar
-export const SIDEBAR_WIDTH = '68px';
+export const SIDEBAR_WIDTH = '72px';
 
 export const BLOCK: BlockOverrides = {
   Block: {

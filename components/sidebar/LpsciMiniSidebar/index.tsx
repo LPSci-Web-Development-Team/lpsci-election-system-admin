@@ -6,9 +6,9 @@ import { DeviceView } from '@scoped-models/device/DeviceView';
 import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 
 // ANCHOR Components
-import { LpsciSidebarDrawer } from './LpsciSidebarDrawer';
-import { LpsciSidebarPanel } from './LpsciSidebarPanel';
-import { LpsciSidebarContent } from './LpsciSidebarContent';
+import { LpsciSidebarDrawer } from '../LpsciSidebarDrawer';
+import { LpsciSidebarPanel } from '../LpsciSidebarPanel';
+import { LpsciMiniSidebarContent } from './LpsciMiniSidebarContent';
 import { LpsciLargeSidebarContent } from '../LpsciLargeSidebar';
 
 interface IProps {
@@ -31,12 +31,12 @@ export const LpsciMiniSidebar = React.memo(({ hideInitial, usePanel }: IProps) =
     <>
       {(isDesktop && !usePanel) && (
         <LpsciSidebarDrawer>
-          <LpsciSidebarContent />
+          <LpsciMiniSidebarContent />
         </LpsciSidebarDrawer>
       )}
       {(!isDesktop || usePanel) && (
         <LpsciSidebarPanel>
-          <LpsciSidebarContent />
+          <LpsciMiniSidebarContent />
           <LpsciLargeSidebarContent />
         </LpsciSidebarPanel>
       )}

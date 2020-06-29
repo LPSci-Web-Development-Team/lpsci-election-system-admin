@@ -8,7 +8,7 @@ import { THEME } from '@themes/theme';
 export const HEADER_NAVIGATION: HeaderNavigationOverrides = {
   Root: {
     style: {
-      height: '24px',
+      height: '32px',
       borderBottomStyle: 'none',
       display: 'flex',
       justifyContent: 'space-between',
