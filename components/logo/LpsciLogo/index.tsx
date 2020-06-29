@@ -14,7 +14,7 @@ import Link from 'next/link';
 
 // ANCHOR Constants
 import { Skeleton } from '@components/utils/Skeleton';
-import { IMG_ALT, IMG_SOURCE, LINK_URL } from './constants';
+import { LOGO_ALT, LOGO_SOURCE, LOGO_URL } from '@constants/logo';
 
 // ANCHOR Styles
 import { BLOCK } from './styles';
@@ -50,7 +50,7 @@ export const LpsciLogo = React.memo((
   ), [height, width]);
 
   return (
-    <Link href={LINK_URL} passHref>
+    <Link href={LOGO_URL} passHref>
       <StyledLink>
         <Block
           overrides={BLOCK}
@@ -58,8 +58,8 @@ export const LpsciLogo = React.memo((
           ref={container}
         >
           <StyledImage
-            src={IMG_SOURCE}
-            alt={IMG_ALT}
+            src={LOGO_SOURCE}
+            alt={LOGO_ALT}
             fallback={Fallback}
             $width={width}
             $height={height}
