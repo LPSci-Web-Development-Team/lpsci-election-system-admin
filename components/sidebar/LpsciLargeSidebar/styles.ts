@@ -17,9 +17,9 @@ export const LARGE: BlockOverrides = {
 export const BLOCK: BlockOverrides = {
   Block: {
     style: {
-      backgroundColor: THEME.colors.backgroundTertiary,
+      backgroundColor: THEME.colors.backgroundSecondary,
       overflowX: 'hidden',
-      boxShadow: THEME.shadow.shadow500,
+      boxShadow: THEME.shadow.shadow400,
     },
   },
 };

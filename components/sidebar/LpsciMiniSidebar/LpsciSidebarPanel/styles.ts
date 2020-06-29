@@ -4,6 +4,7 @@ export const DRAWER: DrawerOverrides = {
   Root: {
     style: {
       width: '300px',
+      zIndex: 99,
     },
   },
   DrawerContainer: {

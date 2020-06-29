@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import { ALIGN, StyledNavigationList, StyledNavigationItem } from 'baseui/header-navigation';
+import { ALIGN, StyledNavigationList } from 'baseui/header-navigation';
 import { LabelMedium } from 'baseui/typography';
 import { Block } from 'baseui/block';
 import { styled } from 'baseui';
@@ -29,16 +29,14 @@ export const LpsciNavBarLeft = React.memo(() => {
     <StyledNavigationList $align={ALIGN.left}>
       <LpsciNavBarBurger />
       {isDesktop && (
-        <StyledNavigationItem>
-          <LpsciLink href="/">
-            <Block overrides={BLOCK}>
-              <LpsciLogo height="24px" />
-              <LabelMedium overrides={TEXT}>
-                {LOGO_TEXT}
-              </LabelMedium>
-            </Block>
-          </LpsciLink>
-        </StyledNavigationItem>
+      <LpsciLink href="/">
+        <Block overrides={BLOCK}>
+          <LpsciLogo height="28px" />
+          <LabelMedium overrides={TEXT}>
+            {LOGO_TEXT}
+          </LabelMedium>
+        </Block>
+      </LpsciLink>
       )}
     </StyledNavigationList>
   );

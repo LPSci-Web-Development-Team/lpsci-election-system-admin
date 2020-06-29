@@ -23,7 +23,7 @@ export const BLOCK: BlockOverrides = {
       gridColumn: '1 / 3',
       gridRow: '1 / 2',
       boxShadow: THEME.shadow.shadow400,
-      zIndex: 0,
+      zIndex: 1,
     },
   },
 };

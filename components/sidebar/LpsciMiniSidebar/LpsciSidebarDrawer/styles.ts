@@ -9,7 +9,7 @@ export const BLOCK: BlockOverrides = {
       gridRow: '2 / 3',
       backgroundColor: THEME.colors.backgroundSecondary,
       overflowX: 'hidden',
-      boxShadow: THEME.shadow.shadow500,
+      boxShadow: THEME.shadow.shadow400,
     },
   },
 };
