@@ -12,7 +12,7 @@ import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 import { Scrollbar } from '@components/utils/Scrollbar';
 
 // ANCHOR Styles
-import { LARGE } from './styles';
+import { LARGE, BLOCK } from './styles';
 
 interface IProps {
   hideInitial?: boolean;
@@ -20,11 +20,13 @@ interface IProps {
 }
 
 export const LpsciLargeSidebarContent = React.memo(() => (
-  <Scrollbar>
-    <Block overrides={LARGE}>
-      Large
-    </Block>
-  </Scrollbar>
+  <Block overrides={BLOCK}>
+    <Scrollbar>
+      <Block overrides={LARGE}>
+        Large
+      </Block>
+    </Scrollbar>
+  </Block>
 ));
 
 export const LpsciLargeSidebar = React.memo(({ hideInitial, usePanel }: IProps) => {
