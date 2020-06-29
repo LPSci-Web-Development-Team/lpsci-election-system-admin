@@ -10,9 +10,9 @@ import { useAuthState } from '@firebase/hooks/useAuthState';
 export const LpsciNavBarPopoverEmail = React.memo(() => {
   const { user } = useAuthState();
 
-  if (user) {
-    return <LabelSmall>{user.email}</LabelSmall>;
-  }
-
-  return null;
+  return (
+    <LabelSmall>
+      {user ? user.email : 'cedi.castro@gmail.com'}
+    </LabelSmall>
+  );
 });

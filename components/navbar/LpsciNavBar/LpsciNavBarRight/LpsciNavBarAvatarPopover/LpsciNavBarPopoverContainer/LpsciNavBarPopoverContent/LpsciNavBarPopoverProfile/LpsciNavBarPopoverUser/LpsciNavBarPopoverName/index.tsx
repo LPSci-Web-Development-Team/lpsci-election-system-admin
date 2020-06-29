@@ -10,9 +10,9 @@ import { useAuthState } from '@firebase/hooks/useAuthState';
 export const LpsciNavBarPopoverName = React.memo(() => {
   const { user } = useAuthState();
 
-  if (user) {
-    return <LabelMedium>{user.displayName}</LabelMedium>;
-  }
-
-  return null;
+  return (
+    <LabelMedium>
+      {user ? user.displayName : 'Cedrick Castro'}
+    </LabelMedium>
+  );
 });

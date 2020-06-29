@@ -10,10 +10,10 @@ export const LINK: StyleObject = {
   paddingTop: '12px',
   paddingBottom: '12px',
   textDecoration: 'none',
-  backgroundColor: THEME.colors.backgroundSecondary,
+  backgroundColor: THEME.colors.backgroundTertiary,
 
   ':hover': {
-    backgroundColor: THEME.colors.backgroundTertiary,
+    backgroundColor: THEME.colors.backgroundSecondary,
   },
 };
 
@@ -21,6 +21,7 @@ export const TEXT: BlockOverrides = {
   Block: {
     style: {
       marginLeft: '12px',
+      lineHeight: '20px',
     },
   },
 };

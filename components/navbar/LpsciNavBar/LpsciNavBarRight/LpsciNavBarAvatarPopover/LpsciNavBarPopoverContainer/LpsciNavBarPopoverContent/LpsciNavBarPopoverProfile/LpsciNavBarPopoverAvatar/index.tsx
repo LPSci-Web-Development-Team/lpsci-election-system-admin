@@ -18,7 +18,7 @@ export const LpsciNavBarPopoverAvatar = React.memo(() => {
 
   return (
     <Avatar
-      name={(user && user.displayName) || ''}
+      name={(user && user.displayName) || 'Cedrick Castro'}
       size={AVATAR_SIZE}
       src={imageSrc}
     />
