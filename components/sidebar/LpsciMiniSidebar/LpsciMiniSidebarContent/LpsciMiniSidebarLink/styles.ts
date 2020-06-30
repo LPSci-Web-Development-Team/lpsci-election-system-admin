@@ -33,6 +33,10 @@ export const TEXT: BlockOverrides = {
     style: {
       fontSize: '10px',
       marginTop: '4px',
+      width: '100%',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
     },
   },
 };

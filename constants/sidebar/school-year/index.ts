@@ -10,7 +10,7 @@ import { SCHOOL_YEAR_LINKS } from './link';
 // ANCHOR Dashboard links
 export const SCHOOL_YEAR: IMiniSidebar = {
   icon: calendarO,
-  label: 'School Year',
+  label: 'School Year My Friend',
   identifier: 'school-year',
   sublinks: SCHOOL_YEAR_LINKS,
 };
