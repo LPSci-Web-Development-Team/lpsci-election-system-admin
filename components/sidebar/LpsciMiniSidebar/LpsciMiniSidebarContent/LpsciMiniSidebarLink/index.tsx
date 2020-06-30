@@ -8,7 +8,6 @@ import { Icon } from 'react-icons-kit';
 import {
   Button, KIND, SIZE, SHAPE,
 } from 'baseui/button';
-import { LabelXSmall } from 'baseui/typography';
 import { styled } from 'baseui';
 
 // ANCHOR Interfaces
@@ -23,7 +22,7 @@ import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 import { BUTTON, COLOR, TEXT } from './styles';
 
 const LpsciBlock = styled('span', COLOR);
-const LpsciText = styled(LabelXSmall, COLOR);
+const LpsciText = styled('p', TEXT);
 
 export const LpsciMiniSidebarLink = React.memo((
   {
@@ -66,11 +65,7 @@ export const LpsciMiniSidebarLink = React.memo((
       <LpsciBlock $active={isActive} $theme={theme}>
         <Icon icon={icon} size={24} />
       </LpsciBlock>
-      <LpsciText
-        overrides={TEXT}
-        $active={isActive}
-        $theme={theme}
-      >
+      <LpsciText $active={isActive} $theme={theme}>
         {label}
       </LpsciText>
     </Button>
