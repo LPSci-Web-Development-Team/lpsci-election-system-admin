@@ -18,7 +18,7 @@ export const MINI_SIDEBAR: IMiniSidebar[] = [
         links: [
           {
             label: 'Statistics',
-            href: '/dashboard/statistics',
+            href: '/',
             icon: barChart,
           },
           {
