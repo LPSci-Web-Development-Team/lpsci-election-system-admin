@@ -10,6 +10,7 @@ import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
 
 // ANCHOR Firebase
 import { useAuthToken } from '@firebase/hooks/useAuthToken';
+import { createSchoolYear } from '@api/school-year';
 
 interface IState {
   state: {
@@ -21,7 +22,7 @@ interface IState {
   handler: {
     startYear: SetState<string>;
     endYear: SetState<string>;
-    submit: (event: React.FormEvent<HTMLFormElement>) => void;
+    submit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
   }
   valid: {
     all: boolean,
@@ -39,18 +40,23 @@ export const CreateSchoolYearForm = createModel<IState>(() => {
 
   const { data: token } = useAuthToken();
 
-  const submit = React.useCallback((
+  const submit = React.useCallback(async (
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
 
-    setLoading(true);
     setError('');
+    setLoading(true);
 
     if (token) {
-      setError('');
+      await createSchoolYear({
+        token,
+        year: `${startYear}-${endYear}`,
+      })
+        .catch((err) => setError(err.message))
+        .finally(() => setLoading(false));
     }
-  }, [token]);
+  }, [endYear, startYear, token]);
 
   const validStartYear = startYear.length === 4;
   const validEndYear = endYear.length === 4;
