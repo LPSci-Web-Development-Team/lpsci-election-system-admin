@@ -16,7 +16,7 @@ export const DASHBOARD_LINKS: ILargeSidebar[] = [
       },
       {
         label: 'Analytics',
-        href: '/dashboard/analytics',
+        href: '/analytics',
         icon: barChart,
       },
     ],

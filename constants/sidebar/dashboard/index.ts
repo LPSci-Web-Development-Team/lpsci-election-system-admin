@@ -11,6 +11,6 @@ import { DASHBOARD_LINKS } from './link';
 export const DASHBOARD: IMiniSidebar = {
   icon: dashboard,
   label: 'Dashboard',
-  identifier: 'dashboard',
+  identifier: '',
   sublinks: DASHBOARD_LINKS,
 };
