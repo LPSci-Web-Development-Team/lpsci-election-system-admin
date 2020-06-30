@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 // ANCHOR Base
-import { StyledLink } from 'baseui/link';
 import { LabelSmall } from 'baseui/typography';
 import { Block } from 'baseui/block';
 import { styled } from 'baseui';
@@ -17,8 +16,8 @@ import { Icon } from 'react-icons-kit';
 // ANCHOR Interface
 import { ILargeSidebarLink } from '@interfaces/Sidebar';
 
-// ANCHOR Hooks
-import { useTheme } from '@functions/useTheme';
+// ANCHOR Models
+import { ThemePreference } from '@scoped-models/theme/ThemePreference';
 
 // ANCHOR Styles
 import { LINK, TEXT, ICON } from './styles';
@@ -28,7 +27,7 @@ const LpsciLink = styled('a', LINK);
 export const LpsciLargeSidebarLink = React.memo(({
   label, href, icon,
 }: ILargeSidebarLink) => {
-  const { theme } = useTheme();
+  const theme = ThemePreference.useSelector((state) => state.theme);
 
   const router = useRouter();
 

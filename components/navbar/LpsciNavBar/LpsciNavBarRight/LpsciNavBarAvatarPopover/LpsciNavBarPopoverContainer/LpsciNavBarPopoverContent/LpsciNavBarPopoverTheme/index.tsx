@@ -12,7 +12,7 @@ import { LabelSmall } from 'baseui/typography';
 import { Icon } from 'react-icons-kit';
 import { moonO } from 'react-icons-kit/fa/moonO';
 
-// ANCHOR Toggle
+// ANCHOR Models
 import { ThemePreference } from '@scoped-models/theme/ThemePreference';
 
 // ANCHOR Styles

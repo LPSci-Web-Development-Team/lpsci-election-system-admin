@@ -1,18 +1,18 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Models
+import { ThemePreference } from '@scoped-models/theme/ThemePreference';
+
 // ANCHOR Hooks
-import { useTheme } from '@functions/useTheme';
 import { LIGHT_THEME, DARK_THEME } from '@themes/theme';
 import { useAuthState } from './useAuthState';
-
-// ANCHOR Functions
 
 export function useAuthProfilePhoto() {
   // get user data
   const { user } = useAuthState();
 
-  const { isLight } = useTheme();
+  const isLight = ThemePreference.useSelector((state) => state.isLight);
 
   const THEME = isLight
     ? {

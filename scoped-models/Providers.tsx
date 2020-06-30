@@ -11,6 +11,13 @@ import { ThemePreference } from './theme/ThemePreference';
 
 export const PROVIDERS = () => [
   /**
+   * ANCHOR Provider for ThemePreference
+   *
+   * NOTE Used for identifiying which theme to use
+   */
+  <ThemePreference.Provider key="ThemePreference" />,
+
+  /**
    * ANCHOR Firebase App
    *
    * Initialize app and provides the instance
@@ -23,13 +30,6 @@ export const PROVIDERS = () => [
    * NOTE Used for user authentication and signin-dependent views
    */
   <FirebaseAuth.Provider key="FirebaseAuth" />,
-
-  /**
-   * ANCHOR Provider for ThemePreference
-   *
-   * NOTE Used for identifiying which theme to use
-   */
-  <ThemePreference.Provider key="ThemePreference" />,
 
   /**
   * ANCHOR DeviceView Provider

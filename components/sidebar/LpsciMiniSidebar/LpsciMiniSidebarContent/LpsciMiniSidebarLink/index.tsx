@@ -16,9 +16,7 @@ import { IMiniSidebar } from '@interfaces/Sidebar';
 
 // ANCHOR Models
 import { ActiveMiniSidebar } from '@scoped-models/sidebar/ActiveMiniSidebar';
-
-// ANCHOR Hooks
-import { useTheme } from '@functions/useTheme';
+import { ThemePreference } from '@scoped-models/theme/ThemePreference';
 
 // ANCHOR Styles
 import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
@@ -32,7 +30,7 @@ export const LpsciMiniSidebarLink = React.memo((
     icon, label, identifier, sublinks,
   }: IMiniSidebar,
 ) => {
-  const { theme } = useTheme();
+  const theme = ThemePreference.useSelector((state) => state.theme);
 
   const [visible, show] = SidebarVisibility.useSelectors((state) => [
     state.state, state.show,
