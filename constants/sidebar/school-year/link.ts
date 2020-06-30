@@ -1,5 +1,7 @@
 // ANCHOR React Icons
-import { calendarO } from 'react-icons-kit/fa/calendarO';
+import { eye } from 'react-icons-kit/fa/eye';
+import { plus } from 'react-icons-kit/fa/plus';
+import { pencilSquareO } from 'react-icons-kit/fa/pencilSquareO';
 
 // ANCHOR Interfaces
 import { ILargeSidebar } from '@interfaces/Sidebar';
@@ -12,7 +14,7 @@ export const SCHOOL_YEAR_LINKS: ILargeSidebar[] = [
       {
         label: 'View',
         href: '/school-year/view',
-        icon: calendarO,
+        icon: eye,
       },
     ],
   },
@@ -20,14 +22,14 @@ export const SCHOOL_YEAR_LINKS: ILargeSidebar[] = [
     head: 'Manage',
     links: [
       {
-        label: 'Update',
-        href: '/school-year/update',
-        icon: calendarO,
+        label: 'Create',
+        href: '/school-year/create',
+        icon: plus,
       },
       {
-        label: 'Delete',
-        href: '/school-year/delete',
-        icon: calendarO,
+        label: 'Update',
+        href: '/school-year/update',
+        icon: pencilSquareO,
       },
     ],
   },
