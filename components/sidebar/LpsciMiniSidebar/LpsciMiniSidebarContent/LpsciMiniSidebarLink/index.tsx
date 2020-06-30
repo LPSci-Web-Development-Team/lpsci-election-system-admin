@@ -18,6 +18,7 @@ import { IMiniSidebar } from '@interfaces/Sidebar';
 import { ActiveMiniSidebar } from '@scoped-models/sidebar/ActiveMiniSidebar';
 
 // ANCHOR Styles
+import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 import { BUTTON, COLOR, TEXT } from './styles';
 
 const LpsciBlock = styled('span', COLOR);
@@ -28,6 +29,10 @@ export const LpsciMiniSidebarLink = React.memo((
     icon, label, identifier, sublinks,
   }: IMiniSidebar,
 ) => {
+  const [visible, show] = SidebarVisibility.useSelectors((state) => [
+    state.state, state.show,
+  ]);
+
   const [
     activeKey, setActiveKey, setActiveLink,
   ] = ActiveMiniSidebar.useSelectors((state) => [
@@ -37,9 +42,13 @@ export const LpsciMiniSidebarLink = React.memo((
   ]);
 
   const onClick = React.useCallback(() => {
+    if (!visible) {
+      show();
+    }
+
     setActiveKey(identifier);
     setActiveLink(sublinks);
-  }, [identifier, setActiveKey, setActiveLink, sublinks]);
+  }, [identifier, setActiveKey, setActiveLink, show, sublinks, visible]);
 
   const isActive = activeKey === identifier;
 
