@@ -46,7 +46,6 @@ function withTSConfig(value) {
 }
 
 const initialConfigDevelopment = {
-  distDir: 'build',
   env: {
     API: process.env.API,
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
@@ -61,7 +60,6 @@ const initialConfigDevelopment = {
 };
 
 const initialConfigProduction = {
-  distDir: 'build',
   env: {
     API: process.env.API,
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
