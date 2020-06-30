@@ -1,6 +1,5 @@
 // ANCHOR Theme
 import { styletron } from '@themes/styletron';
-import { ITheme } from '@interfaces/Theme';
 
 // ANCHOR Styletron
 import { StyleObject } from 'styletron-react';
@@ -17,19 +16,19 @@ const animation = styletron.renderKeyframes({
   },
 });
 
-export const SKELETON = ({ $theme }: ITheme): StyleObject => ({
+export const SKELETON: StyleObject = {
   position: 'relative',
-  backgroundColor: $theme.colors.mono600,
+  backgroundColor: '#D2D7DB',
   overflow: 'hidden',
   display: 'inline-block',
   ':after': {
     backgroundImage: `linear-gradient(
       90deg,
-      ${$theme.colors.mono600} 0%,
-      ${$theme.colors.mono600} 25%,
-      ${$theme.colors.mono300} 50%,
-      ${$theme.colors.mono600} 75%,
-      ${$theme.colors.mono600} 100%
+      #D2D7DB 0%,
+      #D2D7DB 25%,
+      #E8EBED 50%,
+      #D2D7DB 75%,
+      #D2D7DB 100%
     )`,
     position: 'absolute',
     top: 0,
@@ -46,4 +45,4 @@ export const SKELETON = ({ $theme }: ITheme): StyleObject => ({
 
     cursor: 'wait',
   },
-});
+};
