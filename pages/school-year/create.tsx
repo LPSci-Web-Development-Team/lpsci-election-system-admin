@@ -9,10 +9,10 @@ import { MetaOpenGraph } from '@components/head/MetaOpenGraph';
 import { LpsciAppHead } from '@components/head/LpsciAppHead';
 import { Loader } from '@components/utils/Loader';
 
-const LpsciHomePage = dynamic<any>(
+const LpsciCreateSchoolYear = dynamic<any>(
   () => (
-    import('@components/home/LpsciHome')
-      .then((mod) => mod.LpsciHome)
+    import('@components/school-year/LpsciCreateSchoolYear')
+      .then((mod) => mod.LpsciCreateSchoolYear)
   ),
   {
     loading: () => <Loader />,
@@ -23,18 +23,18 @@ const LpsciHomePage = dynamic<any>(
 export default React.memo(() => (
   <>
     <LpsciAppHead
-      title="LPSci Admin | Home"
+      title="LPSci Admin | Create School Year"
       description="Sign in to your Las Piñas City National Science High School account"
     >
       <MetaOpenGraph
-        url="https://admin.lpsci.edu.ph/home"
-        title="LPSci Admin | Home"
+        url="https://lpsci-admin.now.sh/school-year/create"
+        title="LPSci Admin | Create School Year"
         description="Sign in to your Las Piñas City National Science High School account"
         width="1366"
         height="768"
         image="/img/lpsci-logo.png"
       />
     </LpsciAppHead>
-    <LpsciHomePage />
+    <LpsciCreateSchoolYear />
   </>
 ));

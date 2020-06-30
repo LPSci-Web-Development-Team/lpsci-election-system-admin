@@ -26,11 +26,6 @@ export const SCHOOL_YEAR_LINKS: ILargeSidebar[] = [
         href: '/school-year/create',
         icon: plus,
       },
-      {
-        label: 'Update',
-        href: '/school-year/update',
-        icon: pencilSquareO,
-      },
     ],
   },
 ];

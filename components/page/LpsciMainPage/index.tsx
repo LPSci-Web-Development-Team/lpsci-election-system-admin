@@ -3,6 +3,7 @@ import * as React from 'react';
 
 // ANCHOR Base
 import { Block } from 'baseui/block';
+import { HeadingLarge } from 'baseui/typography';
 
 // ANCHOR Types
 import { IChildrenProps } from '@interfaces/Common';
@@ -17,11 +18,12 @@ import { LpsciLargeSidebar } from '@components/sidebar/LpsciLargeSidebar';
 interface IProps extends IChildrenProps {
   hideSidebar?: boolean;
   useSidebarPanel?: boolean;
+  title: string;
 }
 
-export const LpsciMainPage = (
-  { hideSidebar, useSidebarPanel, children }: IProps,
-) => {
+export const LpsciMainPage = ({
+  hideSidebar, useSidebarPanel, title, children,
+}: IProps) => {
   React.useEffect(() => {
     if (window.localStorage.getItem('theme') === null) {
       window.localStorage.setItem('theme', 'light');
@@ -32,7 +34,14 @@ export const LpsciMainPage = (
     <LpsciMainLayout>
       <LpsciMainContent useSidebarPanel={useSidebarPanel}>
         <LpsciLargeSidebar />
-        <Block>
+        <Block
+          marginTop="16px"
+          marginLeft="32px"
+          marginRight="32px"
+        >
+          <HeadingLarge marginTop={0}>
+            {title}
+          </HeadingLarge>
           {children}
         </Block>
       </LpsciMainContent>
