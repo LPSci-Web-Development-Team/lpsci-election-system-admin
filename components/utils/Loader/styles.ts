@@ -1,11 +1,6 @@
 import { ITheme } from '@interfaces/Theme';
 import { BlockOverrides } from 'baseui/block';
 
-export const LOGO = {
-  height: 'auto',
-  width: '256px',
-};
-
 export const BLOCK: BlockOverrides = {
   Block: {
     style: ({ $theme }: ITheme) => ({
