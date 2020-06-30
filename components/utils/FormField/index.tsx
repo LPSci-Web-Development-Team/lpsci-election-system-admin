@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // ANCHOR Base
 import { FormControl } from 'baseui/form-control';
-import { Input, SIZE, InputProps } from 'baseui/input';
+import { Input, InputProps } from 'baseui/input';
 import { Block } from 'baseui/block';
 import { LabelSmall } from 'baseui/typography';
 

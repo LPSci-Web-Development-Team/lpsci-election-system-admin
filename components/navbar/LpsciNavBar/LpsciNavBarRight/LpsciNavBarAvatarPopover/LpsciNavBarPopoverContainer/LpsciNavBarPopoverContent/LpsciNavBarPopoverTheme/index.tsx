@@ -1,9 +1,6 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Next
-import Router from 'next/router';
-
 // ANCHOR Base
 import { styled } from 'baseui';
 import { LabelSmall } from 'baseui/typography';
