@@ -1,6 +1,7 @@
 // ANCHOR React Icons
 import { user } from 'react-icons-kit/fa/user';
 import { dashboard } from 'react-icons-kit/fa/dashboard';
+import { barChart } from 'react-icons-kit/fa/barChart';
 
 // ANCHOR Interfaces
 import { IMiniSidebar } from '@interfaces/Sidebar';
@@ -18,10 +19,12 @@ export const MINI_SIDEBAR: IMiniSidebar[] = [
           {
             label: 'Statistics',
             href: '/dashboard/statistics',
+            icon: barChart,
           },
           {
             label: 'Analytics',
             href: '/dashboard/analytics',
+            icon: barChart,
           },
         ],
       },
@@ -38,6 +41,7 @@ export const MINI_SIDEBAR: IMiniSidebar[] = [
           {
             label: 'View',
             href: '/students/view',
+            icon: user,
           },
         ],
       },
@@ -47,10 +51,12 @@ export const MINI_SIDEBAR: IMiniSidebar[] = [
           {
             label: 'Update',
             href: '/students/update',
+            icon: user,
           },
           {
             label: 'Delete',
             href: '/students/delete',
+            icon: user,
           },
         ],
       },

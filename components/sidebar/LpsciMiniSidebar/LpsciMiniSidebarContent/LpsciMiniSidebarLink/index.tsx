@@ -61,7 +61,7 @@ export const LpsciMiniSidebarLink = React.memo((
       onClick={onClick}
     >
       <LpsciBlock $active={isActive}>
-        <Icon icon={icon} size={20} />
+        <Icon icon={icon} size={24} />
       </LpsciBlock>
       <LpsciText overrides={TEXT} $active={isActive}>
         {label}

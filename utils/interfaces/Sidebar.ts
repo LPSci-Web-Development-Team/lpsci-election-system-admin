@@ -1,6 +1,7 @@
 export interface ILargeSidebarLink {
   label: string;
   href: string;
+  icon: any,
 }
 
 export interface ILargeSidebar {

@@ -9,7 +9,7 @@ import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 import { LpsciSidebarDrawer } from '../LpsciSidebarDrawer';
 import { LpsciSidebarPanel } from '../LpsciSidebarPanel';
 import { LpsciMiniSidebarContent } from './LpsciMiniSidebarContent';
-import { LpsciLargeSidebarContent } from '../LpsciLargeSidebar';
+import { LpsciLargeSidebarContent } from '../LpsciLargeSidebar/LpsciLargeSidebarContent';
 
 interface IProps {
   hideInitial?: boolean;
