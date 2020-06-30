@@ -6,6 +6,7 @@ import { DeviceView } from './device/DeviceView';
 import { SidebarVisibility } from './sidebar/SidebarVisibility';
 import { FirebaseApp } from './firebase/FirebaseApp';
 import { FirebaseAuth } from './firebase/FirebaseAuth';
+import { ActiveMiniSidebar } from './sidebar/ActiveMiniSidebar';
 
 export const PROVIDERS = () => [
   /**
@@ -32,7 +33,14 @@ export const PROVIDERS = () => [
   /**
    * ANCHOR SidebarVisibility Provider
    *
-   * NOTE Used for handling sidebar state
+   * NOTE Used for handling sidebar's visibility state
    */
   <SidebarVisibility.Provider key="SidebarVisibility" />,
+
+  /**
+   * ANCHOR ActiveMiniSidebar Provider
+   *
+   * NOTE Used for handling active links in sidebar
+   */
+  <ActiveMiniSidebar.Provider key="ActiveMiniSidebar" />,
 ];

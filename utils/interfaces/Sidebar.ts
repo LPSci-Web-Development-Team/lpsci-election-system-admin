@@ -11,6 +11,6 @@ export interface ILargeSidebar {
 export interface IMiniSidebar {
   icon: any,
   label: string,
-  key: string,
+  identifier: string,
   sublinks: ILargeSidebar[]
 }

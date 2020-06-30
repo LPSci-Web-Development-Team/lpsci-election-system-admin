@@ -19,7 +19,8 @@ export const LpsciMiniSidebarContent = React.memo(() => (
     <Block overrides={MINI}>
       {MINI_SIDEBAR.map((item) => (
         <LpsciMiniSidebarLink
-          key={item.key}
+          key={item.identifier}
+          identifier={item.identifier}
           label={item.label}
           icon={item.icon}
           sublinks={item.sublinks}

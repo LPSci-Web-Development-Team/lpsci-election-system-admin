@@ -1,6 +1,6 @@
 // ANCHOR React Icons
 import { user } from 'react-icons-kit/fa/user';
-import { home } from 'react-icons-kit/fa/home';
+import { dashboard } from 'react-icons-kit/fa/dashboard';
 
 // ANCHOR Interfaces
 import { IMiniSidebar } from '@interfaces/Sidebar';
@@ -8,9 +8,9 @@ import { IMiniSidebar } from '@interfaces/Sidebar';
 // ANCHOR Mini sidebar links
 export const MINI_SIDEBAR: IMiniSidebar[] = [
   {
-    icon: home,
+    icon: dashboard,
     label: 'Dashboard',
-    key: 'dashboard',
+    identifier: 'dashboard',
     sublinks: [
       {
         head: 'School Year',
@@ -30,7 +30,7 @@ export const MINI_SIDEBAR: IMiniSidebar[] = [
   {
     icon: user,
     label: 'Students',
-    key: 'students',
+    identifier: 'students',
     sublinks: [
       {
         head: 'Browse',
