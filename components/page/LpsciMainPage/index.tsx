@@ -1,6 +1,9 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Base
+import { Block } from 'baseui/block';
+
 // ANCHOR Types
 import { IChildrenProps } from '@interfaces/Common';
 
@@ -8,15 +11,16 @@ import { IChildrenProps } from '@interfaces/Common';
 import { LpsciMainLayout } from '@components/layout/LpsciMainLayout';
 import { LpsciMainContent } from '@components/content/LpsciMainContent';
 import { LpsciNavBar } from '@components/navbar/LpsciNavBar';
-import { LpsciSidebar } from '@components/sidebar/LpsciSidebar';
+import { LpsciMiniSidebar } from '@components/sidebar/LpsciMiniSidebar';
+import { LpsciLargeSidebar } from '@components/sidebar/LpsciLargeSidebar';
 
 interface IProps extends IChildrenProps {
   hideSidebar?: boolean;
-  useSidebarDrawer?: boolean;
+  useSidebarPanel?: boolean;
 }
 
 export const LpsciMainPage = (
-  { hideSidebar, useSidebarDrawer, children }: IProps,
+  { hideSidebar, useSidebarPanel, children }: IProps,
 ) => {
   React.useEffect(() => {
     if (window.localStorage.getItem('theme') === null) {
@@ -26,12 +30,15 @@ export const LpsciMainPage = (
 
   return (
     <LpsciMainLayout>
-      <LpsciMainContent useSidebarDrawer={useSidebarDrawer}>
-        {children}
+      <LpsciMainContent useSidebarPanel={useSidebarPanel}>
+        <LpsciLargeSidebar />
+        <Block>
+          {children}
+        </Block>
       </LpsciMainContent>
-      <LpsciSidebar
+      <LpsciMiniSidebar
         hideInitial={hideSidebar}
-        useDrawer={useSidebarDrawer}
+        usePanel={useSidebarPanel}
       />
       <LpsciNavBar />
     </LpsciMainLayout>

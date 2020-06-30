@@ -11,15 +11,15 @@ import { LabelSmall } from 'baseui/typography';
 // ANCHOR React Icons
 import { Icon } from 'react-icons-kit';
 
+// ANCHOR Interface
+import { INavLink } from '@interfaces/Navbar';
+
 // ANCHOR Styles
 import { LINK, TEXT } from './styles';
 
-// ANCHOR Interface
-import { ILink } from '../constants';
-
 export const LpsciNavBarPopoverLink = React.memo(({
   label, as, href, icon,
-}: ILink) => (
+}: INavLink) => (
   <Link href={href} as={as} passHref>
     <StyledLink $style={LINK} href={href}>
       <Icon size={20} icon={icon} />

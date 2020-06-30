@@ -1,8 +1,8 @@
 import { BlockOverrides } from 'baseui/block';
 import { StyleObject } from 'styletron-react';
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
-export const LINK: StyleObject = {
+export const LINK = ({ $theme }: ITheme): StyleObject => ({
   display: 'flex',
   flexDirection: 'row',
   paddingLeft: '24px',
@@ -10,12 +10,12 @@ export const LINK: StyleObject = {
   paddingTop: '12px',
   paddingBottom: '12px',
   textDecoration: 'none',
-  backgroundColor: THEME.colors.backgroundTertiary,
+  backgroundColor: $theme.colors.backgroundTertiary,
 
   ':hover': {
-    backgroundColor: THEME.colors.backgroundSecondary,
+    backgroundColor: $theme.colors.backgroundSecondary,
   },
-};
+});
 
 export const TEXT: BlockOverrides = {
   Block: {

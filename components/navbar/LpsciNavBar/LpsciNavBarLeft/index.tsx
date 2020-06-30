@@ -1,6 +1,9 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import Link from 'next/link';
+
 // ANCHOR Base
 import { ALIGN, StyledNavigationList, StyledNavigationItem } from 'baseui/header-navigation';
 import { LabelMedium } from 'baseui/typography';
@@ -9,6 +12,9 @@ import { styled } from 'baseui';
 
 // ANCHOR Models
 import { DeviceView } from '@scoped-models/device/DeviceView';
+
+// ANCHOR Constants
+import { LOGO_TEXT, LOGO_URL } from '@constants/logo';
 
 // ANCHOR Components
 import { LpsciLogo } from '@components/logo/LpsciLogo';
@@ -27,14 +33,16 @@ export const LpsciNavBarLeft = React.memo(() => {
       <LpsciNavBarBurger />
       {isDesktop && (
         <StyledNavigationItem>
-          <LpsciLink href="/">
-            <Block overrides={BLOCK}>
-              <LpsciLogo height="24px" />
-              <LabelMedium overrides={TEXT}>
-                LPSci Admin Console
-              </LabelMedium>
-            </Block>
-          </LpsciLink>
+          <Link href={LOGO_URL} passHref>
+            <LpsciLink>
+              <Block overrides={BLOCK}>
+                <LpsciLogo height="28px" />
+                <LabelMedium overrides={TEXT}>
+                  {LOGO_TEXT}
+                </LabelMedium>
+              </Block>
+            </LpsciLink>
+          </Link>
         </StyledNavigationItem>
       )}
     </StyledNavigationList>

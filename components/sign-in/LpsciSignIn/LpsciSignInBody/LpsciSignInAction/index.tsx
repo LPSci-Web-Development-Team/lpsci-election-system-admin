@@ -8,11 +8,11 @@ import { Button } from 'baseui/button';
 // ANCHOR Models
 import { SignInForm } from '@scoped-models/sign-in/SignInForm';
 
+// ANCHOR Constants
+import { SIGN_IN_CONTENT } from '@constants/buttons';
+
 // ANCHOR Styles
 import { BUTTON } from './styles';
-
-// ANCHOR Constants
-import { CONTENT } from './constants';
 
 export const LpsciSignInAction = React.memo(() => {
   const [valid, loading] = SignInForm.useSelectors((state) => [
@@ -27,7 +27,7 @@ export const LpsciSignInAction = React.memo(() => {
         disabled={!valid}
         isLoading={loading}
       >
-        {CONTENT}
+        {SIGN_IN_CONTENT}
       </Button>
     </StyledAction>
   );

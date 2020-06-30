@@ -6,6 +6,8 @@ export const BLOCK: BlockOverrides = {
     style: {
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'center',
+      marginLeft: '-16px',
     },
   },
 };
@@ -13,7 +15,7 @@ export const BLOCK: BlockOverrides = {
 export const TEXT: BlockOverrides = {
   Block: {
     style: {
-      marginLeft: '16px',
+      marginLeft: '8px',
     },
   },
 };

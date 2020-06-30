@@ -1,10 +1,9 @@
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 import { CardOverrides } from 'baseui/card';
-import { BREAKPOINTS } from '@themes/breakpoints';
 
 export const CARD: CardOverrides = {
   Root: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -13,19 +12,21 @@ export const CARD: CardOverrides = {
       paddingRight: '32px',
       paddingBottom: '8px',
       paddingLeft: '32px',
-      borderTopColor: THEME.colors.primary,
-      borderRightColor: THEME.colors.primary,
-      borderBottomColor: THEME.colors.primary,
-      borderLeftColor: THEME.colors.primary,
-      backgroundColor: THEME.colors.backgroundPrimary,
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      borderBottomWidth: 0,
+      borderLeftWidth: 0,
+      boxShadow: $theme.shadow.shadow300,
+      backgroundColor: $theme.colors.backgroundPrimary,
+      borderRadius: '10px',
       width: '32%',
 
-      [BREAKPOINTS.small]: {
+      [$theme.media.small]: {
         width: '80%',
         paddingRight: '16px',
         paddingLeft: '16px',
       },
-    },
+    }),
   },
   Contents: {
     style: {
@@ -33,25 +34,25 @@ export const CARD: CardOverrides = {
     },
   },
   HeaderImage: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       height: '112px',
       marginBottom: 0,
 
-      [BREAKPOINTS.small]: {
+      [$theme.media.small]: {
         height: '96px',
       },
-    },
+    }),
   },
   Title: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       textAlign: 'center',
       fontSize: '32px',
       marginBottom: '32px',
 
-      [BREAKPOINTS.small]: {
+      [$theme.media.small]: {
         fontSize: '24px',
         marginBottom: '24px',
       },
-    },
+    }),
   },
 };

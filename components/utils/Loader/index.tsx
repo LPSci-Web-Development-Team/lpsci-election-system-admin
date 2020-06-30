@@ -8,11 +8,11 @@ import { Block } from 'baseui/block';
 // ANCHOR Img
 import Img from '@lxsmnsyc/react-image';
 
+// ANCHOR Constants
+import { LOGO_ALT, LOGO_SOURCE } from '@constants/logo';
+
 // ANCHOR Component
 import { Skeleton } from '../Skeleton';
-
-// ANCHOR Constants
-import { IMG_ALT, IMG_SOURCE } from './constants';
 
 // ANCHOR Styles
 import { BLOCK, LOGO } from './styles';
@@ -28,8 +28,8 @@ export const Loader = React.memo(() => {
       <LpsciLogo
         fallback={LogoSkeleton}
         containerRef={container}
-        src={IMG_SOURCE}
-        alt={IMG_ALT}
+        src={LOGO_SOURCE}
+        alt={LOGO_ALT}
       />
     </Block>
   );

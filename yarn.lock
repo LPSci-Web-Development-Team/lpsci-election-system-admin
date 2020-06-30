@@ -1258,10 +1258,10 @@
     lodash.camelcase "^4.3.0"
     protobufjs "^6.8.6"
 
-"@lpsci/hooks@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@lpsci/hooks/-/hooks-1.0.6.tgz#16ac21d6f76fe62ef4f15bff17d9f8c3b8105272"
-  integrity sha512-EzHWyV+skBtUqaHl7qipkJuM7+xJVmB7zKdItAxDh9+95R+oxJpBzwny9z9+/yWPwaHUpecopSbOUay8RcOzug==
+"@lpsci/hooks@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@lpsci/hooks/-/hooks-1.1.1.tgz#76b3372f20794ef1aa7bdd8615989bf075eedd23"
+  integrity sha512-oCJ5ZhPVgXmK/O4bQyvMyVxcHNFDorUQ7XW3DYPXa93ygnfV+ODKRP5IG4Gg627bdOhfiA4CZR+M6ySVLCMYNQ==
 
 "@lxsmnsyc/react-image@^0.3.1":
   version "0.3.1"

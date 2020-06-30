@@ -6,8 +6,17 @@ import { DeviceView } from './device/DeviceView';
 import { SidebarVisibility } from './sidebar/SidebarVisibility';
 import { FirebaseApp } from './firebase/FirebaseApp';
 import { FirebaseAuth } from './firebase/FirebaseAuth';
+import { ActiveMiniSidebar } from './sidebar/ActiveMiniSidebar';
+import { ThemePreference } from './theme/ThemePreference';
 
 export const PROVIDERS = () => [
+  /**
+   * ANCHOR Provider for ThemePreference
+   *
+   * NOTE Used for identifiying which theme to use
+   */
+  <ThemePreference.Provider key="ThemePreference" />,
+
   /**
    * ANCHOR Firebase App
    *
@@ -32,7 +41,14 @@ export const PROVIDERS = () => [
   /**
    * ANCHOR SidebarVisibility Provider
    *
-   * NOTE Used for handling sidebar state
+   * NOTE Used for handling sidebar's visibility state
    */
   <SidebarVisibility.Provider key="SidebarVisibility" />,
+
+  /**
+   * ANCHOR ActiveMiniSidebar Provider
+   *
+   * NOTE Used for handling active links in sidebar
+   */
+  <ActiveMiniSidebar.Provider key="ActiveMiniSidebar" />,
 ];
