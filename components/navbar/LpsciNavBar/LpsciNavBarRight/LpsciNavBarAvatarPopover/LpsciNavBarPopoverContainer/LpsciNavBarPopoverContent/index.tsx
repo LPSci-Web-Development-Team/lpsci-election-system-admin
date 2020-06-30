@@ -11,6 +11,7 @@ import { NAV_LINKS } from '@constants/navbar';
 import { LpsciNavBarPopoverProfile } from './LpsciNavBarPopoverProfile';
 import { LpsciNavBarPopoverLogout } from './LpsciNavBarPopoverLogout';
 import { LpsciNavBarPopoverLink } from './LpsciNavBarPopoverItemLink';
+import { LpsciNavBarPopoverTheme } from './LpsciNavBarPopoverTheme';
 
 // ANCHOR Styles
 import { BLOCK, ROOT } from './styles';
@@ -28,6 +29,7 @@ export const LpsciNavBarPopoverContent = React.memo(() => (
           icon={item.icon}
         />
       ))}
+      <LpsciNavBarPopoverTheme />
       <LpsciNavBarPopoverLogout />
     </Block>
   </Block>

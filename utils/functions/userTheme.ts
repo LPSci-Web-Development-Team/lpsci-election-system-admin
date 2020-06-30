@@ -10,9 +10,18 @@ export const userTheme = () => {
     ? 'light'
     : window.localStorage.getItem('theme');
 
+  const toggle = () => {
+    if (theme === 'dark') {
+      window.localStorage.setItem('theme', 'light');
+    } else {
+      window.localStorage.setItem('theme', 'dark');
+    }
+  };
+
   return {
     theme,
     isLight: !theme || theme === 'light',
     isDark: theme === 'dark',
+    toggle,
   };
 };

@@ -33,7 +33,7 @@ interface IGeneralTheme {
   },
 }
 
-interface ILpsciTheme extends IBaseTheme, IGeneralTheme {}
+export interface ILpsciTheme extends IBaseTheme, IGeneralTheme {}
 
 // ANCHOR General theme used in either light or dark
 export const GENERAL_THEME: IGeneralTheme = {

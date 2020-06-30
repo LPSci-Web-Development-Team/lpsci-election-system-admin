@@ -4,10 +4,10 @@ import { THEME } from '@themes/theme';
 export const LARGE: BlockOverrides = {
   Block: {
     style: {
-      paddingTop: '16px',
+      paddingTop: '20px',
       paddingBottom: '16px',
       overflow: 'hidden',
-      height: 'calc(100% - 32px)',
+      height: 'calc(100% - 36px)',
     },
   },
 };

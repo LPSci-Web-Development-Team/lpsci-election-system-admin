@@ -1,18 +1,16 @@
 // ANCHOR Base
 import { BlockOverrides } from 'baseui/block';
-
-// ANCHOR Themes
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       display: 'flex',
-      backgroundColor: THEME.colors.backgroundSecondary,
+      backgroundColor: $theme.colors.backgroundSecondary,
       width: '100vw',
       height: '100vh',
       color: 'white',
-    },
+    }),
   },
 };
 
