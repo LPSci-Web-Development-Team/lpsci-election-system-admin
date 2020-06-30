@@ -1,4 +1,4 @@
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 import { BlockOverrides } from 'baseui/block';
 
 export const LOGO = {
@@ -8,13 +8,13 @@ export const LOGO = {
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       width: '100vw',
       height: '100vh',
-      backgroundColor: THEME.colors.backgroundPrimary,
-    },
+      backgroundColor: $theme.colors.backgroundPrimary,
+    }),
   },
 };

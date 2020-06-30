@@ -1,5 +1,5 @@
 import { BlockOverrides } from 'baseui/block';
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
 export const LARGE: BlockOverrides = {
   Block: {
@@ -14,10 +14,10 @@ export const LARGE: BlockOverrides = {
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
-      backgroundColor: THEME.colors.backgroundPrimary,
+    style: ({ $theme }: ITheme) => ({
+      backgroundColor: $theme.colors.backgroundPrimary,
       overflowX: 'hidden',
-      boxShadow: THEME.shadow.shadow400,
-    },
+      boxShadow: $theme.shadow.shadow400,
+    }),
   },
 };

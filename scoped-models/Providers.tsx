@@ -7,6 +7,7 @@ import { SidebarVisibility } from './sidebar/SidebarVisibility';
 import { FirebaseApp } from './firebase/FirebaseApp';
 import { FirebaseAuth } from './firebase/FirebaseAuth';
 import { ActiveMiniSidebar } from './sidebar/ActiveMiniSidebar';
+import { ThemePreference } from './theme/ThemePreference';
 
 export const PROVIDERS = () => [
   /**
@@ -22,6 +23,13 @@ export const PROVIDERS = () => [
    * NOTE Used for user authentication and signin-dependent views
    */
   <FirebaseAuth.Provider key="FirebaseAuth" />,
+
+  /**
+   * ANCHOR Provider for ThemePreference
+   *
+   * NOTE Used for identifiying which theme to use
+   */
+  <ThemePreference.Provider key="ThemePreference" />,
 
   /**
   * ANCHOR DeviceView Provider

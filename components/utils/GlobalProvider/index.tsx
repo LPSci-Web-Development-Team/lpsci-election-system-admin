@@ -5,19 +5,16 @@ import * as React from 'react';
 import { Provider as StyletronProvider } from 'styletron-react';
 
 // ANCHOR Base
-import {
-  BaseProvider, lightThemePrimitives, createTheme, createDarkTheme, darkThemePrimitives,
-} from 'baseui';
+import { ThemeProvider } from 'baseui';
 
 // ANCHOR Themes
 import { debug, styletron } from '@themes/styletron';
-import { LIGHT_THEME, DARK_THEME } from '@themes/theme';
 
 // ANCHOR Providers
 import { PROVIDERS } from '@scoped-models/Providers';
 
 // ANCHOR Functions
-import { userTheme } from '@functions/userTheme';
+import { useTheme } from '@functions/useTheme';
 
 // ANCHOR Types
 import { IChildrenProps } from '@interfaces/Common';
@@ -26,17 +23,11 @@ import { IChildrenProps } from '@interfaces/Common';
 import { Compose } from '../Compose';
 
 export function GlobalProvider({ children }: IChildrenProps) {
-  const { isLight } = userTheme();
+  const { theme } = useTheme();
 
-  const theme = React.useMemo(() => {
-    if (isLight) {
-      // Create a light theme
-      return createTheme(lightThemePrimitives, LIGHT_THEME);
-    }
-
-    // Create a dark theme
-    return createDarkTheme(darkThemePrimitives, DARK_THEME);
-  }, [isLight]);
+  React.useEffect(() => {
+    console.log(theme);
+  }, [theme]);
 
   return (
     <Compose elements={PROVIDERS()}>
@@ -45,9 +36,9 @@ export function GlobalProvider({ children }: IChildrenProps) {
         debug={debug}
         debugAfterHydration
       >
-        <BaseProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           {children}
-        </BaseProvider>
+        </ThemeProvider>
       </StyletronProvider>
     </Compose>
   );

@@ -1,4 +1,4 @@
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 import { BlockOverrides } from 'baseui/block';
 
 export const BLOCK: BlockOverrides = {
@@ -11,10 +11,10 @@ export const BLOCK: BlockOverrides = {
 
 export const TEXT: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       marginBottom: '8px',
       marginLeft: '16px',
-      color: THEME.colors.contentSecondary,
-    },
+      color: $theme.colors.contentSecondary,
+    }),
   },
 };

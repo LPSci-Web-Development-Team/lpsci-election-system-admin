@@ -1,12 +1,12 @@
 import { BlockOverrides } from 'baseui/block';
 import { StyleObject } from 'styletron-react';
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
-interface ILink {
+interface ILink extends ITheme {
   $active: boolean;
 }
 
-export const LINK = ({ $active }: ILink): StyleObject => ({
+export const LINK = ({ $active, $theme }: ILink): StyleObject => ({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -16,20 +16,20 @@ export const LINK = ({ $active }: ILink): StyleObject => ({
   paddingBottom: '12px',
   textDecoration: 'none',
   backgroundColor: $active
-    ? THEME.colors.backgroundSecondary
+    ? $theme.colors.backgroundSecondary
     : 'transparent',
 
   ':hover': {
-    backgroundColor: THEME.colors.backgroundSecondary,
+    backgroundColor: $theme.colors.backgroundSecondary,
   },
 });
 
 export const ICON: BlockOverrides = {
   Block: {
-    style: {
-      color: THEME.colors.contentTertiary,
+    style: ({ $theme }: ITheme) => ({
+      color: $theme.colors.contentTertiary,
       marginLeft: '8px',
-    },
+    }),
   },
 };
 

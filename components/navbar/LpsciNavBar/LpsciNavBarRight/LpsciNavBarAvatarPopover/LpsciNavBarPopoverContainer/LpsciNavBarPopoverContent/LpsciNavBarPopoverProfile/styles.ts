@@ -1,9 +1,9 @@
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 import { BlockOverrides } from 'baseui/block';
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
@@ -11,8 +11,8 @@ export const BLOCK: BlockOverrides = {
       paddingRight: '32px',
       paddingTop: '16px',
       paddingBottom: '16px',
-      backgroundColor: THEME.colors.backgroundSecondary,
+      backgroundColor: $theme.colors.backgroundSecondary,
       cursor: 'pointer',
-    },
+    }),
   },
 };

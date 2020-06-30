@@ -2,14 +2,14 @@
 import { BlockOverrides } from 'baseui/block';
 
 // ANCHOR Themes
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       gridRow: '2 / 3',
-      backgroundColor: THEME.colors.backgroundPrimary,
-    },
+      backgroundColor: $theme.colors.backgroundPrimary,
+    }),
   },
 };
 

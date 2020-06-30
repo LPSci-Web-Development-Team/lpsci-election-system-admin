@@ -1,15 +1,15 @@
 import { BlockOverrides } from 'baseui/block';
 
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       gridColumn: '1 / 2',
       gridRow: '2 / 3',
-      backgroundColor: THEME.colors.backgroundSecondary,
+      backgroundColor: $theme.colors.backgroundSecondary,
       overflowX: 'hidden',
-      boxShadow: THEME.shadow.shadow400,
-    },
+      boxShadow: $theme.shadow.shadow400,
+    }),
   },
 };

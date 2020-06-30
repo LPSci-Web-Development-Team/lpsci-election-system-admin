@@ -1,22 +1,22 @@
 import { BlockOverrides } from 'baseui/block';
-import { THEME } from '@themes/theme';
+import { ITheme } from '@interfaces/Theme';
 
 export const ROOT: BlockOverrides = {
   Block: {
-    style: {
+    style: ({ $theme }: ITheme) => ({
       minWidth: '240px',
-      boxShadow: THEME.shadow.shadow400,
-    },
+      boxShadow: $theme.shadow.shadow400,
+    }),
   },
 };
 
 export const BLOCK: BlockOverrides = {
   Block: {
-    style: {
-      backgroundColor: THEME.colors.backgroundTertiary,
+    style: ({ $theme }: ITheme) => ({
+      backgroundColor: $theme.colors.backgroundTertiary,
       paddingTop: '8px',
       paddingBottom: '8px',
       width: '100%',
-    },
+    }),
   },
 };

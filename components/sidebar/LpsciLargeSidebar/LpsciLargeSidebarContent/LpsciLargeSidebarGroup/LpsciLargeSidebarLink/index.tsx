@@ -17,6 +17,9 @@ import { Icon } from 'react-icons-kit';
 // ANCHOR Interface
 import { ILargeSidebarLink } from '@interfaces/Sidebar';
 
+// ANCHOR Hooks
+import { useTheme } from '@functions/useTheme';
+
 // ANCHOR Styles
 import { LINK, TEXT, ICON } from './styles';
 
@@ -25,13 +28,19 @@ const LpsciLink = styled('a', LINK);
 export const LpsciLargeSidebarLink = React.memo(({
   label, href, icon,
 }: ILargeSidebarLink) => {
+  const { theme } = useTheme();
+
   const router = useRouter();
 
   const isActive = router.pathname === href;
 
   return (
     <Link href={href} passHref>
-      <LpsciLink $active={isActive} href={href}>
+      <LpsciLink
+        $active={isActive}
+        $theme={theme}
+        href={href}
+      >
         <Block overrides={ICON}>
           <Icon size={20} icon={icon} />
         </Block>

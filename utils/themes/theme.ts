@@ -6,9 +6,6 @@ import { Theme as IBaseTheme } from 'baseui/theme';
 import { BREAKPOINTS } from './breakpoints';
 import { SHADOWS } from './shadows';
 
-// ANCHOR Functions
-import { userTheme } from '../functions/userTheme';
-
 interface IGeneralTheme {
   media: {
     small: string;
@@ -64,8 +61,3 @@ export const LIGHT_THEME: ILpsciTheme = {
   },
   name: 'lpsci-light-theme',
 };
-
-// ANCHOR Smart Theme Definition
-export const THEME: ILpsciTheme = userTheme().isLight
-  ? LIGHT_THEME
-  : DARK_THEME;
