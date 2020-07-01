@@ -55,6 +55,9 @@ export const CreateSchoolYearForm = createModel<IState>(() => {
       })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
+    } else {
+      setError('Sign-in required');
+      setLoading(false);
     }
   }, [endYear, startYear, token]);
 
