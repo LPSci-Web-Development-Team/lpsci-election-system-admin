@@ -11,6 +11,6 @@ export const columns = [
   }),
   StringColumn({
     title: 'End Year',
-    mapDataToValue: (data: RowDataT) => data[0],
+    mapDataToValue: (data: RowDataT) => data[1],
   }),
 ];
