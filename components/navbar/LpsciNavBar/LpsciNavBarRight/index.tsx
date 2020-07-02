@@ -20,7 +20,7 @@ const PopoverSkeleton = withStyle(Skeleton, SKELETON);
 const LpsciNavBarRightContent = React.memo(() => {
   const { user } = useAuthState();
 
-  if (user) {
+  if (!user) {
     return (
       <StyledNavigationItem>
         <Block marginRight="16px">
