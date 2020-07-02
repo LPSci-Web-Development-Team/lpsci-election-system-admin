@@ -7,7 +7,7 @@ import { POST } from '../fetch/methods';
 export async function createSchoolYear({
   token, ...payload
 }: ICreateSchoolYear) {
-  return POST('/provider-application', payload, {
+  return POST('/school-year', payload, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
