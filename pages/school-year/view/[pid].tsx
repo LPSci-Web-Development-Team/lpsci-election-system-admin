@@ -54,10 +54,10 @@ interface IMainProps {
   initialData: ISchoolYearResult;
 }
 
-const LpsciViewSchoolYear = dynamic<IMainProps>(
+const LpsciIndividualSchoolYear = dynamic<IMainProps>(
   () => (
-    import('@components/school-year/LpsciViewSchoolYear')
-      .then((mod) => mod.LpsciViewSchoolYear)
+    import('@components/school-year/LpsciIndividualSchoolYear')
+      .then((mod) => mod.LpsciIndividualSchoolYear)
   ),
   {
     loading: () => <Loader />,
@@ -65,7 +65,7 @@ const LpsciViewSchoolYear = dynamic<IMainProps>(
 );
 
 // eslint-disable-next-line import/no-default-export
-export default function LyonStreamPage({ data, id }: IProps) {
+export default ({ data, id }: IProps) => {
   // SSG may return with empty props.
   if (!data) {
     return <Loader />;
@@ -88,7 +88,7 @@ export default function LyonStreamPage({ data, id }: IProps) {
           image="/img/lpsci-logo.png"
         />
       </LpsciAppHead>
-      <LpsciViewSchoolYear id={id} initialData={data} />
+      <LpsciIndividualSchoolYear id={id} initialData={data} />
     </>
   );
-}
+};
