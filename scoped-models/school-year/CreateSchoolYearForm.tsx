@@ -4,7 +4,7 @@ import * as React from 'react';
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
-// ANCHOR LPSci Hooks
+// ANCHOR Hooks
 import { useDebouncedState } from '@lpsci/hooks';
 import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
 

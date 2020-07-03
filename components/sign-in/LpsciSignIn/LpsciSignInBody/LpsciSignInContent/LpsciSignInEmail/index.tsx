@@ -1,7 +1,7 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR LPSci Hooks
+// ANCHOR Hooks
 import { useConstant, useConstantCallback } from '@lpsci/hooks';
 
 // ANCHOR React Icons
