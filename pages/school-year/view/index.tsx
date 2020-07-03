@@ -27,7 +27,7 @@ export default React.memo(() => (
       description="Sign in to your Las Piñas City National Science High School account"
     >
       <MetaOpenGraph
-        url="https://lpsci-admin.now.sh/school-year/create"
+        url="https://lpsci-admin.now.sh/school-year/view"
         title="LPSci Admin | View School Year"
         description="Sign in to your Las Piñas City National Science High School account"
         width="1366"
