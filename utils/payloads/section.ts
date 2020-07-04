@@ -9,11 +9,18 @@ export enum EGrade {
   Twelve = '12',
 }
 
-export interface ICreateSection extends IRequireSignIn {
+interface ISectionPayload extends IRequireSignIn {
   name: string;
   gradeLevel: EGrade;
   adviser: string;
+}
+
+export interface ICreateSection extends ISectionPayload {
   schoolYear: string;
+}
+
+export interface IUpdateSection extends ISectionPayload {
+  id: string;
 }
 
 export interface IFetchSectionChildren extends IRequireSignIn {

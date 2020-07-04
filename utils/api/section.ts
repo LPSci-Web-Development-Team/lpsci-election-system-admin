@@ -1,18 +1,22 @@
 // ANCHOR Payloads
-import { ICreateSection, IFetchSection, IFetchSectionChildren } from '@payloads/section';
+import {
+  ICreateSection, IFetchSection, IFetchSectionChildren, IUpdateSection,
+} from '@payloads/section';
 
 // ANCHOR Interfaces
 import { IRequireSignIn } from '@interfaces/Common';
 
 // ANCHOR Fetch
-import { POST, GET, DELETE } from '../fetch/methods';
+import {
+  POST, GET, DELETE, PUT,
+} from '../fetch/methods';
 
 // ANCHOR Results
 import { ISectionResult } from './results/section';
 import { IStudentResult } from './results/student';
 
 /**
- * ANCHOR: Create school year
+ * ANCHOR: Create section
  *
  * @param param0 Params
  */
@@ -20,6 +24,22 @@ export async function createSection({
   token, schoolYear, ...payload
 }: ICreateSection) {
   return POST(`/section/new/school-year/${schoolYear}`, payload, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+/**
+ * ANCHOR: Update section
+ *
+ * @param param0 Params
+ */
+export async function updateSection({
+  token, id, ...payload
+}: IUpdateSection) {
+  return PUT(`/section/${id}`, payload, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
