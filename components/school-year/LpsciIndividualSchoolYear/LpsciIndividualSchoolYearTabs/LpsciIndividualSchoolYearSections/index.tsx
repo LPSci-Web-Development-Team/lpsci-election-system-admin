@@ -5,6 +5,7 @@ import * as React from 'react';
 import { SchoolYearSectionsData } from '@scoped-models/school-year/SchoolYearSectionsData';
 
 // ANCHOR Components
+import { Empty } from '@components/utils/Empty';
 import { LpsciIndividualSchoolYearSection } from './LpsciIndividualSchoolYearSection';
 
 export const LpsciIndividualSchoolYearSections = React.memo(() => {
@@ -15,7 +16,7 @@ export const LpsciIndividualSchoolYearSections = React.memo(() => {
   }
 
   if (data.length === 0) {
-    return <p>Empty</p>;
+    return <Empty label="sections" />;
   }
 
   return (
