@@ -6,13 +6,13 @@ import { plus } from 'react-icons-kit/fa/plus';
 import { ILargeSidebar } from '@interfaces/Sidebar';
 
 // ANCHOR Dashboard links
-export const SCHOOL_YEAR_LINKS: ILargeSidebar[] = [
+export const PARTY_LINKS: ILargeSidebar[] = [
   {
     head: 'Browse',
     links: [
       {
-        label: 'View School Years',
-        href: '/school-year/view',
+        label: 'View Parties',
+        href: '/party/view',
         icon: eye,
       },
     ],
@@ -21,8 +21,8 @@ export const SCHOOL_YEAR_LINKS: ILargeSidebar[] = [
     head: 'Manage',
     links: [
       {
-        label: 'Create a School Year',
-        href: '/school-year/create',
+        label: 'Create a Party',
+        href: '/party/create',
         icon: plus,
       },
     ],

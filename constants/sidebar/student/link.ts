@@ -10,23 +10,8 @@ export const STUDENT_LINKS: ILargeSidebar[] = [
     head: 'Browse',
     links: [
       {
-        label: 'View',
+        label: 'View Students',
         href: '/students/view',
-        icon: user,
-      },
-    ],
-  },
-  {
-    head: 'Manage',
-    links: [
-      {
-        label: 'Update',
-        href: '/students/update',
-        icon: user,
-      },
-      {
-        label: 'Delete',
-        href: '/students/delete',
         icon: user,
       },
     ],
