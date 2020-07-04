@@ -6,8 +6,13 @@ import { useRouter } from 'next/router';
 
 // ANCHOR Base
 import { RowActionT } from 'baseui/data-table';
-import { Show } from 'baseui/icon';
 import { withStyle } from 'baseui';
+
+// ANCHOR React Icons
+import { Icon } from 'react-icons-kit';
+import { ic_mode_edit } from 'react-icons-kit/md/ic_mode_edit';
+import { ic_delete } from 'react-icons-kit/md/ic_delete';
+import { ic_search } from 'react-icons-kit/md/ic_search';
 
 // ANCHOR Constants
 import { columns } from '@constants/section';
@@ -30,6 +35,10 @@ import { SKELETON } from './styles';
 
 const DataTableSkeleton = withStyle(Skeleton, SKELETON);
 
+const Edit: React.FC = () => <Icon icon={ic_mode_edit} />;
+const Delete: React.FC = () => <Icon icon={ic_delete} />;
+const Show: React.FC = () => <Icon icon={ic_search} />;
+
 export const LpsciViewSectionDataTable = React.memo(() => {
   const router = useRouter();
 
@@ -40,6 +49,16 @@ export const LpsciViewSectionDataTable = React.memo(() => {
       label: 'Sections',
       onClick: ({ row }) => router.push(`/section/view/${row.id}`),
       renderIcon: Show,
+    },
+    {
+      label: 'Update',
+      onClick: ({ row }) => router.push(`/section/view/${row.id}`),
+      renderIcon: Edit,
+    },
+    {
+      label: 'Delete',
+      onClick: ({ row }) => router.push(`/section/view/${row.id}`),
+      renderIcon: Delete,
     },
   ]));
 
