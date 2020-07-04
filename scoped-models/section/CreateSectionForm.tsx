@@ -20,6 +20,7 @@ interface IState {
     name: State<string>;
     gradeLevel: State<EGrade>;
     adviser: State<string>;
+    schoolYear: State<string>;
     loading: boolean;
     error: string;
   };
@@ -27,13 +28,15 @@ interface IState {
     name: SetState<string>;
     gradeLevel: SetState<EGrade>;
     adviser: SetState<string>;
+    schoolYear: SetState<string>;
     submit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
   }
   valid: {
-    all: boolean,
-    name: boolean,
-    gradeLevel: boolean,
-    adviser: boolean,
+    all: boolean;
+    name: boolean;
+    gradeLevel: boolean;
+    adviser: boolean;
+    schoolYear: boolean;
   }
 }
 
@@ -41,6 +44,7 @@ export const CreateSectionForm = createModel<IState>(() => {
   const [name, setName] = useDebouncedState<string>('');
   const [gradeLevel, setGradeLevel] = useDebouncedState<EGrade>(EGrade.Seven);
   const [adviser, setAdviser] = useDebouncedState<string>('');
+  const [schoolYear, setSchoolYear] = React.useState<string>('');
 
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string>('');
@@ -61,6 +65,7 @@ export const CreateSectionForm = createModel<IState>(() => {
         name,
         gradeLevel,
         adviser,
+        schoolYear,
       })
         .catch((err) => setError(err.message))
         .finally(() => setLoading(false));
@@ -68,20 +73,23 @@ export const CreateSectionForm = createModel<IState>(() => {
       setError('Sign-in required');
       setLoading(false);
     }
-  }, [adviser, gradeLevel, name, token]);
+  }, [adviser, gradeLevel, name, schoolYear, token]);
 
   const validName = name.length > 0;
   const validGradeLevel = gradeLevel.length >= 1 && gradeLevel.length <= 2;
   const validAdviser = adviser.length > 0;
+  const validSchoolYear = schoolYear.length > 0;
   const validAll = validName
     && validGradeLevel
-    && validAdviser;
+    && validAdviser
+    && validSchoolYear;
 
   return {
     state: {
       name,
       gradeLevel,
       adviser,
+      schoolYear,
       loading,
       error,
     },
@@ -89,6 +97,7 @@ export const CreateSectionForm = createModel<IState>(() => {
       name: setName,
       gradeLevel: setGradeLevel,
       adviser: setAdviser,
+      schoolYear: setSchoolYear,
       submit,
     },
     valid: {
@@ -96,6 +105,7 @@ export const CreateSectionForm = createModel<IState>(() => {
       name: validName,
       gradeLevel: validGradeLevel,
       adviser: validAdviser,
+      schoolYear: validSchoolYear,
     },
   };
 },

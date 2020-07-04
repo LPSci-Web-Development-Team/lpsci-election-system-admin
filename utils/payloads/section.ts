@@ -13,4 +13,5 @@ export interface ICreateSection extends IRequireSignIn {
   name: string;
   gradeLevel: EGrade;
   adviser: string;
+  schoolYear: string;
 }

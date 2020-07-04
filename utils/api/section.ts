@@ -12,9 +12,9 @@ import { POST } from '../fetch/methods';
  * @param param0 Params
  */
 export async function createSection({
-  token, ...payload
+  token, schoolYear, ...payload
 }: ICreateSection) {
-  return POST('/section', payload, {
+  return POST(`/section/new/${schoolYear}`, payload, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
