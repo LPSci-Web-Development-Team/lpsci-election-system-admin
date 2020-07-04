@@ -9,10 +9,10 @@ import { MetaOpenGraph } from '@components/head/MetaOpenGraph';
 import { LpsciAppHead } from '@components/head/LpsciAppHead';
 import { Loader } from '@components/utils/Loader';
 
-const LpsciCreateSection = dynamic<any>(
+const LpsciCreateParty = dynamic<any>(
   () => (
-    import('@components/section/LpsciCreateSection')
-      .then((mod) => mod.LpsciCreateSection)
+    import('@components/party/LpsciCreateParty')
+      .then((mod) => mod.LpsciCreateParty)
   ),
   {
     loading: () => <Loader />,
@@ -23,18 +23,18 @@ const LpsciCreateSection = dynamic<any>(
 export default React.memo(() => (
   <>
     <LpsciAppHead
-      title="LPSci Admin | Create Section"
+      title="LPSci Admin | Create Party"
       description="Sign in to your Las Piñas City National Science High School account"
     >
       <MetaOpenGraph
-        url="https://lpsci-admin.now.sh/section/create"
-        title="LPSci Admin | Create Section"
+        url="https://lpsci-admin.now.sh/party/create"
+        title="LPSci Admin | Create Party"
         description="Sign in to your Las Piñas City National Science High School account"
         width="1366"
         height="768"
         image="/img/lpsci-logo.png"
       />
     </LpsciAppHead>
-    <LpsciCreateSection />
+    <LpsciCreateParty />
   </>
 ));

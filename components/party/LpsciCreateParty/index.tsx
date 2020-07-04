@@ -9,7 +9,7 @@ import { IPartyResult } from '@api/results/party';
 
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
-// import { LpsciCreatePartyForm } from './LpsciCreatePartyForm';
+import { LpsciCreatePartyForm } from './LpsciCreatePartyForm';
 
 interface IProps {
   id?: string;

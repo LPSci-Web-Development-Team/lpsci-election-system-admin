@@ -2,13 +2,13 @@
 export const PARTY_NAME_LABEL = 'Party Name';
 
 // ANCHOR Party Name Placeholder
-export const PARTY_NAME_PLACEHOLDER = 'Faraday';
+export const PARTY_NAME_PLACEHOLDER = 'LIBERAL';
 
 // ANCHOR Color Label
 export const PARTY_COLOR_LABEL = 'Color';
 
 // ANCHOR Color Placeholder
-export const PARTY_COLOR_PLACEHOLDER = 'Juan C. Dela Cruz';
+export const PARTY_COLOR_PLACEHOLDER = '#FFFFFF';
 
 // ANCHOR School Year Label
 export const PARTY_SCHOOL_YEAR_LABEL = 'School Year';
