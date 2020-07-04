@@ -10,9 +10,6 @@ import { CreateSchoolYearForm } from '@scoped-models/school-year/CreateSchoolYea
 // ANCHOR Constants
 import { GENERAL_SUBMIT } from '@constants/buttons';
 
-// ANCHOR Styles
-// import { BUTTON } from './styles';
-
 export const LpsciCreateSchoolYearButton = React.memo(() => {
   const [valid, loading] = CreateSchoolYearForm.useSelectors((state) => [
     state.valid.all, state.state.loading,

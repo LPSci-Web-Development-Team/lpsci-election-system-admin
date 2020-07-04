@@ -2,15 +2,16 @@
 import * as React from 'react';
 
 // ANCHOR Models
-import { CreateSchoolYearForm } from '@scoped-models/school-year/CreateSchoolYearForm';
+import { CreateSectionForm } from '@scoped-models/section/CreateSectionForm';
 
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
+import { LpsciCreateSectionForm } from './LpsciCreateSectionForm';
 
 export const LpsciCreateSection = React.memo(() => (
   <LpsciMainPage title="Create Section">
-    <CreateSchoolYearForm.Provider>
-      Section
-    </CreateSchoolYearForm.Provider>
+    <CreateSectionForm.Provider>
+      <LpsciCreateSectionForm />
+    </CreateSectionForm.Provider>
   </LpsciMainPage>
 ));
