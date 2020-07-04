@@ -2,11 +2,13 @@
 import * as React from 'react';
 
 // ANCHOR Models
-import { SchoolYearData } from '@scoped-models/school-year/SchoolYearData';
+
+// ANCHOR Results
+import { ISchoolYearResult } from '@api/results/school-year';
 
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
-import { ISchoolYearResult } from '@api/results/school-year';
+import { LpsciIndividualSchoolYearTabs } from './LpsciIndividualSchoolYearTabs';
 
 interface IProps {
   id: string;
@@ -22,9 +24,7 @@ export const LpsciIndividualSchoolYear = React.memo(({
 
   return (
     <LpsciMainPage title={`S.Y. ${initialData.year}`}>
-      <SchoolYearData.Provider>
-        Hi
-      </SchoolYearData.Provider>
+      <LpsciIndividualSchoolYearTabs />
     </LpsciMainPage>
   );
 });
