@@ -9,6 +9,8 @@ import { POST, GET } from '../fetch/methods';
 
 // ANCHOR Results
 import { ISchoolYearResult } from './results/school-year';
+import { IPartyResult } from './results/party';
+import { ISectionResult } from './results/section';
 
 /**
  * ANCHOR: Create school year
@@ -76,7 +78,7 @@ export async function getSectionsForSchoolYear({
     },
   });
 
-  return (await data.json()) as ISchoolYearResult;
+  return (await data.json()) as ISectionResult[];
 }
 
 /**
@@ -94,5 +96,5 @@ export async function getPartiesForSchoolYear({
     },
   });
 
-  return (await data.json()) as ISchoolYearResult;
+  return (await data.json()) as IPartyResult[];
 }
