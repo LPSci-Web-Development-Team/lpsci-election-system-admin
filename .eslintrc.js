@@ -64,5 +64,6 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-unsafe-member-access": "off",
+    "camelcase": "off",
   },
 };

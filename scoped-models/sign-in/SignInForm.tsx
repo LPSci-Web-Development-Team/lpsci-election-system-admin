@@ -6,7 +6,7 @@ import createModel from '@lxsmnsyc/react-scoped-model';
 
 // ANCHOR Hooks
 import { useDebouncedState, useDebouncedCallback } from '@lpsci/hooks';
-import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
+import { SetState } from '@lpsci/hooks/dist/_utils/types';
 
 // ANCHOR Functions
 import { isEmail } from '@functions/isEmail';
@@ -16,8 +16,8 @@ import { useAuthSignIn } from '@firebase/hooks/useAuthSignIn';
 
 interface IState {
   state: {
-    email: State<string>;
-    password: State<string>;
+    email: string;
+    password: string;
     loading: boolean;
     error: string;
   };

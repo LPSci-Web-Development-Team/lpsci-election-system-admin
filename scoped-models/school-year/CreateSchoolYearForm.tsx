@@ -6,7 +6,7 @@ import createModel from '@lxsmnsyc/react-scoped-model';
 
 // ANCHOR Hooks
 import { useDebouncedState } from '@lpsci/hooks';
-import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
+import { SetState } from '@lpsci/hooks/dist/_utils/types';
 
 // ANCHOR Firebase
 import { useAuthToken } from '@firebase/hooks/useAuthToken';
@@ -14,8 +14,8 @@ import { createSchoolYear } from '@api/school-year';
 
 interface IState {
   state: {
-    startYear: State<string>;
-    endYear: State<string>;
+    startYear: string;
+    endYear: string;
     loading: boolean;
     error: string;
   };
