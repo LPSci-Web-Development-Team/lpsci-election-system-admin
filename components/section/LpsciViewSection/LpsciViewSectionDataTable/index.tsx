@@ -12,7 +12,7 @@ import { withStyle } from 'baseui';
 import { Icon } from 'react-icons-kit';
 import { ic_mode_edit } from 'react-icons-kit/md/ic_mode_edit';
 import { ic_delete } from 'react-icons-kit/md/ic_delete';
-import { ic_search } from 'react-icons-kit/md/ic_search';
+import { ic_remove_red_eye } from 'react-icons-kit/md/ic_remove_red_eye';
 
 // ANCHOR Constants
 import { columns } from '@constants/section';
@@ -37,7 +37,7 @@ const DataTableSkeleton = withStyle(Skeleton, SKELETON);
 
 const Edit: React.FC = () => <Icon icon={ic_mode_edit} />;
 const Delete: React.FC = () => <Icon icon={ic_delete} />;
-const Show: React.FC = () => <Icon icon={ic_search} />;
+const Show: React.FC = () => <Icon icon={ic_remove_red_eye} />;
 
 export const LpsciViewSectionDataTable = React.memo(() => {
   const router = useRouter();

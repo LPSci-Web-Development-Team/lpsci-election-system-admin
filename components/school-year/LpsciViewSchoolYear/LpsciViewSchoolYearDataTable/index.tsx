@@ -6,8 +6,11 @@ import { useRouter } from 'next/router';
 
 // ANCHOR Base
 import { RowActionT } from 'baseui/data-table';
-import { Show } from 'baseui/icon';
 import { withStyle } from 'baseui';
+
+// ANCHOR React Icons
+import { Icon } from 'react-icons-kit';
+import { ic_remove_red_eye } from 'react-icons-kit/md/ic_remove_red_eye';
 
 // ANCHOR Constants
 import { columns } from '@constants/school-year';
@@ -29,6 +32,8 @@ import { useConstant } from '@lpsci/hooks';
 import { SKELETON } from './styles';
 
 const DataTableSkeleton = withStyle(Skeleton, SKELETON);
+
+const Show: React.FC = () => <Icon icon={ic_remove_red_eye} />;
 
 export const LpsciViewSchoolYearDataTable = React.memo(() => {
   const router = useRouter();
