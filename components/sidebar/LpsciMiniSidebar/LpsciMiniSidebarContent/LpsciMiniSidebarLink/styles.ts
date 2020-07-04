@@ -1,5 +1,4 @@
 import { StyleObject } from 'styletron-react';
-import { BlockOverrides } from 'baseui/block';
 import { ITheme } from '@interfaces/Theme';
 import { ButtonOverrides } from 'baseui/button';
 
@@ -25,14 +24,18 @@ interface IColor extends ITheme {
 export const COLOR = ({ $active, $theme }: IColor): StyleObject => ({
   color: $active
     ? $theme.colors.contentPrimary
-    : $theme.colors.contentSecondary,
+    : $theme.colors.contentTertiary,
 });
 
-export const TEXT: BlockOverrides = {
-  Block: {
-    style: {
-      fontSize: '10px',
-      marginTop: '4px',
-    },
-  },
-};
+export const TEXT = ({ $active, $theme }: IColor): StyleObject => ({
+  color: $active
+    ? $theme.colors.contentPrimary
+    : $theme.colors.contentTertiary,
+  fontSize: '10px',
+  marginTop: '4px',
+  marginBottom: 0,
+  width: '100%',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+});

@@ -10,7 +10,7 @@ import { LabelSmall } from 'baseui/typography';
 // ANCHOR Interweave
 import { Markup } from 'interweave';
 
-// ANCHOR LPSci Hooks
+// ANCHOR Hooks
 import { useConstantCallback } from '@lpsci/hooks';
 
 // ANCHOR Styles

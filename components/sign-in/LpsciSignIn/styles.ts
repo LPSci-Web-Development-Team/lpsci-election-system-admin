@@ -18,7 +18,10 @@ export const CARD: CardOverrides = {
       borderLeftWidth: 0,
       boxShadow: $theme.shadow.shadow300,
       backgroundColor: $theme.colors.backgroundPrimary,
-      borderRadius: '10px',
+      borderRadiusTop: '12px',
+      borderRadiusRight: '12px',
+      borderRadiusBottom: '12px',
+      borderRadiusLeft: '12px',
       width: '32%',
 
       [$theme.media.small]: {

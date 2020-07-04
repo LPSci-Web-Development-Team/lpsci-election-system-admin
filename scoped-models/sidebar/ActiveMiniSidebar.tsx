@@ -1,6 +1,9 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import { useRouter } from 'next/router';
+
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
@@ -24,8 +27,19 @@ interface IState {
 }
 
 export const ActiveMiniSidebar = createModel<IState>(() => {
-  const [activeKey, setActiveKey] = React.useState<string>(MINI_SIDEBAR[0].identifier);
-  const [activeLinks, setActiveLinks] = React.useState<ILargeSidebar[]>(MINI_SIDEBAR[0].sublinks);
+  const { pathname } = useRouter();
+
+  const cleanPath = pathname.slice(1);
+  const key = cleanPath.substring(0, cleanPath.indexOf('/'));
+
+  const active = MINI_SIDEBAR.find((item) => item.identifier === key);
+
+  const initialKey = active?.identifier ?? MINI_SIDEBAR[0].identifier;
+
+  const initialLinks = active?.sublinks ?? MINI_SIDEBAR[0].sublinks;
+
+  const [activeKey, setActiveKey] = React.useState<string>(initialKey);
+  const [activeLinks, setActiveLinks] = React.useState<ILargeSidebar[]>(initialLinks);
 
   return {
     state: {

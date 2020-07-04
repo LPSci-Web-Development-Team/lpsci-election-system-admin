@@ -5,7 +5,7 @@ import * as React from 'react';
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
 
 export const LpsciHome = React.memo(() => (
-  <LpsciMainPage>
+  <LpsciMainPage title="Welcome">
     <p>
       Hi
     </p>
