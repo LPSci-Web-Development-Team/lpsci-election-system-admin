@@ -16,6 +16,10 @@ export interface ICreateSection extends IRequireSignIn {
   schoolYear: string;
 }
 
+export interface IFetchSectionChildren extends IRequireSignIn {
+  id: string;
+}
+
 export interface IFetchSection {
   id: string;
 }

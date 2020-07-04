@@ -1,5 +1,5 @@
 // ANCHOR Payloads
-import { ICreateSection, IFetchSection } from '@payloads/section';
+import { ICreateSection, IFetchSection, IFetchSectionChildren } from '@payloads/section';
 
 // ANCHOR Interfaces
 import { IRequireSignIn } from '@interfaces/Common';
@@ -9,6 +9,7 @@ import { POST, GET } from '../fetch/methods';
 
 // ANCHOR Results
 import { ISectionResult } from './results/section';
+import { IStudentResult } from './results/student';
 
 /**
  * ANCHOR: Create school year
@@ -59,4 +60,22 @@ export async function getSectionById({
   });
 
   return (await data.json()) as ISectionResult;
+}
+
+/**
+ * ANCHOR: Get all students for section
+ *
+ * @param param0 Params
+ */
+export async function getStudentsForSection({
+  id, token,
+}: IFetchSectionChildren) {
+  const data = await GET(`/section/${id}/students`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return (await data.json()) as IStudentResult[];
 }
