@@ -7,11 +7,24 @@ import { Tabs, Tab } from 'baseui/tabs';
 // ANCHOR Hooks
 import { useConstantCallback, useConstant } from '@lpsci/hooks';
 
-// ANCHOR Styles
+// ANCHOR Models
+import { SchoolYearPartiesData } from '@scoped-models/school-year/SchoolYearPartiesData';
+import { SchoolYearSectionsData } from '@scoped-models/school-year/SchoolYearSectionsData';
+
+// ANCHOR Components
 import { TabTitle } from '@components/utils/TabTitle';
+import { LpsciIndividualSchoolYearSections } from './LpsciIndividualSchoolYearSections';
+
+// ANCHOR Styles
 import { ROOT, TAB } from './styles';
 
-export const LpsciIndividualSchoolYearTabs = React.memo(() => {
+interface IProps {
+  id: string;
+}
+
+export const LpsciIndividualSchoolYearTabs = React.memo(({
+  id,
+}: IProps) => {
   const [active, setActive] = React.useState('sections');
 
   const onChange = useConstantCallback(({ activeKey }) => {
@@ -33,14 +46,18 @@ export const LpsciIndividualSchoolYearTabs = React.memo(() => {
         key="sections"
         overrides={TAB}
       >
-        Sections
+        <SchoolYearSectionsData.Provider id={id}>
+          <LpsciIndividualSchoolYearSections />
+        </SchoolYearSectionsData.Provider>
       </Tab>
       <Tab
         title={PartyTitle}
         key="parties"
         overrides={TAB}
       >
-        Parties
+        <SchoolYearPartiesData.Provider id={id}>
+          Parties
+        </SchoolYearPartiesData.Provider>
       </Tab>
     </Tabs>
   );

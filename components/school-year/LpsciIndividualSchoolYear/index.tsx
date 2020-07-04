@@ -17,14 +17,8 @@ interface IProps {
 
 export const LpsciIndividualSchoolYear = React.memo(({
   id, initialData,
-}: IProps) => {
-  if (!id) {
-    return null;
-  }
-
-  return (
-    <LpsciMainPage title={`S.Y. ${initialData.year}`}>
-      <LpsciIndividualSchoolYearTabs />
-    </LpsciMainPage>
-  );
-});
+}: IProps) => (
+  <LpsciMainPage title={`S.Y. ${initialData.year}`}>
+    <LpsciIndividualSchoolYearTabs id={id} />
+  </LpsciMainPage>
+));
