@@ -20,7 +20,7 @@ interface IState {
     name: State<string>;
     gradeLevel: State<EGrade | undefined>;
     adviser: State<string>;
-    schoolYear: State<string>;
+    schoolYear: State<string | undefined>;
     loading: boolean;
     error: string;
   };
@@ -28,7 +28,7 @@ interface IState {
     name: SetState<string>;
     gradeLevel: SetState<EGrade | undefined>;
     adviser: SetState<string>;
-    schoolYear: SetState<string>;
+    schoolYear: SetState<string | undefined>;
     submit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
   }
   valid: {
@@ -44,7 +44,7 @@ export const CreateSectionForm = createModel<IState>(() => {
   const [name, setName] = useDebouncedState<string>('');
   const [gradeLevel, setGradeLevel] = useDebouncedState<EGrade | undefined>(undefined);
   const [adviser, setAdviser] = useDebouncedState<string>('');
-  const [schoolYear, setSchoolYear] = React.useState<string>('');
+  const [schoolYear, setSchoolYear] = React.useState<string>();
 
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string>('');
@@ -59,7 +59,7 @@ export const CreateSectionForm = createModel<IState>(() => {
     setError('');
     setLoading(true);
 
-    if (token && gradeLevel) {
+    if (token && gradeLevel && schoolYear) {
       await createSection({
         token,
         name,
@@ -76,9 +76,9 @@ export const CreateSectionForm = createModel<IState>(() => {
   }, [adviser, gradeLevel, name, schoolYear, token]);
 
   const validName = name.length > 0;
-  const validGradeLevel = gradeLevel && gradeLevel.length >= 1 && gradeLevel.length <= 2;
+  const validGradeLevel = !!gradeLevel && gradeLevel.length >= 1 && gradeLevel.length <= 2;
   const validAdviser = adviser.length > 0;
-  const validSchoolYear = schoolYear.length > 0;
+  const validSchoolYear = !!schoolYear && schoolYear.length > 0;
   const validAll = validName
     && validGradeLevel
     && validAdviser
