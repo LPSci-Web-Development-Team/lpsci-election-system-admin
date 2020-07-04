@@ -6,6 +6,7 @@ import { Block } from 'baseui/block';
 
 // ANCHOR Models
 import { DeviceView } from '@scoped-models/device/DeviceView';
+import { SidebarVisibility } from '@scoped-models/sidebar/SidebarVisibility';
 
 // ANCHOR Components
 import { Scrollbar } from '@components/utils/Scrollbar';
@@ -15,7 +16,7 @@ import { IChildrenProps } from '@interfaces/Common';
 
 // ANCHOR Styles
 import {
-  BLOCK, CONTENT, DESKTOP_COLUMN, MOBILE_COLUMN,
+  BLOCK, CONTENT, DESKTOP_COLUMN, MOBILE_COLUMN, DESKTOP_TEMPLATE_COLUMN, MOBILE_TEMPLATE_COLUMN,
 } from './styles';
 
 interface IProps extends IChildrenProps {
@@ -27,6 +28,8 @@ export const LpsciMainContent = (
 ) => {
   const isDesktop = DeviceView.useSelector((state) => state.isDesktop);
 
+  const visible = SidebarVisibility.useSelector((state) => state.state);
+
   // Memoize column definition
   const column = React.useMemo(() => (
     (isDesktop && !useSidebarPanel)
@@ -34,9 +37,18 @@ export const LpsciMainContent = (
       : MOBILE_COLUMN
   ), [isDesktop, useSidebarPanel]);
 
+  const templateColumn = React.useMemo(() => (
+    (isDesktop && !visible && !useSidebarPanel)
+      ? DESKTOP_TEMPLATE_COLUMN
+      : MOBILE_TEMPLATE_COLUMN
+  ), [isDesktop, visible, useSidebarPanel]);
+
   return (
     <Block gridColumn={column} overrides={BLOCK}>
-      <Scrollbar overrides={CONTENT}>
+      <Scrollbar
+        overrides={CONTENT}
+        gridTemplateColumns={templateColumn}
+      >
         { children }
       </Scrollbar>
     </Block>

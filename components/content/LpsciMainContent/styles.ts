@@ -17,10 +17,26 @@ export const CONTENT: BlockOverrides = {
   Block: {
     style: {
       display: 'grid',
-      gridTemplateColumns: '240px auto',
     },
   },
 };
+
+/**
+ * ANCHOR Grid template column definition for mobile
+ *
+ * Dictates what grid column should the content occupy
+ * when on mobile view
+ */
+export const MOBILE_TEMPLATE_COLUMN = '240px auto';
+
+/**
+ * ANCHOR Grid template column definition for desktop
+ *
+ * Dictates what grid column should the content occupy
+ * when on desktop view
+ *
+ */
+export const DESKTOP_TEMPLATE_COLUMN = 'auto';
 
 /**
  * ANCHOR Grid column definition for mobile
