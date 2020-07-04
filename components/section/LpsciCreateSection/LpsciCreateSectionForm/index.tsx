@@ -7,12 +7,15 @@ import { KIND } from 'baseui/toast';
 
 // ANCHOR Models
 import { CreateSectionForm } from '@scoped-models/section/CreateSectionForm';
+import { SchoolYearData } from '@scoped-models/school-year/SchoolYearData';
 
 // ANCHOR Component
 import { Response } from '@components/utils/Response';
 import { LpsciCreateSectionButton } from './LpsciCreateSectionButton';
 import { LpsciCreateSectionName } from './LpsciCreateSectionName';
 import { LpsciCreateSectionGradeLevel } from './LpsciCreateSectionGradeLevel';
+import { LpsciCreateSectionAdviser } from './LpsciCreateSectionAdviser';
+import { LpsciCreateSectionSchoolYear } from './LpsciCreateSectionSchoolYear';
 
 // ANCHOR Styles
 import { FORM } from './styles';
@@ -29,6 +32,10 @@ export const LpsciCreateSectionForm = React.memo(() => {
       <Response message={error} kind={KIND.negative} />
       <LpsciCreateSectionName />
       <LpsciCreateSectionGradeLevel />
+      <LpsciCreateSectionAdviser />
+      <SchoolYearData.Provider>
+        <LpsciCreateSectionSchoolYear />
+      </SchoolYearData.Provider>
       <LpsciCreateSectionButton />
     </LpsciForm>
   );

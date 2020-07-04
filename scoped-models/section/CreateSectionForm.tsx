@@ -59,7 +59,7 @@ export const CreateSectionForm = createModel<IState>(() => {
     setError('');
     setLoading(true);
 
-    if (token) {
+    if (token && gradeLevel) {
       await createSection({
         token,
         name,

@@ -10,7 +10,7 @@ export const SECTION_NAME_PLACEHOLDER = 'Faraday';
 export const SECTION_GRADE_LEVEL_LABEL = 'Grade Level';
 
 // ANCHOR Grade Level Placeholder
-export const SECTION_GRADE_LEVEL_PLACEHOLDER = 'Select a grade level';
+export const SECTION_GRADE_LEVEL_PLACEHOLDER = 'Select a grade level...';
 
 // ANCHOR Grade Level Options
 export const SECTION_GRADE_LEVEL_OPTIONS = [
@@ -27,3 +27,12 @@ export const SECTION_ADVISER_LABEL = 'Adviser';
 
 // ANCHOR Adviser Placeholder
 export const SECTION_ADVISER_PLACEHOLDER = 'Juan C. Dela Cruz';
+
+// ANCHOR School Year Label
+export const SECTION_SCHOOL_YEAR_LABEL = 'School Year';
+
+// ANCHOR School Year Placeholder
+export const SECTION_SCHOOL_YEAR_PLACEHOLDER = 'Select a school year...';
+
+// ANCHOR School Year Tooltip
+export const SECTION_SCHOOL_YEAR_TOOLTIP = 'This identifies the school year where this section belongs.';
