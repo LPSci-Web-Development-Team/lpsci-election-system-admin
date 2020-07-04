@@ -8,9 +8,11 @@ import { Tabs, Tab } from 'baseui/tabs';
 import { useConstantCallback, useConstant } from '@lpsci/hooks';
 
 // ANCHOR Models
+import { SectionStudentsData } from '@scoped-models/section/SectionStudentsData';
 
 // ANCHOR Components
 import { TabTitle } from '@components/utils/TabTitle';
+import { LpsciIndividualSectionStudents } from './LpsciIndividualSectionStudents';
 
 // ANCHOR Styles
 import { ROOT, TAB } from './styles';
@@ -22,13 +24,13 @@ interface IProps {
 export const LpsciIndividualSectionTabs = React.memo(({
   id,
 }: IProps) => {
-  const [active, setActive] = React.useState('sections');
+  const [active, setActive] = React.useState('student');
 
   const onChange = useConstantCallback(({ activeKey }) => {
     setActive(activeKey);
   });
 
-  const SectionTitle = useConstant(() => <TabTitle title="Sections" />);
+  const StudentTitle = useConstant(() => <TabTitle title="Students" />);
 
   return (
     <Tabs
@@ -38,11 +40,13 @@ export const LpsciIndividualSectionTabs = React.memo(({
       renderAll
     >
       <Tab
-        title={SectionTitle}
-        key="sections"
+        title={StudentTitle}
+        key="student"
         overrides={TAB}
       >
-        {id}
+        <SectionStudentsData.Provider id={id}>
+          <LpsciIndividualSectionStudents />
+        </SectionStudentsData.Provider>
       </Tab>
     </Tabs>
   );

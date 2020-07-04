@@ -14,7 +14,8 @@ import { Show } from 'baseui/icon';
 import { useConstant } from '@lpsci/hooks';
 
 // ANCHOR Results
-import { ISectionResult } from '@api/results/section';
+import { IStudentResult } from '@api/results/student';
+import { ESex } from '@api/results/user';
 
 // ANCHOR Themes
 import { COLORS } from '@themes/constant';
@@ -23,41 +24,40 @@ import { COLORS } from '@themes/constant';
 import { LIST, TAG } from './styles';
 
 interface IProps {
-  data: ISectionResult;
+  data: IStudentResult;
+  index: number;
 }
 
 type StringKV = {
   [string: string]: string;
 };
 
-export const LpsciIndividualSchoolYearSection = ({
-  data,
+export const LpsciIndividualSectionStudent = ({
+  data, index,
 }: IProps) => {
   const router = useRouter();
 
   const tagColor: StringKV = useConstant(() => ({
-    grade7: COLORS.green,
-    grade8: COLORS.yellow,
-    grade9: COLORS.red,
-    grade10: COLORS.blue,
-    grade11: COLORS.black,
-    grade12: COLORS.black,
+    male: COLORS.blue,
+    female: COLORS.yellow,
   }));
 
   const artwork = React.useCallback(() => (
     <Tag
       closeable={false}
       kind={KIND.custom}
-      color={tagColor[`grade${data.gradeLevel}`]}
+      color={tagColor[data.user?.sex ?? ESex.M]}
       variant={VARIANT.solid}
       overrides={TAG}
     >
-      {`Grade ${data.gradeLevel}`}
+      {data.user?.sex === ESex.M
+        ? `B${index}`
+        : `G${index}`}
     </Tag>
-  ), [data.gradeLevel, tagColor]);
+  ), [data.user?.sex, index, tagColor]);
 
   const onClick = React.useCallback(() => (
-    router.push(`/section/view/${data.id}`)
+    router.push(`/student/view/${data.id}`)
   ), [data.id, router]);
 
   const endEnhancer = React.useCallback(() => (
@@ -76,7 +76,11 @@ export const LpsciIndividualSchoolYearSection = ({
       overrides={LIST}
       endEnhancer={endEnhancer}
     >
-      <ListItemLabel>{data.name}</ListItemLabel>
+      <ListItemLabel>
+        {data.user
+          ? `${data.user?.lastName}, ${data.user?.firstName}`
+          : data.learnerReferenceNumber}
+      </ListItemLabel>
     </ListItem>
   );
 };

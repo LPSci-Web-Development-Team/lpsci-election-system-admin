@@ -21,7 +21,7 @@ interface IProps {
   id: string;
 }
 
-export const SectionStudentData = createModel<IState, IProps>(({
+export const SectionStudentsData = createModel<IState, IProps>(({
   id,
 }: IProps) => {
   const { data: token } = useAuthToken();
@@ -37,5 +37,5 @@ export const SectionStudentData = createModel<IState, IProps>(({
     mutate,
   };
 }, {
-  displayName: 'Models.SectionStudentData',
+  displayName: 'Models.SectionStudentsData',
 });
