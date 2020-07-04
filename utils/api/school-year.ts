@@ -2,7 +2,7 @@
 import { IRequireSignIn } from '@interfaces/Common';
 
 // ANCHOR Payloads
-import { ICreateSchoolYear, IFetchSchoolYear } from '@payloads/school-year';
+import { ICreateSchoolYear, IFetchSchoolYear, IFetchSchoolYearChildren } from '@payloads/school-year';
 
 // ANCHOR Fetch
 import { POST, GET } from '../fetch/methods';
@@ -45,7 +45,7 @@ export async function getSchoolYears({
 }
 
 /**
- * ANCHOR: Get all school years
+ * ANCHOR: Get school year by id
  *
  * @param param0 Params
  */
@@ -55,6 +55,42 @@ export async function getSchoolYearById({
   const data = await GET(`/school-year/${id}`, {
     headers: {
       'Content-Type': 'application/json',
+    },
+  });
+
+  return (await data.json()) as ISchoolYearResult;
+}
+
+/**
+ * ANCHOR: Get all sections for school year
+ *
+ * @param param0 Params
+ */
+export async function getSectionsForSchoolYear({
+  id, token,
+}: IFetchSchoolYearChildren) {
+  const data = await GET(`/school-year/${id}/sections`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return (await data.json()) as ISchoolYearResult;
+}
+
+/**
+ * ANCHOR: Get all parties for school year
+ *
+ * @param param0 Params
+ */
+export async function getPartiesForSchoolYear({
+  id, token,
+}: IFetchSchoolYearChildren) {
+  const data = await GET(`/school-year/${id}/parties`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
   });
 
