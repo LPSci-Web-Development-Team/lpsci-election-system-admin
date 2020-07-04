@@ -14,6 +14,7 @@ import { SchoolYearSectionsData } from '@scoped-models/school-year/SchoolYearSec
 // ANCHOR Components
 import { TabTitle } from '@components/utils/TabTitle';
 import { LpsciIndividualSchoolYearSections } from './LpsciIndividualSchoolYearSections';
+import { LpsciIndividualSchoolYearParties } from './LpsciIndividualSchoolYearParties';
 
 // ANCHOR Styles
 import { ROOT, TAB } from './styles';
@@ -56,7 +57,7 @@ export const LpsciIndividualSchoolYearTabs = React.memo(({
         overrides={TAB}
       >
         <SchoolYearPartiesData.Provider id={id}>
-          Parties
+          <LpsciIndividualSchoolYearParties />
         </SchoolYearPartiesData.Provider>
       </Tab>
     </Tabs>
