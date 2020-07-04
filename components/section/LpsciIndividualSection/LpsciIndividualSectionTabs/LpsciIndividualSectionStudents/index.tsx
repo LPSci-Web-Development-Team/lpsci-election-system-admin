@@ -21,12 +21,9 @@ import { SKELETON } from './styles';
 const ListSkeleton = withStyle(Skeleton, SKELETON);
 
 export const LpsciIndividualSectionStudents = React.memo(() => {
-  const [male, female] = SectionStudentsData.useSelectors((state) => [
-    state.data?.filter((i) => i.user?.sex === ESex.M),
-    state.data?.filter((i) => i.user?.sex === ESex.F),
-  ]);
+  const data = SectionStudentsData.useSelector((state) => state.data);
 
-  if (!male || !female) {
+  if (!data) {
     return (
       <>
         <ListSkeleton />
@@ -36,9 +33,12 @@ export const LpsciIndividualSectionStudents = React.memo(() => {
     );
   }
 
-  if (male.length + female.length === 0) {
+  if (data.length === 0) {
     return <Empty label="students" />;
   }
+
+  const male = data.filter((item) => (item.user?.sex === ESex.M));
+  const female = data.filter((item) => (item.user?.sex === ESex.F));
 
   return (
     <>
