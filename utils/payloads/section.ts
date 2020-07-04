@@ -1,3 +1,5 @@
+import { IRequireSignIn } from '@interfaces/Common';
+
 export enum EGrade {
   Seven = '7',
   Eight = '8',
@@ -5,4 +7,10 @@ export enum EGrade {
   Ten = '10',
   Eleven = '11',
   Twelve = '12',
+}
+
+export interface ICreateSection extends IRequireSignIn {
+  name: string;
+  gradeLevel: EGrade;
+  adviser: string;
 }
