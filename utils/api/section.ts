@@ -5,7 +5,7 @@ import { ICreateSection, IFetchSection, IFetchSectionChildren } from '@payloads/
 import { IRequireSignIn } from '@interfaces/Common';
 
 // ANCHOR Fetch
-import { POST, GET } from '../fetch/methods';
+import { POST, GET, DELETE } from '../fetch/methods';
 
 // ANCHOR Results
 import { ISectionResult } from './results/section';
@@ -78,4 +78,20 @@ export async function getStudentsForSection({
   });
 
   return (await data.json()) as IStudentResult[];
+}
+
+/**
+ * ANCHOR: Delete section by id
+ *
+ * @param param0 Params
+ */
+export async function deleteSectionById({
+  id, token,
+}: IFetchSectionChildren) {
+  await DELETE(`/section/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
