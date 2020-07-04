@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 
 // ANCHOR Base
-import { RowActionT } from 'baseui/data-table';
+import { RowActionT, BatchActionT } from 'baseui/data-table';
 import { withStyle } from 'baseui';
 
 // ANCHOR React Icons
@@ -27,8 +27,11 @@ import { IRow } from '@interfaces/DataTable';
 import { DataTable } from '@components/utils/DataTable';
 import { Skeleton } from '@components/utils/Skeleton';
 
+// ANCHOR API
+import { deleteSectionById } from '@api/section';
+
 // ANCHOR Hooks
-import { useConstant } from '@lpsci/hooks';
+import { useAuthToken } from '@firebase/hooks/useAuthToken';
 
 // ANCHOR Styles
 import { SKELETON } from './styles';
@@ -42,9 +45,13 @@ const Show: React.FC = () => <Icon icon={ic_remove_red_eye} />;
 export const LpsciViewSectionDataTable = React.memo(() => {
   const router = useRouter();
 
-  const data = SectionData.useSelector((state) => state.data);
+  const [data, mutate] = SectionData.useSelectors((state) => [
+    state.data, state.mutate,
+  ]);
 
-  const rowActions: RowActionT[] = useConstant(() => ([
+  const { data: token } = useAuthToken();
+
+  const rowActions: RowActionT[] = React.useMemo(() => ([
     {
       label: 'Sections',
       onClick: ({ row }) => router.push(`/section/view/${row.id}`),
@@ -52,15 +59,42 @@ export const LpsciViewSectionDataTable = React.memo(() => {
     },
     {
       label: 'Update',
-      onClick: ({ row }) => router.push(`/section/view/${row.id}`),
+      onClick: ({ row }) => router.push(`/section/update/${row.id}`),
       renderIcon: Edit,
     },
     {
       label: 'Delete',
-      onClick: ({ row }) => router.push(`/section/view/${row.id}`),
+      onClick: async ({ row }) => {
+        if (token) {
+          await deleteSectionById({
+            id: row.id as string,
+            token,
+          });
+          await mutate();
+        }
+      },
       renderIcon: Delete,
     },
-  ]));
+  ]), [mutate, router, token]);
+
+  const batchActions: BatchActionT[] = React.useMemo(() => ([
+    {
+      label: 'Delete',
+      onClick: ({ selection, clearSelection }) => {
+        if (token) {
+          selection.map(async (row) => {
+            await deleteSectionById({
+              id: row.id as string,
+              token,
+            });
+
+            await mutate();
+          });
+        }
+        clearSelection();
+      },
+    },
+  ]), [mutate, token]);
 
   if (!data) {
     return <DataTableSkeleton />;
@@ -76,6 +110,7 @@ export const LpsciViewSectionDataTable = React.memo(() => {
       columns={columns}
       rows={rows}
       rowActions={rowActions}
+      batchActions={batchActions}
     />
   );
 });
