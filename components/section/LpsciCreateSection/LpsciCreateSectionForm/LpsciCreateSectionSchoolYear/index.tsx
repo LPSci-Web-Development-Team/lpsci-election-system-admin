@@ -26,7 +26,9 @@ export const LpsciCreateSectionSchoolYear = React.memo(() => {
 
   const data = SchoolYearData.useSelector((state) => state.data);
 
-  const setSchoolYear = CreateSectionForm.useSelector((state) => state.handler.schoolYear);
+  const [setSchoolYear, isCreate] = CreateSectionForm.useSelectors((state) => [
+    state.handler.schoolYear, state.valid.create,
+  ]);
 
   const onChange = useConstantCallback((e: OnChangeParams) => {
     setSchoolYear(e.option?.id as string);
@@ -34,7 +36,7 @@ export const LpsciCreateSectionSchoolYear = React.memo(() => {
   });
 
   const options: Value = React.useMemo(() => {
-    if (!data) {
+    if (!data || !isCreate) {
       return [];
     }
 
@@ -42,7 +44,11 @@ export const LpsciCreateSectionSchoolYear = React.memo(() => {
       id: item.id,
       label: item.year,
     }));
-  }, [data]);
+  }, [data, isCreate]);
+
+  if (!isCreate) {
+    return null;
+  }
 
   return (
     <FormSelect
@@ -52,6 +58,7 @@ export const LpsciCreateSectionSchoolYear = React.memo(() => {
       tooltip={SECTION_SCHOOL_YEAR_TOOLTIP}
       onChange={onChange}
       options={options}
+      isLoading={!data}
     />
   );
 });

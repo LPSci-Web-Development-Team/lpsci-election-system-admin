@@ -12,8 +12,9 @@ import { SetState, State } from '@lpsci/hooks/dist/_utils/types';
 import { useAuthToken } from '@firebase/hooks/useAuthToken';
 
 // ANCHOR API
-import { createSection } from '@api/section';
+import { createSection, updateSection } from '@api/section';
 import { EGrade } from '@payloads/section';
+import { ISectionResult } from '@api/results/section';
 
 interface IState {
   state: {
@@ -37,13 +38,23 @@ interface IState {
     gradeLevel: boolean;
     adviser: boolean;
     schoolYear: boolean;
+    create: boolean;
   }
 }
 
-export const CreateSectionForm = createModel<IState>(() => {
-  const [name, setName] = useDebouncedState<string>('');
-  const [gradeLevel, setGradeLevel] = useDebouncedState<EGrade | undefined>(undefined);
-  const [adviser, setAdviser] = useDebouncedState<string>('');
+interface IProps {
+  id?: string;
+  initialData?: ISectionResult;
+}
+
+export const CreateSectionForm = createModel<IState, IProps>(({
+  id, initialData,
+}: IProps) => {
+  const [name, setName] = useDebouncedState<string>(initialData?.name ?? '');
+  const [
+    gradeLevel, setGradeLevel,
+  ] = useDebouncedState<EGrade | undefined>(initialData?.gradeLevel);
+  const [adviser, setAdviser] = useDebouncedState<string>(initialData?.adviser ?? '');
   const [schoolYear, setSchoolYear] = React.useState<string>();
 
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -60,20 +71,32 @@ export const CreateSectionForm = createModel<IState>(() => {
     setLoading(true);
 
     if (token && gradeLevel && schoolYear) {
-      await createSection({
-        token,
-        name,
-        gradeLevel,
-        adviser,
-        schoolYear,
-      })
-        .catch((err) => setError(err.message))
-        .finally(() => setLoading(false));
+      if (!initialData || !id) {
+        await createSection({
+          token,
+          name,
+          gradeLevel,
+          adviser,
+          schoolYear,
+        })
+          .catch((err) => setError(err.message))
+          .finally(() => setLoading(false));
+      } else {
+        await updateSection({
+          token,
+          id,
+          name,
+          gradeLevel,
+          adviser,
+        })
+          .catch((err) => setError(err.message))
+          .finally(() => setLoading(false));
+      }
     } else {
       setError('Sign-in required');
       setLoading(false);
     }
-  }, [adviser, gradeLevel, name, schoolYear, token]);
+  }, [adviser, gradeLevel, id, initialData, name, schoolYear, token]);
 
   const validName = name.length > 0;
   const validGradeLevel = !!gradeLevel && gradeLevel.length >= 1 && gradeLevel.length <= 2;
@@ -106,6 +129,7 @@ export const CreateSectionForm = createModel<IState>(() => {
       gradeLevel: validGradeLevel,
       adviser: validAdviser,
       schoolYear: validSchoolYear,
+      create: !initialData,
     },
   };
 },
