@@ -38,10 +38,10 @@ export const LpsciMainContent = (
   ), [isDesktop, useSidebarPanel]);
 
   const templateColumn = React.useMemo(() => (
-    (isDesktop && !visible && !useSidebarPanel)
+    (!visible && !useSidebarPanel)
       ? DESKTOP_TEMPLATE_COLUMN
       : MOBILE_TEMPLATE_COLUMN
-  ), [isDesktop, visible, useSidebarPanel]);
+  ), [visible, useSidebarPanel]);
 
   return (
     <Block gridColumn={column} overrides={BLOCK}>
