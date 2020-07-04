@@ -11,15 +11,15 @@ import { LpsciAppHead } from '@components/head/LpsciAppHead';
 import { Loader } from '@components/utils/Loader';
 
 // ANCHOR API
-import { ISectionResult } from '@api/results/section';
-import { getSectionById } from '@api/section';
+import { IPartyResult } from '@api/results/party';
+import { getPartyById } from '@api/party';
 
 // ANCHOR Utils
 import { ParsedUrlQuery } from 'querystring';
 
 interface IProps {
   id: string;
-  data: ISectionResult;
+  data: IPartyResult;
 }
 interface IParams extends ParsedUrlQuery {
   pid: string;
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) =
 
   const id = context.params.pid;
 
-  const data = await getSectionById({ id });
+  const data = await getPartyById({ id });
 
   return {
     props: {
@@ -51,13 +51,13 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) =
 
 interface IMainProps {
   id: string;
-  initialData: ISectionResult;
+  initialData: IPartyResult;
 }
 
-const LpsciCreateSection = dynamic<IMainProps>(
+const LpsciCreateParty = dynamic<IMainProps>(
   () => (
-    import('@components/section/LpsciCreateSection')
-      .then((mod) => mod.LpsciCreateSection)
+    import('@components/party/LpsciCreateParty')
+      .then((mod) => mod.LpsciCreateParty)
   ),
   {
     loading: () => <Loader />,
@@ -80,7 +80,7 @@ export default ({ data, id }: IProps) => {
         description="Sign in to your Las Piñas City National Science High School account"
       >
         <MetaOpenGraph
-          url={`https://lpsci-admin.now.sh/section/view/${data.id}`}
+          url={`https://lpsci-admin.now.sh/party/view/${data.id}`}
           title={title}
           description="Sign in to your Las Piñas City National Science High School account"
           width="1366"
@@ -88,7 +88,7 @@ export default ({ data, id }: IProps) => {
           image="/img/lpsci-logo.png"
         />
       </LpsciAppHead>
-      <LpsciCreateSection id={id} initialData={data} />
+      <LpsciCreateParty id={id} initialData={data} />
     </>
   );
 };
