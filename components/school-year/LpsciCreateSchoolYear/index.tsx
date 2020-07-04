@@ -9,7 +9,7 @@ import { LpsciMainPage } from '@components/page/LpsciMainPage';
 import { LpsciCreateSchoolYearForm } from './LpsciCreateSchoolYearForm';
 
 export const LpsciCreateSchoolYear = React.memo(() => (
-  <LpsciMainPage title="Create School Years">
+  <LpsciMainPage title="Create a School Year">
     <CreateSchoolYearForm.Provider>
       <LpsciCreateSchoolYearForm />
     </CreateSchoolYearForm.Provider>

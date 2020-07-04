@@ -22,7 +22,7 @@ export const LpsciCreateSection = React.memo(({
   <LpsciMainPage
     title={`${initialData
       ? (`Update Grade ${initialData.gradeLevel} - ${initialData.name}`)
-      : 'Create Section'}`}
+      : 'Create a Section'}`}
   >
     <CreateSectionForm.Provider
       id={id}

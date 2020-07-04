@@ -11,7 +11,7 @@ export const SECTION_LINKS: ILargeSidebar[] = [
     head: 'Browse',
     links: [
       {
-        label: 'View',
+        label: 'View Sections',
         href: '/section/view',
         icon: eye,
       },
@@ -21,7 +21,7 @@ export const SECTION_LINKS: ILargeSidebar[] = [
     head: 'Manage',
     links: [
       {
-        label: 'Create',
+        label: 'Create a Section',
         href: '/section/create',
         icon: plus,
       },
