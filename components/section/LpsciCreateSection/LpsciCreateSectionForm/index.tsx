@@ -1,26 +1,17 @@
 // ANCHOR React
 import * as React from 'react';
 
-// ANCHOR Base
-import { styled } from 'baseui';
-import { KIND } from 'baseui/toast';
-
 // ANCHOR Models
 import { CreateSectionForm } from '@scoped-models/section/CreateSectionForm';
 import { SchoolYearData } from '@scoped-models/school-year/SchoolYearData';
 
 // ANCHOR Component
-import { Response } from '@components/utils/Response';
+import { FormContainer } from '@components/utils/FormContainer';
 import { LpsciCreateSectionButton } from './LpsciCreateSectionButton';
 import { LpsciCreateSectionName } from './LpsciCreateSectionName';
 import { LpsciCreateSectionGradeLevel } from './LpsciCreateSectionGradeLevel';
 import { LpsciCreateSectionAdviser } from './LpsciCreateSectionAdviser';
 import { LpsciCreateSectionSchoolYear } from './LpsciCreateSectionSchoolYear';
-
-// ANCHOR Styles
-import { FORM } from './styles';
-
-const LpsciForm = styled('form', FORM);
 
 export const LpsciCreateSectionForm = React.memo(() => {
   const [submit, error] = CreateSectionForm.useSelectors((state) => [
@@ -28,8 +19,7 @@ export const LpsciCreateSectionForm = React.memo(() => {
   ]);
 
   return (
-    <LpsciForm onSubmit={submit}>
-      <Response message={error} kind={KIND.negative} />
+    <FormContainer onSubmit={submit} error={error}>
       <LpsciCreateSectionName />
       <LpsciCreateSectionGradeLevel />
       <LpsciCreateSectionAdviser />
@@ -37,6 +27,6 @@ export const LpsciCreateSectionForm = React.memo(() => {
         <LpsciCreateSectionSchoolYear />
       </SchoolYearData.Provider>
       <LpsciCreateSectionButton />
-    </LpsciForm>
+    </FormContainer>
   );
 });
