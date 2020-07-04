@@ -15,3 +15,7 @@ export interface ICreateSection extends IRequireSignIn {
   adviser: string;
   schoolYear: string;
 }
+
+export interface IFetchSection {
+  id: string;
+}

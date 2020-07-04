@@ -1,5 +1,5 @@
 // ANCHOR Payloads
-import { ICreateSection } from '@payloads/section';
+import { ICreateSection, IFetchSection } from '@payloads/section';
 
 // ANCHOR Interfaces
 import { IRequireSignIn } from '@interfaces/Common';
@@ -27,7 +27,7 @@ export async function createSection({
 }
 
 /**
- * ANCHOR: Get all school years
+ * ANCHOR: Get all sections
  *
  * @param param0 Params
  */
@@ -42,4 +42,21 @@ export async function getSections({
   });
 
   return (await data.json()) as ISectionResult[];
+}
+
+/**
+ * ANCHOR: Get section by id
+ *
+ * @param param0 Params
+ */
+export async function getSectionById({
+  id,
+}: IFetchSection) {
+  const data = await GET(`/section/${id}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return (await data.json()) as ISectionResult;
 }
