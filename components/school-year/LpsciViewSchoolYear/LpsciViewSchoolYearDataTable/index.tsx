@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 // ANCHOR Base
 import { RowActionT } from 'baseui/data-table';
 import { Show } from 'baseui/icon';
+import { withStyle } from 'baseui';
 
 // ANCHOR Constants
 import { columns } from '@constants/school-year';
@@ -19,9 +20,15 @@ import { IRow } from '@interfaces/DataTable';
 
 // ANCHOR Component
 import { DataTable } from '@components/utils/DataTable';
+import { Skeleton } from '@components/utils/Skeleton';
 
 // ANCHOR Hooks
 import { useConstant } from '@lpsci/hooks';
+
+// ANCHOR Styles
+import { SKELETON } from './styles';
+
+const DataTableSkeleton = withStyle(Skeleton, SKELETON);
 
 export const LpsciViewSchoolYearDataTable = React.memo(() => {
   const router = useRouter();
@@ -37,7 +44,7 @@ export const LpsciViewSchoolYearDataTable = React.memo(() => {
   ]));
 
   if (!data) {
-    return null;
+    return <DataTableSkeleton />;
   }
 
   const rows: IRow[] = data.map((r) => ({
