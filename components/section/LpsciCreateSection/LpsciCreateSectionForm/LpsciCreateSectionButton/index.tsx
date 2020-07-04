@@ -8,11 +8,13 @@ import { Button } from 'baseui/button';
 import { CreateSectionForm } from '@scoped-models/section/CreateSectionForm';
 
 // ANCHOR Constants
-import { GENERAL_SUBMIT } from '@constants/buttons';
+import { GENERAL_SUBMIT, GENERAL_SAVE } from '@constants/buttons';
 
 export const LpsciCreateSectionButton = React.memo(() => {
-  const [valid, loading] = CreateSectionForm.useSelectors((state) => [
-    state.valid.all, state.state.loading,
+  const [valid, loading, isCreate] = CreateSectionForm.useSelectors((state) => [
+    state.valid.all,
+    state.state.loading,
+    state.valid.create,
   ]);
 
   return (
@@ -21,7 +23,7 @@ export const LpsciCreateSectionButton = React.memo(() => {
       disabled={!valid}
       isLoading={loading}
     >
-      {GENERAL_SUBMIT}
+      {isCreate ? GENERAL_SUBMIT : GENERAL_SAVE}
     </Button>
   );
 });

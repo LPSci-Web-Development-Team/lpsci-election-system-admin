@@ -18,7 +18,9 @@ import { useConstant, useConstantCallback } from '@lpsci/hooks';
 import { SECTION_ADVISER_LABEL, SECTION_ADVISER_PLACEHOLDER } from '@constants/forms/section';
 
 export const LpsciCreateSectionAdviser = React.memo(() => {
-  const setAdviser = CreateSectionForm.useSelector((state) => state.handler.adviser);
+  const [adviser, setAdviser] = CreateSectionForm.useSelectors((state) => [
+    state.state.adviser, state.handler.adviser,
+  ]);
 
   const startEnhancer = useConstant(() => (
     <Icon icon={user} />
@@ -30,6 +32,7 @@ export const LpsciCreateSectionAdviser = React.memo(() => {
 
   return (
     <FormField
+      value={adviser}
       label={SECTION_ADVISER_LABEL}
       placeholder={SECTION_ADVISER_PLACEHOLDER}
       onChange={onChange}

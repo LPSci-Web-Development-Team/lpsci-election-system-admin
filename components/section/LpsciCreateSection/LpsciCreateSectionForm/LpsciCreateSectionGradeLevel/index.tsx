@@ -26,7 +26,16 @@ import { EGrade } from '@payloads/section';
 export const LpsciCreateSectionGradeLevel = React.memo(() => {
   const [value, setValue] = React.useState<Value>([]);
 
-  const setGradeLevel = CreateSectionForm.useSelector((state) => state.handler.gradeLevel);
+  const [gradeLevel, setGradeLevel] = CreateSectionForm.useSelectors((state) => [
+    state.state.gradeLevel, state.handler.gradeLevel,
+  ]);
+
+  React.useEffect(() => {
+    if (gradeLevel) {
+      setValue(SECTION_GRADE_LEVEL_OPTIONS
+        .filter((item) => item.id === gradeLevel));
+    }
+  }, [gradeLevel]);
 
   const onChange = useConstantCallback((e: OnChangeParams) => {
     setGradeLevel(e.option?.id as EGrade);

@@ -19,8 +19,15 @@ interface IProps {
 export const LpsciCreateSection = React.memo(({
   id, initialData,
 }: IProps) => (
-  <LpsciMainPage title="Create Section">
-    <CreateSectionForm.Provider id={id} initialData={initialData}>
+  <LpsciMainPage
+    title={`${initialData
+      ? (`Update Grade ${initialData.gradeLevel} - ${initialData.name}`)
+      : 'Create Section'}`}
+  >
+    <CreateSectionForm.Provider
+      id={id}
+      initialData={initialData}
+    >
       <LpsciCreateSectionForm />
     </CreateSectionForm.Provider>
   </LpsciMainPage>
