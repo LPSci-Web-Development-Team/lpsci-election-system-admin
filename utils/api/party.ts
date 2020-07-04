@@ -13,6 +13,7 @@ import {
 
 // ANCHOR Results
 import { IPartyResult } from './results/party';
+import { ICandidateResult } from './results/candidate';
 
 /**
  * ANCHOR: Create party
@@ -62,6 +63,24 @@ export async function getParties({
   });
 
   return (await data.json()) as IPartyResult[];
+}
+
+/**
+ * ANCHOR: Get all candidates for party
+ *
+ * @param param0 Params
+ */
+export async function getCandidatesForParty({
+  id, token,
+}: IFetchPartyChildren) {
+  const data = await GET(`/party/${id}/candidates`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return (await data.json()) as ICandidateResult[];
 }
 
 /**
