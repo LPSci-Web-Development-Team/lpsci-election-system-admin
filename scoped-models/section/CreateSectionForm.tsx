@@ -18,7 +18,7 @@ import { EGrade } from '@payloads/section';
 interface IState {
   state: {
     name: State<string>;
-    gradeLevel: State<EGrade>;
+    gradeLevel: State<EGrade | undefined>;
     adviser: State<string>;
     schoolYear: State<string>;
     loading: boolean;
@@ -26,7 +26,7 @@ interface IState {
   };
   handler: {
     name: SetState<string>;
-    gradeLevel: SetState<EGrade>;
+    gradeLevel: SetState<EGrade | undefined>;
     adviser: SetState<string>;
     schoolYear: SetState<string>;
     submit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
@@ -42,7 +42,7 @@ interface IState {
 
 export const CreateSectionForm = createModel<IState>(() => {
   const [name, setName] = useDebouncedState<string>('');
-  const [gradeLevel, setGradeLevel] = useDebouncedState<EGrade>(EGrade.Seven);
+  const [gradeLevel, setGradeLevel] = useDebouncedState<EGrade | undefined>(undefined);
   const [adviser, setAdviser] = useDebouncedState<string>('');
   const [schoolYear, setSchoolYear] = React.useState<string>('');
 
@@ -76,7 +76,7 @@ export const CreateSectionForm = createModel<IState>(() => {
   }, [adviser, gradeLevel, name, schoolYear, token]);
 
   const validName = name.length > 0;
-  const validGradeLevel = gradeLevel.length >= 1 && gradeLevel.length <= 2;
+  const validGradeLevel = gradeLevel && gradeLevel.length >= 1 && gradeLevel.length <= 2;
   const validAdviser = adviser.length > 0;
   const validSchoolYear = schoolYear.length > 0;
   const validAll = validName
