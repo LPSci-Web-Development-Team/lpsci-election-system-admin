@@ -80,7 +80,7 @@ export default ({ data, id }: IProps) => {
         description="Sign in to your Las Piñas City National Science High School account"
       >
         <MetaOpenGraph
-          url={`https://lpsci-admin.now.sh/party/view/${data.id}`}
+          url={`https://lpsci-admin.now.sh/party/update/${data.id}`}
           title={title}
           description="Sign in to your Las Piñas City National Science High School account"
           width="1366"

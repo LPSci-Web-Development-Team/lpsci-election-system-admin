@@ -11,15 +11,15 @@ import { LpsciAppHead } from '@components/head/LpsciAppHead';
 import { Loader } from '@components/utils/Loader';
 
 // ANCHOR API
-import { IPartyResult } from '@api/results/party';
-import { getPartyById } from '@api/party';
+import { IStudentResult } from '@api/results/student';
+import { getStudentById } from '@api/student';
 
 // ANCHOR Utils
 import { ParsedUrlQuery } from 'querystring';
 
 interface IProps {
   id: string;
-  data: IPartyResult;
+  data: IStudentResult;
 }
 interface IParams extends ParsedUrlQuery {
   pid: string;
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) =
 
   const id = context.params.pid;
 
-  const data = await getPartyById({ id });
+  const data = await getStudentById({ id });
 
   return {
     props: {
@@ -51,13 +51,13 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) =
 
 interface IMainProps {
   id: string;
-  initialData: IPartyResult;
+  initialData: IStudentResult;
 }
 
-const LpsciCreateParty = dynamic<IMainProps>(
+const LpsciCreateStudent = dynamic<IMainProps>(
   () => (
-    import('@components/party/LpsciCreateParty')
-      .then((mod) => mod.LpsciCreateParty)
+    import('@components/student/LpsciCreateStudent')
+      .then((mod) => mod.LpsciCreateStudent)
   ),
   {
     loading: () => <Loader />,
@@ -72,7 +72,7 @@ export default ({ data, id }: IProps) => {
   }
 
   // Fetch provider data
-  const title = `LPSci Admin | Update ${data.name}`;
+  const title = `LPSci Admin | Update ${data.learnerReferenceNumber}`;
   return (
     <>
       <LpsciAppHead
@@ -80,7 +80,7 @@ export default ({ data, id }: IProps) => {
         description="Sign in to your Las Piñas City National Science High School account"
       >
         <MetaOpenGraph
-          url={`https://lpsci-admin.now.sh/party/view/${data.id}`}
+          url={`https://lpsci-admin.now.sh/student/update/${data.id}`}
           title={title}
           description="Sign in to your Las Piñas City National Science High School account"
           width="1366"
@@ -88,7 +88,7 @@ export default ({ data, id }: IProps) => {
           image="/img/lpsci-logo.png"
         />
       </LpsciAppHead>
-      <LpsciCreateParty id={id} initialData={data} />
+      <LpsciCreateStudent id={id} initialData={data} />
     </>
   );
 };
