@@ -1,35 +1,14 @@
-// ANCHOR SWR
-import useSWR from 'swr';
-
 // ANCHOR Model
 import createModel from '@lxsmnsyc/react-scoped-model';
 
 // ANCHOR API
-import { getStudents } from '@api/student';
 import { IStudentResult } from '@api/results/student';
 
-// ANCHOR Hooks
-import { useAuthToken } from '@firebase/hooks/useAuthToken';
-
-interface IState {
-  data?: IStudentResult[];
-  error: any;
-  mutate: () => Promise<IStudentResult[] | undefined>;
+interface IProps {
+  data: IStudentResult;
+  id: string;
 }
 
-export const StudentData = createModel<IState>(() => {
-  const { data: token } = useAuthToken();
-
-  const { data, error, mutate } = useSWR(
-    (token ? '/student' : null),
-    () => (token ? getStudents({ token }) : undefined),
-  );
-
-  return {
-    data,
-    error,
-    mutate,
-  };
-}, {
+export const StudentData = createModel<IProps, IProps>((props) => props, {
   displayName: 'Models.StudentData',
 });
