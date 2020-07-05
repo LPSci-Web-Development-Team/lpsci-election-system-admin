@@ -16,7 +16,7 @@ import { CURRENT } from './styles';
 export const LpsciIndividualStudentStatusCards = React.memo(() => {
   const data = StudentData.useSelector((state) => state.data);
 
-  const gradeSection = `${String(data.currentGradeLevel)} - ${String(data.currentSection)}`;
+  const gradeSection = `Grade ${String(data.currentGradeLevel)} - ${String(data.currentSection)}`;
 
   return (
     <Block overrides={CURRENT}>
