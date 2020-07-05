@@ -12,6 +12,7 @@ import { TabTitle } from '@components/utils/TabTitle';
 
 // ANCHOR Styles
 import { ROOT, TAB } from './styles';
+import { LpsciIndividualStudentProfile } from './LpsciIndividualStudentProfile';
 
 interface IProps {
   id: string;
@@ -45,14 +46,15 @@ export const LpsciIndividualStudentTabs = React.memo(({
         key="profile"
         overrides={TAB}
       >
-        Hi
+        <LpsciIndividualStudentProfile />
       </Tab>
       <Tab
         title={VoteTitle}
         key="votes"
+        disabled
         overrides={TAB}
       >
-        Hi
+        <LpsciIndividualStudentProfile />
       </Tab>
     </Tabs>
   );
