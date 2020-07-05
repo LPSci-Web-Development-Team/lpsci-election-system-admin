@@ -1,6 +1,6 @@
 // ANCHOR Payloads
 import {
-  ICreateStudent, IFetchStudent, IUpdateStudent,
+  ICreateStudent, IFetchStudent, IUpdateStudent, IFetchStudentChildren,
 } from '@payloads/student';
 
 // ANCHOR Interfaces
@@ -13,6 +13,7 @@ import {
 
 // ANCHOR Results
 import { IStudentResult } from './results/student';
+import { IVoteResult } from './results/vote';
 
 /**
  * ANCHOR: Create student
@@ -79,4 +80,22 @@ export async function getStudentById({
   });
 
   return (await data.json()) as IStudentResult;
+}
+
+/**
+ * ANCHOR: Get all votes by student
+ *
+ * @param param0 Params
+ */
+export async function getVotesForStudent({
+  id, token,
+}: IFetchStudentChildren) {
+  const data = await GET(`/student/${id}/votes`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return (await data.json()) as IVoteResult[];
 }
