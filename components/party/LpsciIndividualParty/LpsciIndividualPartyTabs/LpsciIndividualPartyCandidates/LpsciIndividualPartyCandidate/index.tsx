@@ -20,7 +20,7 @@ interface IProps {
   data: ICandidateResult;
 }
 
-export const LpsciIndividualPartyCandidate = ({
+export const LpsciIndividualStudentVoteCardCandidate = ({
   data,
 }: IProps) => {
   const router = useRouter();
@@ -57,9 +57,7 @@ export const LpsciIndividualPartyCandidate = ({
       endEnhancer={endEnhancer}
     >
       <ListItemLabel>
-        {data.student.user
-          ? `${data.student.user?.lastName}, ${data.student.user?.firstName}`
-          : data.student.learnerReferenceNumber}
+        {`${data.student.user.lastName}, ${data.student.user.firstName}`}
       </ListItemLabel>
     </ListItem>
   );
