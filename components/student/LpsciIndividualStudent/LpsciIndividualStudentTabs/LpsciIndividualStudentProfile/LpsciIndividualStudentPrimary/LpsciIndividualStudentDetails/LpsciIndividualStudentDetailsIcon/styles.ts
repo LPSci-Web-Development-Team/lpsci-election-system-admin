@@ -8,7 +8,7 @@ export const BLOCK: BlockOverrides = {
       gridTemplateColumns: '14px auto',
       alignItems: 'center',
       gridColumnGap: '8px',
-      marginBottom: '12px',
+      marginBottom: '4px',
     },
   },
 };
