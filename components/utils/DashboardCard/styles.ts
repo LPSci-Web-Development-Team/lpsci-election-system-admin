@@ -6,6 +6,7 @@ export const BLOCK: BlockOverrides = {
     style: ({ $theme }: ITheme) => ({
       width: 'calc(100% - 32px)',
       paddingTop: '16px',
+      paddingBottom: '16px',
       paddingLeft: '16px',
       paddingRight: '16px',
       backgroundColor: $theme.colors.backgroundSecondary,
@@ -26,6 +27,7 @@ export const CONTENT: BlockOverrides = {
   Block: {
     style: {
       marginTop: '12px',
+      marginBottom: 0,
       fontSize: '20px',
       fontWeight: 500,
     },
