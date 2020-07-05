@@ -20,13 +20,13 @@ interface IProps {
 export const LpsciIndividualStudentTabs = React.memo(({
   id,
 }: IProps) => {
-  const [active, setActive] = React.useState('information');
+  const [active, setActive] = React.useState('profile');
 
   const onChange = useConstantCallback(({ activeKey }) => {
     setActive(activeKey);
   });
 
-  const InformationTitle = useConstant(() => <TabTitle title="Informations" />);
+  const ProfileTitle = useConstant(() => <TabTitle title="Profile" />);
   const VoteTitle = useConstant(() => <TabTitle title="Votes Casted" />);
 
   if (!id) {
@@ -41,8 +41,8 @@ export const LpsciIndividualStudentTabs = React.memo(({
       renderAll
     >
       <Tab
-        title={InformationTitle}
-        key="information"
+        title={ProfileTitle}
+        key="profile"
         overrides={TAB}
       >
         Hi

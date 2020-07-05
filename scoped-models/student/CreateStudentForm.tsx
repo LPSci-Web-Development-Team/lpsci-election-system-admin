@@ -83,7 +83,7 @@ export const CreateStudentForm = createModel<IState, IProps>(({
   }, [id, lrn, token, user]);
 
   const validLrn = lrn.length === 12;
-  const validUser = !!user && user.length > 0;
+  const validUser = !!initialData || (!!user && user.length > 0);
   const validAll = validLrn
     && validUser;
 
