@@ -5,6 +5,10 @@ import * as React from 'react';
 import { Block } from 'baseui/block';
 import { LabelSmall, LabelLarge } from 'baseui/typography';
 
+// ANCHOR React Icon
+import { Icon } from 'react-icons-kit';
+import { birthdayCake } from 'react-icons-kit/fa/birthdayCake';
+
 // ANCHOR Models
 import { StudentData } from '@scoped-models/student/StudentData';
 
@@ -36,6 +40,7 @@ export const LpsciIndividualStudentDetails = React.memo(() => {
         {`Learner Ref No: ${data.learnerReferenceNumber}`}
       </LabelSmall>
       <Divider />
+      <Icon icon={birthdayCake} />
     </Block>
   );
 });
