@@ -8,11 +8,11 @@ import { Block } from 'baseui/block';
 import { BLOCK } from './styles';
 
 // ANCHOR Components
-import { LpsciIndividualStudentAvatar } from './LpsciIndividualStudentAvatar';
+import { LpsciIndividualStudentPrimary } from './LpsciIndividualStudentPrimary';
 
 export const LpsciIndividualStudentProfile = React.memo(() => (
   <Block overrides={BLOCK}>
-    <LpsciIndividualStudentAvatar />
+    <LpsciIndividualStudentPrimary />
     <Block>
       Details
     </Block>
