@@ -3,10 +3,13 @@ import * as React from 'react';
 
 // ANCHOR Base
 import { Block } from 'baseui/block';
+import { LabelSmall, LabelLarge } from 'baseui/typography';
 
 // ANCHOR Models
 import { StudentData } from '@scoped-models/student/StudentData';
-import { LabelSmall, LabelLarge } from 'baseui/typography';
+
+// ANCHOR Components
+import { Divider } from '@components/utils/Divider';
 
 // ANCHOR Styles
 import { LRN } from './styles';
@@ -32,6 +35,7 @@ export const LpsciIndividualStudentDetails = React.memo(() => {
       <LabelSmall overrides={LRN}>
         {`Learner Ref No: ${data.learnerReferenceNumber}`}
       </LabelSmall>
+      <Divider />
     </Block>
   );
 });
