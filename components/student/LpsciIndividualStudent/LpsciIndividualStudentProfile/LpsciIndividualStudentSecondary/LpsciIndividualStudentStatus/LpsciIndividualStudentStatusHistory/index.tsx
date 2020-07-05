@@ -26,10 +26,9 @@ export const LpsciIndividualStudentStatusHistory = React.memo(() => {
       <Block overrides={HISTORY}>
         {data.sections && data.sections.length > 0
           ? data.sections.map((item) => (
-            <DashboardCard
-              label={`S.Y. ${item.schoolYear?.year ?? 'Unknown'}`}
-              content={`Grade ${item.gradeLevel} - ${item.name}`}
-            />
+            <DashboardCard label={`S.Y. ${item.schoolYear?.year ?? 'Unknown'}`}>
+              {`Grade ${item.gradeLevel} - ${item.name}`}
+            </DashboardCard>
           ))
           : <Empty label="records" />}
       </Block>

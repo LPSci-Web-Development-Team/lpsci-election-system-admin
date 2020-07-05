@@ -5,23 +5,27 @@ import * as React from 'react';
 import { Block } from 'baseui/block';
 import { LabelSmall, ParagraphMedium } from 'baseui/typography';
 
+// ANCHOR Interface
+import { IChildrenProps } from '@interfaces/Common';
+
 // ANCHOR Styles
 import { BLOCK, CONTENT, LABEL } from './styles';
 
-interface IProps {
+interface IProps extends IChildrenProps {
   label: string;
-  content: string;
 }
 
-export const DashboardCard = React.memo(({
-  label, content,
+export const DashboardCard = ({
+  label, children,
 }: IProps) => (
   <Block overrides={BLOCK}>
     <LabelSmall overrides={LABEL}>
       {label}
     </LabelSmall>
-    <ParagraphMedium overrides={CONTENT}>
-      {content}
-    </ParagraphMedium>
+    {typeof children === 'string' ? (
+      <ParagraphMedium overrides={CONTENT}>
+        {children}
+      </ParagraphMedium>
+    ) : children}
   </Block>
-));
+);

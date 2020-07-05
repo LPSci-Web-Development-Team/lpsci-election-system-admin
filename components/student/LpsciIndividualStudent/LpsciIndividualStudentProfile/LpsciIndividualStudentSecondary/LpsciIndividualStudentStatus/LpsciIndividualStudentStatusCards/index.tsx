@@ -20,14 +20,12 @@ export const LpsciIndividualStudentStatusCards = React.memo(() => {
 
   return (
     <Block overrides={CURRENT}>
-      <DashboardCard
-        label="Current Grade and Section"
-        content={data.currentGradeLevel ? gradeSection : 'N/A'}
-      />
-      <DashboardCard
-        label="Current Adviser"
-        content={data.currentAdviser ?? 'N/A'}
-      />
+      <DashboardCard label="Current Grade and Section">
+        {data.currentGradeLevel ? gradeSection : 'N/A'}
+      </DashboardCard>
+      <DashboardCard label="Current Adviser">
+        {data.currentAdviser ?? 'N/A'}
+      </DashboardCard>
     </Block>
   );
 });
