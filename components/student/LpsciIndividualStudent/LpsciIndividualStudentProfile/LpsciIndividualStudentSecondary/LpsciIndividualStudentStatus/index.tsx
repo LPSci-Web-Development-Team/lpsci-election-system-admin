@@ -16,16 +16,18 @@ import { LpsciIndividualStudentStatusCard } from './LpsciIndividualStudentStatus
 export const LpsciIndividualStudentStatus = React.memo(() => {
   const data = StudentData.useSelector((state) => state.data);
 
+  const gradeSection = `${String(data.currentGradeLevel)} - ${String(data.currentSection)}`;
+
   return (
     <Block>
       <Block overrides={CURRENT}>
         <LpsciIndividualStudentStatusCard
           label="Current Grade and Section"
-          content="Grade 11 - Faraday"
+          content={data.currentGradeLevel ? gradeSection : 'N/A'}
         />
         <LpsciIndividualStudentStatusCard
           label="Current Adviser"
-          content="Joselito P. Grande"
+          content={data.currentAdviser ?? 'N/A'}
         />
       </Block>
     </Block>
