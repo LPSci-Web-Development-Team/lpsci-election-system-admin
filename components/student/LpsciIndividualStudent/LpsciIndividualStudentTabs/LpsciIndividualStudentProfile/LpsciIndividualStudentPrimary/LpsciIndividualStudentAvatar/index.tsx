@@ -2,13 +2,12 @@
 import * as React from 'react';
 
 // ANCHOR Base
-import { Block } from 'baseui/block';
 import { Avatar } from 'baseui/avatar';
 
 // ANCHOR Styles
 import { StudentData } from '@scoped-models/student/StudentData';
 import { useAvatar } from '@firebase/hooks/useAvatar';
-import { BLOCK, AVATAR } from './styles';
+import { AVATAR } from './styles';
 
 export const LpsciIndividualStudentAvatar = React.memo(() => {
   const [src, alt] = StudentData.useSelectors((state) => [
@@ -19,13 +18,11 @@ export const LpsciIndividualStudentAvatar = React.memo(() => {
   const avatar = useAvatar(alt);
 
   return (
-    <Block overrides={BLOCK}>
-      <Avatar
-        overrides={AVATAR}
-        name={alt}
-        size="200px"
-        src={src ?? avatar}
-      />
-    </Block>
+    <Avatar
+      overrides={AVATAR}
+      name={alt}
+      size="240px"
+      src={src ?? avatar}
+    />
   );
 });

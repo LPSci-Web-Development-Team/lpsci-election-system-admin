@@ -9,9 +9,11 @@ import { BLOCK } from './styles';
 
 // ANCHOR Components
 import { LpsciIndividualStudentAvatar } from './LpsciIndividualStudentAvatar';
+import { LpsciIndividualStudentDetails } from './LpsciIndividualStudentDetails';
 
 export const LpsciIndividualStudentPrimary = React.memo(() => (
   <Block overrides={BLOCK}>
     <LpsciIndividualStudentAvatar />
+    <LpsciIndividualStudentDetails />
   </Block>
 ));

@@ -3,9 +3,9 @@ import { BlockOverrides } from 'baseui/block';
 export const BLOCK: BlockOverrides = {
   Block: {
     style: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
+      display: 'grid',
+      gridTemplateColumns: '240px auto',
+      gridColumnGap: '40px',
       width: '100%',
     },
   },
