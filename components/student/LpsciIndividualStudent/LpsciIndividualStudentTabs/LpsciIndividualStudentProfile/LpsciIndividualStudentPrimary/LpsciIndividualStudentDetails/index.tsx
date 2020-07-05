@@ -6,7 +6,6 @@ import { Block } from 'baseui/block';
 import { LabelSmall, LabelLarge } from 'baseui/typography';
 
 // ANCHOR React Icon
-import { Icon } from 'react-icons-kit';
 import { birthdayCake } from 'react-icons-kit/fa/birthdayCake';
 
 // ANCHOR Models
@@ -14,6 +13,7 @@ import { StudentData } from '@scoped-models/student/StudentData';
 
 // ANCHOR Components
 import { Divider } from '@components/utils/Divider';
+import { LpsciIndividualStudentIcon } from './LpsciIndividualStudentDetailsIcon';
 
 // ANCHOR Styles
 import { LRN } from './styles';
@@ -31,6 +31,8 @@ export const LpsciIndividualStudentDetails = React.memo(() => {
     phoneNumber,
   } = data.user;
 
+  const birthDay = new Date(birthDate).toDateString();
+
   return (
     <Block>
       <LabelLarge>
@@ -40,7 +42,7 @@ export const LpsciIndividualStudentDetails = React.memo(() => {
         {`Learner Ref No: ${data.learnerReferenceNumber}`}
       </LabelSmall>
       <Divider />
-      <Icon icon={birthdayCake} />
+      <LpsciIndividualStudentIcon icon={birthdayCake} label={birthDay} />
     </Block>
   );
 });
