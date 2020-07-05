@@ -7,11 +7,11 @@ import { Block } from 'baseui/block';
 // ANCHOR Models
 import { StudentData } from '@scoped-models/student/StudentData';
 
+// ANCHOR Component
+import { DashboardCard } from '@components/utils/DashboardCard';
+
 // ANCHOR Styles
 import { CURRENT } from './styles';
-
-// ANCHOR Component
-import { LpsciIndividualStudentStatusCard } from './LpsciIndividualStudentStatusCard';
 
 export const LpsciIndividualStudentStatusCards = React.memo(() => {
   const data = StudentData.useSelector((state) => state.data);
@@ -20,11 +20,11 @@ export const LpsciIndividualStudentStatusCards = React.memo(() => {
 
   return (
     <Block overrides={CURRENT}>
-      <LpsciIndividualStudentStatusCard
+      <DashboardCard
         label="Current Grade and Section"
         content={data.currentGradeLevel ? gradeSection : 'N/A'}
       />
-      <LpsciIndividualStudentStatusCard
+      <DashboardCard
         label="Current Adviser"
         content={data.currentAdviser ?? 'N/A'}
       />
