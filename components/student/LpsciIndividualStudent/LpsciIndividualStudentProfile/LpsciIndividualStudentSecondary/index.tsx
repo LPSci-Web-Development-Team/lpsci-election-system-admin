@@ -7,30 +7,28 @@ import { Tabs, Tab } from 'baseui/tabs';
 // ANCHOR Hooks
 import { useConstantCallback, useConstant } from '@lpsci/hooks';
 
+// ANCHOR Models
+import { StudentData } from '@scoped-models/student/StudentData';
+
 // ANCHOR Components
 import { TabTitle } from '@components/utils/TabTitle';
 
 // ANCHOR Styles
 import { ROOT, TAB } from './styles';
-import { LpsciIndividualStudentProfile } from './LpsciIndividualStudentProfile';
 
-interface IProps {
-  id: string;
-}
+export const LpsciIndividualStudentSecondary = React.memo(() => {
+  const [active, setActive] = React.useState('status');
 
-export const LpsciIndividualStudentTabs = React.memo(({
-  id,
-}: IProps) => {
-  const [active, setActive] = React.useState('profile');
+  const studentId = StudentData.useSelector((state) => state.id);
 
   const onChange = useConstantCallback(({ activeKey }) => {
     setActive(activeKey);
   });
 
-  const ProfileTitle = useConstant(() => <TabTitle title="Profile" />);
+  const StatusTitle = useConstant(() => <TabTitle title="Status" />);
   const VoteTitle = useConstant(() => <TabTitle title="Votes Casted" />);
 
-  if (!id) {
+  if (!studentId) {
     return null;
   }
 
@@ -42,11 +40,11 @@ export const LpsciIndividualStudentTabs = React.memo(({
       renderAll
     >
       <Tab
-        title={ProfileTitle}
-        key="profile"
+        title={StatusTitle}
+        key="status"
         overrides={TAB}
       >
-        <LpsciIndividualStudentProfile />
+        Status
       </Tab>
       <Tab
         title={VoteTitle}
@@ -54,7 +52,7 @@ export const LpsciIndividualStudentTabs = React.memo(({
         disabled
         overrides={TAB}
       >
-        <LpsciIndividualStudentProfile />
+        Votes
       </Tab>
     </Tabs>
   );

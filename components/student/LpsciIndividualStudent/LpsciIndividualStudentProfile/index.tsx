@@ -9,12 +9,11 @@ import { BLOCK } from './styles';
 
 // ANCHOR Components
 import { LpsciIndividualStudentPrimary } from './LpsciIndividualStudentPrimary';
+import { LpsciIndividualStudentSecondary } from './LpsciIndividualStudentSecondary';
 
 export const LpsciIndividualStudentProfile = React.memo(() => (
   <Block overrides={BLOCK}>
     <LpsciIndividualStudentPrimary />
-    <Block>
-      Details
-    </Block>
+    <LpsciIndividualStudentSecondary />
   </Block>
 ));

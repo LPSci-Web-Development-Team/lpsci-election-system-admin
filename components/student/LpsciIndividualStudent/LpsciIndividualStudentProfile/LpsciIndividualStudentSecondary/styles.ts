@@ -5,7 +5,6 @@ export const ROOT: TabsOverrides<any> = {
   Root: {
     style: {
       width: '100%',
-      marginTop: '40px',
       paddingLeft: 0,
     },
   },

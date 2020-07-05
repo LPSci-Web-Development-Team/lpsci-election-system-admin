@@ -8,8 +8,8 @@ export const DIVIDER: BlockOverrides = {
       borderBottomColor: $theme.colors.mono500,
       borderBottomWidth: '1px',
       borderBottomStyle: 'solid',
-      marginTop: '16px',
-      marginBottom: '16px',
+      marginTop: '20px',
+      marginBottom: '20px',
     }),
   },
 };

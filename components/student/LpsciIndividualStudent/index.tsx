@@ -9,7 +9,7 @@ import { IStudentResult } from '@api/results/student';
 
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
-import { LpsciIndividualStudentTabs } from './LpsciIndividualStudentTabs';
+import { LpsciIndividualStudentProfile } from './LpsciIndividualStudentProfile';
 
 interface IProps {
   id: string;
@@ -19,11 +19,9 @@ interface IProps {
 export const LpsciIndividualStudent = React.memo(({
   id, initialData,
 }: IProps) => (
-  <LpsciMainPage
-    title={`${initialData.user.lastName}, ${initialData.user.firstName} ${initialData.user.middleName ? `${initialData.user.middleName.charAt(0)}.` : ''}`}
-  >
+  <LpsciMainPage>
     <StudentData.Provider data={initialData} id={id}>
-      <LpsciIndividualStudentTabs id={id} />
+      <LpsciIndividualStudentProfile />
     </StudentData.Provider>
   </LpsciMainPage>
 ));

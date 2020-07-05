@@ -18,7 +18,7 @@ import { LpsciLargeSidebar } from '@components/sidebar/LpsciLargeSidebar';
 interface IProps extends IChildrenProps {
   hideSidebar?: boolean;
   useSidebarPanel?: boolean;
-  title: string;
+  title?: string;
 }
 
 export const LpsciMainPage = ({
