@@ -1,27 +1,17 @@
 // ANCHOR React
 import * as React from 'react';
 
+// ANCHOR Next
+import { useRouter } from 'next/router';
+
 // ANCHOR Base
 import { Block } from 'baseui/block';
 import { Show } from 'baseui/icon';
 import { ParagraphMedium } from 'baseui/typography';
-import {
-  Button, SHAPE, SIZE, KIND,
-} from 'baseui/button';
-import {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalButton,
-  ROLE,
-} from 'baseui/modal';
+import { Button, SHAPE, SIZE } from 'baseui/button';
 
 // ANCHOR Result
 import { IVoteResult } from '@api/results/vote';
-
-// ANCHOR Hooks
-import { useToggle } from '@lpsci/hooks';
 
 // ANCHOR Styles
 import { CONTENT, BLOCK } from './styles';
@@ -33,42 +23,31 @@ interface IProps {
 export const LpsciIndividualStudentVoteCard = ({
   data,
 }: IProps) => {
-  const { state, show, hide } = useToggle(false);
+  const router = useRouter();
 
+  const onClick = React.useCallback(async () => {
+    if (data.candidate) {
+      await router.push(`/candidate/view/${data.candidate.id}`);
+    }
+  }, [data.candidate, router]);
+
+  if (!data.candidate) {
+    return null;
+  }
+
+  // TODO Improve UI
   return (
     <Block overrides={BLOCK}>
       <ParagraphMedium overrides={CONTENT}>
-        {data.candidate.party?.schoolYear ?? 'Unknown'}
+        {`${data.candidate.student.user.lastName}, ${data.candidate.student.user.firstName}`}
       </ParagraphMedium>
       <Button
-        onClick={show}
+        onClick={onClick}
         shape={SHAPE.round}
         size={SIZE.compact}
       >
         <Show />
       </Button>
-      <Modal
-        onClose={hide}
-        closeable
-        isOpen={state}
-        animate
-        autoFocus
-        size={SIZE.default}
-        role={ROLE.dialog}
-      >
-        <ModalHeader>Hello world</ModalHeader>
-        <ModalBody>
-          Proin ut dui sed metus pharetra hend rerit vel non
-          mi. Nulla ornare faucibus ex, non facilisis nisl.
-          Maecenas aliquet mauris ut tempus.
-        </ModalBody>
-        <ModalFooter>
-          <ModalButton kind={KIND.tertiary}>
-            Cancel
-          </ModalButton>
-          <ModalButton>Okay</ModalButton>
-        </ModalFooter>
-      </Modal>
     </Block>
   );
 };

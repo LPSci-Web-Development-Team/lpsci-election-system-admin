@@ -20,7 +20,7 @@ interface IProps {
   data: ICandidateResult;
 }
 
-export const LpsciIndividualPartyCandidate = ({
+export const LpsciIndividualStudentVoteCardCandidate = ({
   data,
 }: IProps) => {
   const router = useRouter();

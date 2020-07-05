@@ -5,5 +5,5 @@ export interface IVoteResult {
   readonly id: string;
   readonly createdAt: Date;
   readonly student: IStudentResult;
-  readonly candidate: ICandidateResult;
+  readonly candidate?: ICandidateResult;
 }
