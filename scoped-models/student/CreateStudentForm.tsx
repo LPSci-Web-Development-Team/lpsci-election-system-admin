@@ -28,9 +28,8 @@ interface IState {
   }
   valid: {
     all: boolean;
-    name: boolean;
-    color: boolean;
-    schoolYear: boolean;
+    lrn: boolean;
+    user: boolean;
     create: boolean;
   }
 }
@@ -60,11 +59,11 @@ export const CreateStudentForm = createModel<IState, IProps>(({
     setLoading(true);
 
     if (token) {
-      if (schoolYear) {
+      if (user) {
         await createStudent({
           token,
           learnerReferenceNumber: lrn,
-          user,
+          userId: user,
         })
           .catch((err) => setError(err.message))
           .finally(() => setLoading(false));
@@ -73,7 +72,6 @@ export const CreateStudentForm = createModel<IState, IProps>(({
           token,
           id,
           learnerReferenceNumber: lrn,
-          user,
         })
           .catch((err) => setError(err.message))
           .finally(() => setLoading(false));
@@ -85,7 +83,7 @@ export const CreateStudentForm = createModel<IState, IProps>(({
   }, [id, lrn, token, user]);
 
   const validLrn = lrn.length === 12;
-  const validUser = user.length > 0;
+  const validUser = !!user && user.length > 0;
   const validAll = validLrn
     && validUser;
 
