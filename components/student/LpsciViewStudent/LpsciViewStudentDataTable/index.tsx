@@ -62,8 +62,8 @@ export const LpsciViewStudentDataTable = React.memo(() => {
       r.learnerReferenceNumber,
       `${r.user.lastName}, ${r.user.firstName}`,
       r.user.email,
-      r.currentGradeLevel ?? 'N/A',
       r.currentSection ?? 'N/A',
+      r.currentGradeLevel ?? 'N/A',
     ],
   }));
 

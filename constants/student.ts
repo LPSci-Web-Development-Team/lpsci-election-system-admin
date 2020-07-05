@@ -17,12 +17,12 @@ export const columns = [
     title: 'Email Address',
     mapDataToValue: (data: RowDataT) => data[2],
   }),
-  NumericalColumn({
-    title: 'Grade Level',
+  StringColumn({
+    title: 'Current Section',
     mapDataToValue: (data: RowDataT) => data[3],
   }),
-  StringColumn({
-    title: 'Section',
+  NumericalColumn({
+    title: 'Current Grade Level',
     mapDataToValue: (data: RowDataT) => data[4],
   }),
 ];
