@@ -7,11 +7,14 @@ import { Show } from 'baseui/icon';
 import { ParagraphMedium } from 'baseui/typography';
 import { Button, SHAPE, SIZE } from 'baseui/button';
 
+// ANCHOR Result
+import { IVoteResult } from '@api/results/vote';
+
 // ANCHOR Styles
 import { CONTENT, BLOCK } from './styles';
 
 interface IProps {
-  data: any;
+  data: IVoteResult;
 }
 
 export const LpsciIndividualStudentVoteCard = ({
@@ -24,7 +27,7 @@ export const LpsciIndividualStudentVoteCard = ({
   return (
     <Block overrides={BLOCK}>
       <ParagraphMedium overrides={CONTENT}>
-        {data}
+        {data.candidate.party?.schoolYear ?? 'Unknown'}
       </ParagraphMedium>
       <Button
         onClick={onClick}

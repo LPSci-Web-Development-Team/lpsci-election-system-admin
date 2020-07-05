@@ -9,6 +9,7 @@ import { useConstantCallback, useConstant } from '@lpsci/hooks';
 
 // ANCHOR Models
 import { StudentData } from '@scoped-models/student/StudentData';
+import { StudentVotesData } from '@scoped-models/student/StudentVotesData';
 
 // ANCHOR Components
 import { TabTitle } from '@components/utils/TabTitle';
@@ -21,7 +22,7 @@ import { ROOT, TAB } from './styles';
 export const LpsciIndividualStudentSecondary = React.memo(() => {
   const [active, setActive] = React.useState('status');
 
-  const studentId = StudentData.useSelector((state) => state.id);
+  const id = StudentData.useSelector((state) => state.id);
 
   const onChange = useConstantCallback(({ activeKey }) => {
     setActive(activeKey);
@@ -29,10 +30,6 @@ export const LpsciIndividualStudentSecondary = React.memo(() => {
 
   const StatusTitle = useConstant(() => <TabTitle title="Status" />);
   const VoteTitle = useConstant(() => <TabTitle title="Votes Casted" />);
-
-  if (!studentId) {
-    return null;
-  }
 
   return (
     <Tabs
@@ -53,7 +50,9 @@ export const LpsciIndividualStudentSecondary = React.memo(() => {
         key="votes"
         overrides={TAB}
       >
-        <LpsciIndividualStudentVote />
+        <StudentVotesData.Provider id={id}>
+          <LpsciIndividualStudentVote />
+        </StudentVotesData.Provider>
       </Tab>
     </Tabs>
   );

@@ -5,18 +5,18 @@ import * as React from 'react';
 import { Block } from 'baseui/block';
 
 // ANCHOR Models
-import { StudentData } from '@scoped-models/student/StudentData';
+import { StudentVotesData } from '@scoped-models/student/StudentVotesData';
 
 // ANCHOR Components
 import { DashboardCard } from '@components/utils/DashboardCard';
-
-// ANCHOR Styles
-// import { Empty } from '@components/utils/Empty';
-import { HISTORY } from './styles';
+import { Empty } from '@components/utils/Empty';
 import { LpsciIndividualStudentVoteCard } from './LpsciIndividualStudentVoteCard';
 
+// ANCHOR Styles
+import { HISTORY } from './styles';
+
 export const LpsciIndividualStudentVote = React.memo(() => {
-  const data = StudentData.useSelector((state) => state.data);
+  const data = StudentVotesData.useSelector((state) => state.data);
 
   if (!data) {
     return null;
@@ -24,19 +24,13 @@ export const LpsciIndividualStudentVote = React.memo(() => {
 
   return (
     <Block overrides={HISTORY}>
-      {/* TODO {data.sections && data.sections.length > 0
-        ? data.sections.map((item) => (
-          <DashboardCard label={`S.Y. ${item.schoolYear?.year ?? 'Unknown'}`}>
-            {`Grade ${item.gradeLevel} - ${item.name}`}
+      {data.length > 0
+        ? data.map((item) => (
+          <DashboardCard>
+            <LpsciIndividualStudentVoteCard data={item} />
           </DashboardCard>
         ))
-        : <Empty align="center" label="votes casted" />} */}
-      <DashboardCard>
-        <LpsciIndividualStudentVoteCard data="S.Y. 2019-2020" />
-      </DashboardCard>
-      <DashboardCard>
-        <LpsciIndividualStudentVoteCard data="S.Y. 2020-2021" />
-      </DashboardCard>
+        : <Empty align="center" label="votes casted" />}
     </Block>
   );
 });
