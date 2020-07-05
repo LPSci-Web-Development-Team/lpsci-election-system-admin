@@ -9,7 +9,7 @@ import { LabelSmall } from 'baseui/typography';
 import { Icon } from 'react-icons-kit';
 
 // ANCHOR Styles
-import { BLOCK, ICON, LABEL } from './styles';
+import { BLOCK, ICON } from './styles';
 
 interface IProps {
   icon: any;
@@ -23,6 +23,6 @@ export const LpsciIndividualStudentIcon = React.memo(({
     <Block overrides={ICON}>
       <Icon icon={icon} size={16} />
     </Block>
-    <LabelSmall overrides={LABEL}>{label}</LabelSmall>
+    <LabelSmall>{label}</LabelSmall>
   </Block>
 ));

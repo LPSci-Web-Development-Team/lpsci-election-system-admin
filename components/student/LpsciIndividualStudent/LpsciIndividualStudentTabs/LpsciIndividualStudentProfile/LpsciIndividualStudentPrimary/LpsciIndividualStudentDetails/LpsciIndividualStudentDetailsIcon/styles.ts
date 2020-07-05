@@ -6,7 +6,7 @@ export const BLOCK: BlockOverrides = {
     style: {
       display: 'grid',
       gridTemplateColumns: '14px auto',
-      alignItems: 'flex-end',
+      alignItems: 'center',
       gridColumnGap: '8px',
       marginBottom: '12px',
     },
@@ -18,13 +18,5 @@ export const ICON: BlockOverrides = {
     style: ({ $theme }: ITheme) => ({
       color: $theme.colors.contentTertiary,
     }),
-  },
-};
-
-export const LABEL: BlockOverrides = {
-  Block: {
-    style: {
-      marginBottom: '1px',
-    },
   },
 };
