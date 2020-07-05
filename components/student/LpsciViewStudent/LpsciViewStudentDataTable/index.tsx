@@ -17,7 +17,7 @@ import { ic_remove_red_eye } from 'react-icons-kit/md/ic_remove_red_eye';
 import { columns } from '@constants/student';
 
 // ANCHOR Models
-import { StudentData } from '@scoped-models/student/StudentData';
+import { StudentsData } from '@scoped-models/student/StudentsData';
 
 // ANCHOR Interfaces
 import { IRow } from '@interfaces/DataTable';
@@ -37,7 +37,7 @@ const Show: React.FC = () => <Icon icon={ic_remove_red_eye} />;
 export const LpsciViewStudentDataTable = React.memo(() => {
   const router = useRouter();
 
-  const data = StudentData.useSelector((state) => state.data);
+  const data = StudentsData.useSelector((state) => state.data);
 
   const rowActions: RowActionT[] = React.useMemo(() => ([
     {

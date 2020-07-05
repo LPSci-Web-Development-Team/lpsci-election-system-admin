@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Models
+import { StudentData } from '@scoped-models/student/StudentData';
 
 // ANCHOR Results
 import { IStudentResult } from '@api/results/student';
@@ -21,6 +22,8 @@ export const LpsciIndividualStudent = React.memo(({
   <LpsciMainPage
     title={`${initialData.user.lastName}, ${initialData.user.firstName} ${initialData.user.middleName ? `${initialData.user.middleName.charAt(0)}.` : ''}`}
   >
-    <LpsciIndividualStudentTabs id={id} />
+    <StudentData.Provider data={initialData} id={id}>
+      <LpsciIndividualStudentTabs id={id} />
+    </StudentData.Provider>
   </LpsciMainPage>
 ));
