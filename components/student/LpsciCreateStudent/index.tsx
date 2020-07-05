@@ -9,7 +9,7 @@ import { IStudentResult } from '@api/results/student';
 
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
-// import { LpsciCreateStudentForm } from './LpsciCreateStudentForm';
+import { LpsciCreateStudentForm } from './LpsciCreateStudentForm';
 
 interface IProps {
   id?: string;
@@ -28,7 +28,7 @@ export const LpsciCreateStudent = React.memo(({
       id={id}
       initialData={initialData}
     >
-      Hi
+      <LpsciCreateStudentForm />
     </CreateStudentForm.Provider>
   </LpsciMainPage>
 ));

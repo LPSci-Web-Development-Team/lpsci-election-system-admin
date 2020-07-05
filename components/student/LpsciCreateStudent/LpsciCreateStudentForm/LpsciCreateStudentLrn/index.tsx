@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // ANCHOR React Icons
 import Icon from 'react-icons-kit';
-import { legal } from 'react-icons-kit/fa/legal';
+import { idCard } from 'react-icons-kit/fa/idCard';
 
 // ANCHOR Models
 import { CreateStudentForm } from '@scoped-models/student/CreateStudentForm';
@@ -23,7 +23,7 @@ export const LpsciCreateStudentLrn = React.memo(() => {
   ]);
 
   const startEnhancer = useConstant(() => (
-    <Icon icon={legal} />
+    <Icon icon={idCard} />
   ));
 
   const onChange = useConstantCallback((e: React.ChangeEvent<HTMLInputElement>) => {
