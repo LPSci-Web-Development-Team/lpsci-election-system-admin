@@ -12,16 +12,18 @@ import { IChildrenProps } from '@interfaces/Common';
 import { BLOCK, CONTENT, LABEL } from './styles';
 
 interface IProps extends IChildrenProps {
-  label: string;
+  label?: string;
 }
 
 export const DashboardCard = ({
   label, children,
 }: IProps) => (
   <Block overrides={BLOCK}>
+    {label && (
     <LabelSmall overrides={LABEL}>
       {label}
     </LabelSmall>
+    )}
     {typeof children === 'string' ? (
       <ParagraphMedium overrides={CONTENT}>
         {children}

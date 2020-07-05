@@ -13,6 +13,7 @@ import { StudentData } from '@scoped-models/student/StudentData';
 // ANCHOR Components
 import { TabTitle } from '@components/utils/TabTitle';
 import { LpsciIndividualStudentStatus } from './LpsciIndividualStudentStatus';
+import { LpsciIndividualStudentVote } from './LpsciIndividualStudentVote';
 
 // ANCHOR Styles
 import { ROOT, TAB } from './styles';
@@ -50,10 +51,9 @@ export const LpsciIndividualStudentSecondary = React.memo(() => {
       <Tab
         title={VoteTitle}
         key="votes"
-        disabled
         overrides={TAB}
       >
-        Votes
+        <LpsciIndividualStudentVote />
       </Tab>
     </Tabs>
   );
