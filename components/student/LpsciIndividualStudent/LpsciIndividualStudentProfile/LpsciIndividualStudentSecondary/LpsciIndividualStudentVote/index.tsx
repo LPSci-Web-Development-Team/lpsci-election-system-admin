@@ -11,16 +11,20 @@ import { StudentData } from '@scoped-models/student/StudentData';
 import { DashboardCard } from '@components/utils/DashboardCard';
 
 // ANCHOR Styles
-import { Empty } from '@components/utils/Empty';
+// import { Empty } from '@components/utils/Empty';
 import { HISTORY } from './styles';
 import { LpsciIndividualStudentVoteCard } from './LpsciIndividualStudentVoteCard';
 
 export const LpsciIndividualStudentVote = React.memo(() => {
   const data = StudentData.useSelector((state) => state.data);
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <Block overrides={HISTORY}>
-      {/* {data.sections && data.sections.length > 0
+      {/* TODO {data.sections && data.sections.length > 0
         ? data.sections.map((item) => (
           <DashboardCard label={`S.Y. ${item.schoolYear?.year ?? 'Unknown'}`}>
             {`Grade ${item.gradeLevel} - ${item.name}`}

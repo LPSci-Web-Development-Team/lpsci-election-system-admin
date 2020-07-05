@@ -1,7 +1,6 @@
 const IS_PRODUCTION = process.env.DB_ENV === 'production';
 
-// TODO Change to prod link
-const PRODUCTION_HOME = 'http://localhost:8000/sign-in';
+const PRODUCTION_HOME = 'https://lpsci-admin.now.sh/sign-in';
 const DEVELOPMENT_HOME = 'http://localhost:8000/sign-in';
 
 export const sendPasswordResetEmail = async (
