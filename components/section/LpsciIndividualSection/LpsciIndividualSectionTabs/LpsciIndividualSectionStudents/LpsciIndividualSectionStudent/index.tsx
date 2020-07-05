@@ -46,15 +46,15 @@ export const LpsciIndividualSectionStudent = ({
     <Tag
       closeable={false}
       kind={KIND.custom}
-      color={tagColor[data.user?.sex ?? ESex.M]}
+      color={tagColor[data.user.sex ?? ESex.M]}
       variant={VARIANT.solid}
       overrides={TAG}
     >
-      {data.user?.sex === ESex.M
+      {data.user.sex === ESex.M
         ? `B${index}`
         : `G${index}`}
     </Tag>
-  ), [data.user?.sex, index, tagColor]);
+  ), [data.user.sex, index, tagColor]);
 
   const onClick = React.useCallback(() => (
     router.push(`/student/view/${data.id}`)
@@ -77,9 +77,7 @@ export const LpsciIndividualSectionStudent = ({
       endEnhancer={endEnhancer}
     >
       <ListItemLabel>
-        {data.user
-          ? `${data.user?.lastName}, ${data.user?.firstName}`
-          : data.learnerReferenceNumber}
+        {`${data.user.lastName}, ${data.user.firstName}`}
       </ListItemLabel>
     </ListItem>
   );

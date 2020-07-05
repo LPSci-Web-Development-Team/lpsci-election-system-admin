@@ -10,5 +10,5 @@ export interface IStudentCurrentResult {
 export interface IStudentResult extends IStudentCurrentResult {
   readonly id: string;
   readonly learnerReferenceNumber: string;
-  readonly user?: IUserResult;
+  readonly user: IUserResult;
 }
