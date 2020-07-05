@@ -23,7 +23,7 @@ export const LpsciIndividualStudentAvatar = React.memo(() => {
       <Avatar
         overrides={AVATAR}
         name={alt}
-        size="scale1400"
+        size="200px"
         src={src ?? avatar}
       />
     </Block>
