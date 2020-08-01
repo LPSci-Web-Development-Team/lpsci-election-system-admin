@@ -1,3 +1,5 @@
+import { IRequireSignIn } from '@interfaces/Common';
+
 export enum EPosition {
   President = 'president',
   VicePresident = 'vicepresident',
@@ -18,4 +20,24 @@ export enum ECandidateState {
   Indeterminate = 'indeterminate',
   Winner = 'winner',
   Loser = 'loser',
+}
+
+interface ICandidatePayload extends IRequireSignIn {
+  position: EPosition;
+}
+
+export interface ICreateCandidate extends ICandidatePayload {
+  studentId: string;
+}
+
+export interface IUpdateCandidate extends ICandidatePayload {
+  candidateId: string;
+}
+
+export interface IFetchCandidateChildren extends IRequireSignIn {
+  id: string;
+}
+
+export interface IFetchCandidate {
+  id: string;
 }
