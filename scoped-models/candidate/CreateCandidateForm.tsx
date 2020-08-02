@@ -18,24 +18,28 @@ interface IState {
   state: {
     position?: EPosition;
     studentId?: string;
+    partyId?: string;
     loading: boolean;
     error: string;
   };
   handler: {
     position: SetState<EPosition | undefined>;
     studentId: SetState<string>;
+    partyId: SetState<string>;
     submit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
   }
   valid: {
     all: boolean;
     position: boolean;
     studentId: boolean;
+    partyId: boolean;
   }
 }
 
 export const CreateCandidateForm = createModel<IState>(() => {
   const [position, setPosition] = React.useState<EPosition>();
   const [studentId, setStudentId] = React.useState<string>('');
+  const [partyId, setPartyId] = React.useState<string>('');
 
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string>('');
@@ -54,6 +58,7 @@ export const CreateCandidateForm = createModel<IState>(() => {
       await createCandidate({
         token,
         studentId,
+        partyId,
         position,
       })
         .catch((err) => setError(err.message))
@@ -62,10 +67,11 @@ export const CreateCandidateForm = createModel<IState>(() => {
       setError('Sign-in required');
       setLoading(false);
     }
-  }, [position, studentId, token]);
+  }, [partyId, position, studentId, token]);
 
   const validPosition = !!position;
   const validStudent = !!studentId;
+  const validParty = !!partyId;
   const validAll = validPosition
     && validStudent;
 
@@ -73,18 +79,21 @@ export const CreateCandidateForm = createModel<IState>(() => {
     state: {
       position,
       studentId,
+      partyId,
       loading,
       error,
     },
     handler: {
       position: setPosition,
       studentId: setStudentId,
+      partyId: setPartyId,
       submit,
     },
     valid: {
       all: validAll,
       position: validPosition,
       studentId: validStudent,
+      partyId: validParty,
     },
   };
 },

@@ -84,3 +84,9 @@ export const CANDIDATE_STUDENT_LABEL = 'Student';
 
 // ANCHOR Student Placeholder
 export const CANDIDATE_STUDENT_PLACEHOLDER = 'Select a student...';
+
+// ANCHOR Student Label
+export const CANDIDATE_PARTY_LABEL = 'Party';
+
+// ANCHOR Student Placeholder
+export const CANDIDATE_PARTY_PLACEHOLDER = 'Select a party...';

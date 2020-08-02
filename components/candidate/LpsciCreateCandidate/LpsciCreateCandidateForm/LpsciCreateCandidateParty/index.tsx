@@ -5,7 +5,7 @@ import * as React from 'react';
 import { OnChangeParams, Value, Option } from 'baseui/select';
 
 // ANCHOR Models
-import { StudentsData } from '@scoped-models/student/StudentsData';
+import { PartyData } from '@scoped-models/party/PartyData';
 import { CreateCandidateForm } from '@scoped-models/candidate/CreateCandidateForm';
 
 // ANCHOR Component
@@ -16,19 +16,19 @@ import { useConstantCallback } from '@lpsci/hooks';
 
 // ANCHOR Constants
 import {
-  CANDIDATE_STUDENT_LABEL,
-  CANDIDATE_STUDENT_PLACEHOLDER,
+  CANDIDATE_PARTY_LABEL,
+  CANDIDATE_PARTY_PLACEHOLDER,
 } from '@constants/forms/candidate';
 
-export const LpsciCreateCandidateStudent = React.memo(() => {
+export const LpsciCreateCandidateParty = React.memo(() => {
   const [value, setValue] = React.useState<Value>([]);
 
-  const data = StudentsData.useSelector((state) => state.data);
+  const data = PartyData.useSelector((state) => state.data);
 
-  const setStudentId = CreateCandidateForm.useSelector((state) => state.handler.studentId);
+  const setPartyId = CreateCandidateForm.useSelector((state) => state.handler.partyId);
 
   const onChange = useConstantCallback((e: OnChangeParams) => {
-    setStudentId(e.option?.id as string);
+    setPartyId(e.option?.id as string);
     setValue(e.value);
   });
 
@@ -39,15 +39,15 @@ export const LpsciCreateCandidateStudent = React.memo(() => {
 
     return data.map((item): Option => ({
       id: item.id,
-      label: `${item.user.lastName}, ${item.user.firstName}`,
+      label: item.name,
     }));
   }, [data]);
 
   return (
     <FormSelect
       value={value}
-      label={CANDIDATE_STUDENT_LABEL}
-      placeholder={CANDIDATE_STUDENT_PLACEHOLDER}
+      label={CANDIDATE_PARTY_LABEL}
+      placeholder={CANDIDATE_PARTY_PLACEHOLDER}
       onChange={onChange}
       options={options}
       isLoading={!data}

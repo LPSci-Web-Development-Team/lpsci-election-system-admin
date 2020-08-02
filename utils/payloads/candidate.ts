@@ -22,15 +22,13 @@ export enum ECandidateState {
   Loser = 'loser',
 }
 
-interface ICandidatePayload extends IRequireSignIn {
+interface ICreateCandidate extends IRequireSignIn {
   position: EPosition;
-}
-
-export interface ICreateCandidate extends ICandidatePayload {
+  partyId: string;
   studentId: string;
 }
 
-export interface IUpdateCandidate extends ICandidatePayload {
+export interface IUpdateCandidate extends ICreateCandidate {
   candidateId: string;
 }
 
