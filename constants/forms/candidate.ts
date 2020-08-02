@@ -1,7 +1,7 @@
 import { EPosition } from '@payloads/candidate';
 
 // ANCHOR Position lookup
-const POSITION = {
+export const POSITION = {
   president: 'President',
   vicepresident: 'Vice President',
   secretary: 'Secretary',

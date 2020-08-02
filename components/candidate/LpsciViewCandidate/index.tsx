@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 // ANCHOR Models
-import { CandidateData } from '@scoped-models/candidate/CandidateData';
+import { CandidatesData } from '@scoped-models/candidate/CandidatesData';
 
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
@@ -10,8 +10,8 @@ import { LpsciViewCandidateDataTable } from './LpsciViewCandidateDataTable';
 
 export const LpsciViewCandidate = React.memo(() => (
   <LpsciMainPage title="View Candidates">
-    <CandidateData.Provider>
+    <CandidatesData.Provider>
       <LpsciViewCandidateDataTable />
-    </CandidateData.Provider>
+    </CandidatesData.Provider>
   </LpsciMainPage>
 ));

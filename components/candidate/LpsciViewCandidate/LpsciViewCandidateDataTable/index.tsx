@@ -17,7 +17,7 @@ import { ic_remove_red_eye } from 'react-icons-kit/md/ic_remove_red_eye';
 import { columns } from '@constants/candidate';
 
 // ANCHOR Models
-import { CandidateData } from '@scoped-models/candidate/CandidateData';
+import { CandidatesData } from '@scoped-models/candidate/CandidatesData';
 
 // ANCHOR Interfaces
 import { IRow } from '@interfaces/DataTable';
@@ -32,6 +32,9 @@ import { deleteCandidateById } from '@api/candidate';
 // ANCHOR Hooks
 import { useAuthToken } from '@firebase/hooks/useAuthToken';
 
+// ANCHOR Constants
+import { POSITION } from '@constants/forms/candidate';
+
 // ANCHOR Styles
 import { SKELETON } from './styles';
 
@@ -43,7 +46,7 @@ const Show: React.FC = () => <Icon icon={ic_remove_red_eye} />;
 export const LpsciViewCandidateDataTable = React.memo(() => {
   const router = useRouter();
 
-  const [data, mutate] = CandidateData.useSelectors((state) => [
+  const [data, mutate] = CandidatesData.useSelectors((state) => [
     state.data, state.mutate,
   ]);
 
@@ -98,7 +101,7 @@ export const LpsciViewCandidateDataTable = React.memo(() => {
     data: [
       `${r.student.user.lastName}, ${r.student.user.firstName}`,
       r.party?.name ?? 'N/A',
-      r.position,
+      POSITION[r.position],
       r.state,
       r.voteCount,
     ],
