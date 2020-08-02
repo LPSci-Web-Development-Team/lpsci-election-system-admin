@@ -8,11 +8,12 @@ import { IRequireSignIn } from '@interfaces/Common';
 
 // ANCHOR Fetch
 import {
-  POST, GET, DELETE, PUT,
+  POST, GET, DELETE,
 } from '../fetch/methods';
 
 // ANCHOR Results
 import { ICandidateResult } from './results/candidate';
+import { IVoteResult } from './results/vote';
 
 /**
  * ANCHOR: Create candidate
@@ -63,7 +64,7 @@ export async function getVotesForCandidate({
     },
   });
 
-  return (await data.json()) as ICandidateResult[];
+  return (await data.json()) as IVoteResult[];
 }
 
 /**

@@ -22,7 +22,7 @@ export enum ECandidateState {
   Loser = 'loser',
 }
 
-interface ICreateCandidate extends IRequireSignIn {
+export interface ICreateCandidate extends IRequireSignIn {
   position: EPosition;
   partyId: string;
   studentId: string;
