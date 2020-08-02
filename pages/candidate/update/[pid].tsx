@@ -11,15 +11,15 @@ import { LpsciAppHead } from '@components/head/LpsciAppHead';
 import { Loader } from '@components/utils/Loader';
 
 // ANCHOR API
-import { IStudentResult } from '@api/results/student';
-import { getStudentById } from '@api/student';
+import { ICandidateResult } from '@api/results/candidate';
+import { getCandidateById } from '@api/candidate';
 
 // ANCHOR Utils
 import { ParsedUrlQuery } from 'querystring';
 
 interface IProps {
   id: string;
-  data: IStudentResult;
+  data: ICandidateResult;
 }
 interface IParams extends ParsedUrlQuery {
   pid: string;
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) =
 
   const id = context.params.pid;
 
-  const data = await getStudentById({ id });
+  const data = await getCandidateById({ id });
 
   return {
     props: {
@@ -51,13 +51,13 @@ export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) =
 
 interface IMainProps {
   id: string;
-  initialData: IStudentResult;
+  initialData: ICandidateResult;
 }
 
-const LpsciIndividualStudent = dynamic<IMainProps>(
+const LpsciCreateCandidate = dynamic<IMainProps>(
   () => (
-    import('@components/student/LpsciIndividualStudent')
-      .then((mod) => mod.LpsciIndividualStudent)
+    import('@components/candidate/LpsciCreateCandidate')
+      .then((mod) => mod.LpsciCreateCandidate)
   ),
   {
     loading: () => <Loader />,
@@ -72,7 +72,7 @@ export default ({ data, id }: IProps) => {
   }
 
   // Fetch provider data
-  const title = `LPSci Admin | Student ${data.user.lastName}`;
+  const title = `LPSci Admin | Update ${data.name}`;
   return (
     <>
       <LpsciAppHead
@@ -80,7 +80,7 @@ export default ({ data, id }: IProps) => {
         description="Sign in to your Las Piñas City National Science High School account"
       >
         <MetaOpenGraph
-          url={`https://lpsci-admin.now.sh/student/view/${data.id}`}
+          url={`https://lpsci-admin.now.sh/candidate/update/${data.id}`}
           title={title}
           description="Sign in to your Las Piñas City National Science High School account"
           width="1366"
@@ -88,7 +88,7 @@ export default ({ data, id }: IProps) => {
           image="/img/lpsci-logo.png"
         />
       </LpsciAppHead>
-      <LpsciIndividualStudent id={id} initialData={data} />
+      <LpsciCreateCandidate id={id} initialData={data} />
     </>
   );
 };

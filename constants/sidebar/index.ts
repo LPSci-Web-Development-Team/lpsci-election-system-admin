@@ -7,6 +7,7 @@ import { STUDENT } from './student';
 import { SCHOOL_YEAR } from './school-year';
 import { SECTION } from './section';
 import { PARTY } from './party';
+import { CANDIDATE } from './candidate';
 
 // ANCHOR Mini sidebar links
 export const MINI_SIDEBAR: IMiniSidebar[] = [
@@ -14,5 +15,6 @@ export const MINI_SIDEBAR: IMiniSidebar[] = [
   STUDENT,
   SECTION,
   PARTY,
+  CANDIDATE,
   SCHOOL_YEAR,
 ];
