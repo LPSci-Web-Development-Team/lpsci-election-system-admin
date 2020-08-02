@@ -72,7 +72,7 @@ export default ({ data, id }: IProps) => {
   }
 
   // Fetch provider data
-  const title = `LPSci Admin | ${data.learnerReferenceNumber} Student`;
+  const title = `LPSci Admin | Student ${data.user.lastName}`;
   return (
     <>
       <LpsciAppHead
