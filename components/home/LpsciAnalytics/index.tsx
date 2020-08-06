@@ -4,10 +4,10 @@ import * as React from 'react';
 // ANCHOR Component
 import { LpsciMainPage } from '@components/page/LpsciMainPage';
 
-export const LpsciHome = React.memo(() => (
-  <LpsciMainPage title="Welcome">
+export const LpsciAnalytics = React.memo(() => (
+  <LpsciMainPage title="LPSci Admin Analytics">
     <p>
-      Hi
+      No Data
     </p>
   </LpsciMainPage>
 ));
