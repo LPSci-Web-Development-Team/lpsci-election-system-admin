@@ -75,5 +75,10 @@ build/
 .DS_Store
 .env
 
-yarn.lock
+.env
+.yarn
 yarn-error.log
+
+firebase-messaging-sw.js
+sw.js
+service-worker.js

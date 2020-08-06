@@ -1,5 +1,5 @@
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 // ANCHOR Next
 import Document, {
@@ -10,7 +10,7 @@ import Document, {
 import { Client, Sheet } from 'styletron-engine-atomic';
 
 // ANCHOR Utils
-import { styletron } from '../utils/styletron';
+import { styletron } from '@themes/styletron';
 
 function getStylesheets() {
   if (styletron instanceof Client) {
@@ -19,12 +19,12 @@ function getStylesheets() {
   return styletron.getStylesheets();
 }
 
-interface IElectionDocumentProps extends DocumentContext {
+interface ILpsciDocumentProps extends DocumentContext {
   stylesheets?: Sheet[];
 }
 
-class ElectionDocument extends Document<IElectionDocumentProps> {
-  public static async getInitialProps(ctx: IElectionDocumentProps) {
+class LpsciDocument extends Document<ILpsciDocumentProps> {
+  public static async getInitialProps(ctx: ILpsciDocumentProps) {
     const initialProps = await Document.getInitialProps(ctx);
     const stylesheets = getStylesheets() || [];
     return { stylesheets, ...initialProps };
@@ -32,7 +32,6 @@ class ElectionDocument extends Document<IElectionDocumentProps> {
 
   public render() {
     const { stylesheets } = this.props;
-
     return (
       <html lang="en">
         <Head>
@@ -59,4 +58,4 @@ class ElectionDocument extends Document<IElectionDocumentProps> {
 }
 
 // eslint-disable-next-line import/no-default-export
-export default ElectionDocument;
+export default LpsciDocument;

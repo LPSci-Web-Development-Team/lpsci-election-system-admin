@@ -1,19 +1,41 @@
-export interface ICandidatePayload {
-  readonly firstName: string;
-  readonly lastName: string;
-  readonly position: string;
-  readonly imgUrl: string;
-  readonly partyId: string;
+import { IRequireSignIn } from '@interfaces/Common';
+
+export enum EPosition {
+  President = 'president',
+  VicePresident = 'vicepresident',
+  Secretary = 'secretary',
+  Treasurer = 'treasurer',
+  Auditor = 'auditor',
+  PeaceOfficer = 'peaceofficer',
+  PublicInformationOfficer = 'publicinformationofficer',
+  GradeSevenLevelRepresentative = 'sevenlevelrep',
+  GradeEightLevelRepresentative = 'eightlevelrep',
+  GradeNineLevelRepresentative = 'ninelevelrep',
+  GradeTenLevelRepresentative = 'tenlevelrep',
+  GradeElevenLevelRepresentative = 'elevenlevelrep',
+  GradeTwelveLevelRepresentative = 'twelvelevelrep',
 }
 
-export interface ICandidateFetchedPayload {
-  id: string;
-  firstName: string;
-  lastName: string;
-  position: string;
-  imgUrl: string;
+export enum ECandidateState {
+  Indeterminate = 'indeterminate',
+  Winner = 'winner',
+  Loser = 'loser',
+}
+
+export interface ICreateCandidate extends IRequireSignIn {
+  position: EPosition;
   partyId: string;
-  count: number;
-  createdAt: string;
-  updatedAt: string;
+  studentId: string;
+}
+
+export interface IUpdateCandidate extends ICreateCandidate {
+  candidateId: string;
+}
+
+export interface IFetchCandidateChildren extends IRequireSignIn {
+  id: string;
+}
+
+export interface IFetchCandidate {
+  id: string;
 }
