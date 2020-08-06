@@ -1,5 +1,5 @@
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 // ANCHOR Types
 import { IChildrenProps } from '@interfaces/Common';

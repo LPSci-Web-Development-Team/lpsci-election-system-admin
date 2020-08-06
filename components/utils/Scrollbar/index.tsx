@@ -1,5 +1,5 @@
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 // ANCHOR Base
 import { Block, BlockOverrides, Responsive } from 'baseui/block';

@@ -1,5 +1,5 @@
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 // ANCHOR Base
 import { PLACEMENT, StatefulPopover } from 'baseui/popover';

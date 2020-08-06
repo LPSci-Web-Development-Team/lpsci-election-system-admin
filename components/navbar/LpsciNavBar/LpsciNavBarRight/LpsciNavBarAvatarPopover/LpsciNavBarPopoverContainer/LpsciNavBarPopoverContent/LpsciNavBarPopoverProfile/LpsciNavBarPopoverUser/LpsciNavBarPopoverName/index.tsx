@@ -1,5 +1,5 @@
-// ANCHOR  React
-import * as React from 'react';
+// ANCHOR React
+import React from 'react';
 
 // ANCHOR Base
 import { LabelMedium } from 'baseui/typography';

@@ -2,7 +2,7 @@
 import App from 'next/app';
 
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 // ANCHOR Component
 import { GlobalProvider } from '@components/utils/GlobalProvider';

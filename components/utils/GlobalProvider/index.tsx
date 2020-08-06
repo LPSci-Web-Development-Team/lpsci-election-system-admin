@@ -1,5 +1,5 @@
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 // ANCHOR Styletron
 import { Provider as StyletronProvider } from 'styletron-react';

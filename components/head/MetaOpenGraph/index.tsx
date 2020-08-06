@@ -1,5 +1,5 @@
 // ANCHOR React
-import * as React from 'react';
+import React from 'react';
 
 export interface IMetaOpenGraphProps {
   url: string;
