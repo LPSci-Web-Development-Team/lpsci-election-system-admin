@@ -2,7 +2,6 @@
 import React from 'react';
 
 // ANCHOR Base
-import { Alert } from 'baseui/icon';
 import {
   Unstable_StatefulDataTable as BaseDataTable,
   BatchActionT,
