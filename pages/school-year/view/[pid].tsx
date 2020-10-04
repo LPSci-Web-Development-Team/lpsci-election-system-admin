@@ -3,7 +3,7 @@ import React from 'react';
 
 // ANCHOR Next
 import dynamic from 'next/dynamic';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 
 // ANCHOR Components
 import { MetaOpenGraph } from '@components/head/MetaOpenGraph';
@@ -25,14 +25,7 @@ interface IParams extends ParsedUrlQuery {
   pid: string;
 }
 
-export const getStaticPaths: GetStaticPaths = async () => (
-  Promise.resolve({
-    paths: [],
-    fallback: true,
-  })
-);
-
-export const getStaticProps: GetStaticProps<IProps, IParams> = async (context) => {
+export const getServerSideProps: GetServerSideProps<IProps, IParams> = async (context) => {
   if (!context.params) {
     throw new Error('Missing pid');
   }
