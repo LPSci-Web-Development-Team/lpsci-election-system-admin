@@ -8,7 +8,7 @@ import { withStyle } from 'baseui';
 import { SectionStudentsData } from '@scoped-models/section/SectionStudentsData';
 
 // ANCHOR Results
-import { ESex } from '@api/results/user';
+import { ESex } from '@payloads/user';
 
 // ANCHOR Components
 import { Skeleton } from '@components/utils/Skeleton';
@@ -37,8 +37,8 @@ export const LpsciIndividualSectionStudents = React.memo(() => {
     return <Empty label="students" />;
   }
 
-  const male = data.filter((item) => (item.user.sex === ESex.M));
-  const female = data.filter((item) => (item.user.sex === ESex.F));
+  const male = data.filter((item) => (item.user.sex === ESex.Male));
+  const female = data.filter((item) => (item.user.sex === ESex.Female));
 
   return (
     <>

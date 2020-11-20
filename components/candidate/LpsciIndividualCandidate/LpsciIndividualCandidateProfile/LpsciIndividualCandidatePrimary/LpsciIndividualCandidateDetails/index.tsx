@@ -17,7 +17,7 @@ import { ic_phone } from 'react-icons-kit/md/ic_phone';
 import { CandidateData } from '@scoped-models/candidate/CandidateData';
 
 // ANCHOR API
-import { ESex } from '@api/results/user';
+import { ESex } from '@payloads/user';
 
 // ANCHOR Components
 import { Divider } from '@components/utils/Divider';
@@ -57,7 +57,7 @@ export const LpsciIndividualCandidateDetails = React.memo(() => {
         label={birthDay}
       />
       <LpsciIndividualCandidateIcon
-        icon={sex === ESex.M ? mars : venus}
+        icon={sex === ESex.Male ? mars : venus}
         label={sex}
       />
       <LpsciIndividualCandidateIcon

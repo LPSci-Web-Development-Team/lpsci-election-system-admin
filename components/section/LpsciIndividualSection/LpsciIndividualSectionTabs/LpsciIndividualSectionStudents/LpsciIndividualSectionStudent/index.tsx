@@ -15,7 +15,7 @@ import { useConstant } from '@lpsci/hooks';
 
 // ANCHOR Results
 import { IStudentResult } from '@api/results/student';
-import { ESex } from '@api/results/user';
+import { ESex } from '@payloads/user';
 
 // ANCHOR Themes
 import { COLORS } from '@themes/constant';
@@ -46,11 +46,11 @@ export const LpsciIndividualSectionStudent = ({
     <Tag
       closeable={false}
       kind={KIND.custom}
-      color={tagColor[data.user.sex ?? ESex.M]}
+      color={tagColor[data.user.sex ?? ESex.Male]}
       variant={VARIANT.solid}
       overrides={TAG}
     >
-      {data.user.sex === ESex.M
+      {data.user.sex === ESex.Male
         ? `B${index}`
         : `G${index}`}
     </Tag>
