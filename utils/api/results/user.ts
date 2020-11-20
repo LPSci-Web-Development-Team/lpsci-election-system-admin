@@ -1,7 +1,4 @@
-export enum ESex {
-  M = 'male',
-  F = 'female',
-}
+import { ESex } from '@payloads/user';
 
 export interface IUserResult {
   readonly id: string;

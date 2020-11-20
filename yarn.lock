@@ -6492,6 +6492,11 @@ react-resize-detector@^2.3.0:
     prop-types "^15.6.0"
     resize-observer-polyfill "^1.5.0"
 
+react-scoped-model@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/react-scoped-model/-/react-scoped-model-1.7.1.tgz#d4ab7bcfa6d9331df3f4dad7cbeaad4ff456ef63"
+  integrity sha512-KfJ9k3W3pSMj8/prbL571SFCa+Sk/9hD686cwanYcY5Z9HQ8Oyj4z3hUT0Uf8eix9n5++cN0PaO+30wzFGZHMw==
+
 react-smooth@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/react-smooth/-/react-smooth-1.0.5.tgz#94ae161d7951cdd893ccb7099d031d342cb762ad"
