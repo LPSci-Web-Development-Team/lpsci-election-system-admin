@@ -1,11 +1,11 @@
 // ANCHOR Payloads
-import { IFetchUser } from '@payloads/user';
+import { IFetchUser, ISignUpPayload } from '@payloads/user';
 
 // ANCHOR Interfaces
 import { IRequireSignIn } from '@interfaces/Common';
 
 // ANCHOR Fetch
-import { GET } from '../fetch/methods';
+import { GET, POST } from '../fetch/methods';
 
 // ANCHOR Results
 import { IUserResult } from './results/user';
@@ -43,4 +43,14 @@ export async function getUserById({
   });
 
   return (await data.json()) as IUserResult;
+}
+
+export async function signUp(
+  payload: ISignUpPayload,
+) {
+  return POST('/user', payload, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
 }
